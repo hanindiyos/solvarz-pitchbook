@@ -1,0 +1,1958 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLVARZ by Sparkz Solution</title>
+  <style id="mcp-host-fonts">
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Regular-Static.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-RegularItalic-Static.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Medium-Static.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-MediumItalic-Static.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Semibold-Static.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-SemiboldItalic-Static.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Bold-Static.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-BoldItalic-Static.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+</style>
+  <style>@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Regular-Static.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-RegularItalic-Static.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Medium-Static.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-MediumItalic-Static.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Semibold-Static.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-SemiboldItalic-Static.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Bold-Static.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-BoldItalic-Static.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}</style>
+  <style>:root {
+  color-scheme: light dark;
+  --font-serif: "Anthropic Serif", Georgia, "Times New Roman", serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+body {
+  font-family:
+    "Anthropic Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: transparent;
+}
+/* Iframe height is externally managed — host sets iframe.style.height to
+ * match body.getBoundingClientRect().height via postMessage. During the
+ * 1-frame lag (and the 0.25s initial transition), body > viewport triggers
+ * a transient scrollbar that steals ~15px width, reflowing flex content.
+ * Zero-width scrollbar = zero layout shift. Wheel/keyboard scroll still
+ * work if ever needed. */
+html,
+body {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+/* Short var aliases — saves ~5 tokens per reference */
+:root {
+  --p: var(--color-text-primary);
+  --s: var(--color-text-secondary);
+  --t: var(--color-text-tertiary);
+  --bg2: var(--color-background-secondary);
+  --b: var(--color-border-secondary);
+}
+
+/* SVG utility classes — use class="t" instead of repeating font/fill attrs */
+.t {
+  font-size: 14px;
+  fill: var(--p);
+}
+.ts {
+  font-size: 12px;
+  fill: var(--s);
+}
+.th {
+  font-size: 14px;
+  fill: var(--p);
+  font-weight: 500;
+}
+.box {
+  fill: var(--bg2);
+  stroke: var(--b);
+}
+.arr {
+  stroke: var(--t);
+  fill: none;
+  stroke-width: 1.5;
+}
+.node {
+  cursor: pointer;
+}
+.node:hover rect,
+.node:hover .box {
+  filter: brightness(0.97);
+}
+.node:hover text {
+  opacity: 0.8;
+}
+
+/* Form element defaults — model writes bare <input>, styling is automatic */
+/* :not(form.elicit *) — elicitation form provides its own
+ * input/button styling at (0,1,0). Without this exclusion, these
+ * generic rules at (0,3,1) / (1,0,2) clobber every .elicit-* class. */
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    form.elicit *
+  ),
+select:not(form.elicit *),
+textarea:not(form.elicit *) {
+  width: 100%;
+  height: 36px;
+  padding: 8px 12px;
+  font-size: 16px;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 6px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+textarea {
+  height: auto;
+  min-height: 80px;
+  resize: vertical;
+}
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    form.elicit *
+  ):hover,
+select:not(form.elicit *):hover,
+textarea:not(form.elicit *):hover {
+  border-color: var(--color-border-secondary);
+}
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    form.elicit *
+  ):focus,
+select:not(form.elicit *):focus,
+textarea:not(form.elicit *):focus {
+  border-color: var(--color-border-info);
+  box-shadow: 0 0 0 3px var(--color-background-info);
+}
+select {
+  cursor: pointer;
+}
+
+/* Range slider — model writes bare <input type="range">, styling automatic */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.1));
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-secondary);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  border-color: var(--color-border-primary);
+  transform: scale(1.1);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-secondary);
+  cursor: pointer;
+}
+
+/* Button defaults — model writes bare <button>, interaction states automatic */
+button:not(#action-btns button):not(form.elicit button) {
+  padding: 8px 16px;
+  font-size: 14px;
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+button:not(#action-btns button):not(form.elicit button):hover {
+  background: var(--color-background-secondary);
+}
+button:not(#action-btns button):not(form.elicit button):active {
+  background: var(--color-border-tertiary);
+  transform: scale(0.98);
+}
+
+/* ===== Elicitation form — EA-878 =====
+ * Inert unless Claude writes <form class="elicit">.
+ * Figma: AaGSDTRrOCNVhNa7LZaJVr node 5340:3930
+ * Conversational question prompts ("Which side are you on?"),
+ * pills for all choices.
+ */
+
+form.elicit {
+  background: var(--color-background-primary, #fff);
+  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-radius: 16px;
+  /* Figma 5340:3930 — soft diffuse shadow, lighter than DS --shadow-md.
+   * Margin keeps the shadow from clipping at #vis-container's overflow:hidden
+   * edge: y-offset 4px + blur 20px ≈ 24px below, 20px sides. */
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
+  margin: 4px 20px 24px;
+  overflow: hidden;
+  /* font-base = 14/1.4 sans — descendants inherit; only .elicit-question
+   * (serif 16/1.7), .name (12), .badge (9) override. */
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 14px;
+  line-height: 1.4;
+  /* Match host rendering — without this the iframe uses subpixel AA and
+   * everything (notably weight-500 buttons) reads ~100 heavier on Retina
+   * than the same tokens outside the iframe. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Chrome props animate on the form→submitted-summary swap. */
+  transition:
+    background-color 200ms ease-out,
+    box-shadow 200ms ease-out,
+    border-radius 200ms ease-out,
+    padding 200ms ease-out,
+    margin 200ms ease-out;
+  /* Shared FileThumbnail tokens (border-border-300/25, shadow-sm/5). */
+  --elicit-border-faint: color-mix(
+    in srgb,
+    var(--color-border-tertiary, rgba(31, 30, 29, 0.15)) 25%,
+    transparent
+  );
+  --elicit-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+/* Form controls don't inherit font props from the UA sheet — pull from root.
+ * `font: inherit` shorthand so font-weight comes too; the individual-prop
+ * version left weight at the UA <button> default (bold-ish on some
+ * platforms) for any control that doesn't set its own weight. */
+form.elicit :is(button, input, textarea) {
+  font: inherit;
+}
+
+/* Header title and question prompts share Claude's chat-output voice
+ * (p.font-claude-response-body = Anthropic Serif 16 / 400 / 1.7) so both
+ * read as Claude speaking, not form chrome. */
+form.elicit .elicit-header,
+form.elicit .elicit-question {
+  font-family: var(--font-serif, "Anthropic Serif", Georgia, serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-primary, #131313);
+}
+
+/* 44px total to match the suggested-connector widget spec.
+ * Fixed height + zero vertical padding lets align-items:center handle the rest;
+ * avoids the icon/text line-height arithmetic. */
+form.elicit .elicit-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px;
+  border-bottom: 0.5px solid
+    var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+}
+form.elicit .elicit-header > svg {
+  /* IconBase vectorSizeMap[16] = 20 — anthropicons render in a 20px box. */
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+form.elicit .elicit-header > span {
+  flex: 1;
+}
+
+form.elicit .elicit-body {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+form.elicit .elicit-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+form.elicit .elicit-question {
+  margin: 0;
+}
+
+/* Pills container — no horizontal padding. Previously had 0 8px which pushed
+ * pills 8px right of the question/textarea/date in the same .elicit-group. */
+form.elicit .elicit-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+form.elicit .elicit-pill {
+  /* Fully rounded + tighter padding — visually distinct from the rectangular
+   * text inputs (textarea/other/date stay at 8-12px radius). Pills and inputs
+   * don't match in height so the shape difference reads as intentional. */
+  padding: 8px 12px;
+  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-text-secondary, #383835);
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+form.elicit .elicit-pill:hover {
+  border-color: var(--color-border-secondary, rgba(30, 30, 29, 0.3));
+}
+/* Semantic accents — same light-fill+soft-border recipe as the blue selected
+ * state, applied via attribute so inline style doesn't fight aria-pressed.
+ * Single-attr specificity; the [aria-pressed="true"] rule below wins on
+ * border+bg so selection remains visible on accented pills. */
+form.elicit .elicit-pill[data-accent="warning"] {
+  border-color: var(--color-text-warning, #5a4815);
+  background: color-mix(
+    in srgb,
+    var(--color-text-warning, #5a4815) 15%,
+    transparent
+  );
+  color: var(--color-text-warning, #5a4815);
+}
+form.elicit .elicit-pill[data-accent="danger"] {
+  border-color: var(--color-text-danger, #7f2c28);
+  background: color-mix(
+    in srgb,
+    var(--color-text-danger, #7f2c28) 15%,
+    transparent
+  );
+  color: var(--color-text-danger, #7f2c28);
+}
+form.elicit .elicit-pill[data-accent="success"] {
+  border-color: var(--color-text-success, #265b19);
+  background: color-mix(
+    in srgb,
+    var(--color-text-success, #265b19) 15%,
+    transparent
+  );
+  color: var(--color-text-success, #265b19);
+}
+form.elicit .elicit-pill[aria-pressed="true"] {
+  /* Figma: 0.5px #184f95 border + rgba(205,226,251,0.5) fill (approx via color-mix). */
+  border: 0.5px solid var(--color-text-info, #184f95);
+  background: color-mix(
+    in srgb,
+    var(--color-text-info, #184f95) 15%,
+    transparent
+  );
+  /* accent-000 — host bridge maps DS accent to --color-text-info (no
+   * --accent-* var injected into the iframe). Matches border + fill. */
+  color: var(--color-text-info, #184f95);
+}
+
+/* "Other" conditional text input.
+ * background/color explicit — generic input rule no longer provides
+ * these post-specificity-fix, UA Canvas/CanvasText mismatch in dark mode. */
+form.elicit .elicit-other {
+  margin-top: 8px;
+  height: 40px;
+  padding: 0 12px;
+  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-radius: 8px;
+  background: var(--color-background-primary, #fff);
+  color: var(--color-text-primary, #131313);
+  width: 100%;
+  box-sizing: border-box;
+}
+form.elicit .elicit-other[hidden] {
+  display: none;
+}
+
+/* Textarea.
+ * background/color explicit — generic textarea rule no longer provides
+ * these post-specificity-fix, UA Canvas/CanvasText mismatch in dark mode. */
+form.elicit .elicit-textarea {
+  min-height: 84px;
+  padding: 12px;
+  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-radius: 8px;
+  background: var(--color-background-primary, #fff);
+  color: var(--color-text-primary, #131313);
+  resize: vertical;
+  box-sizing: border-box;
+  width: 100%;
+}
+form.elicit .elicit-textarea::placeholder {
+  color: var(--color-text-tertiary, #7b7974);
+}
+
+/* Date input — pill-shaped, hugs content */
+form.elicit .elicit-date {
+  padding: 12px 16px;
+  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-text-primary, #131313);
+  width: fit-content;
+  cursor: pointer;
+}
+/* Shared focus ring for all text inputs — info-blue border + soft glow */
+form.elicit .elicit-other:focus,
+form.elicit .elicit-textarea:focus,
+form.elicit .elicit-date:focus {
+  outline: none;
+  border-color: var(--color-border-info, #2a78d6);
+  box-shadow: 0 0 0 3px var(--color-background-info, rgba(42, 120, 214, 0.2));
+}
+
+/* File upload — dashed dropzone + filled tiles.
+ * Tile styling mirrors packages/chat/components/FileThumbnail.tsx (the
+ * thumbnail users already see in the chat input row) so a file picked here
+ * reads as the same object it becomes once attached. Dropzone is the first
+ * flex child; tiles append after it (flow right). */
+form.elicit .elicit-files {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+form.elicit .elicit-dropzone {
+  /* 120×120 = FileThumbnail SIZE_MAP.normal. Dashed stays 1px — 0.5px
+   * dashed rasterizes to invisible gaps on non-retina. */
+  width: 120px;
+  height: 120px;
+  border: 1px dashed var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-radius: 10px;
+  box-shadow: var(--elicit-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  /* Figma 5340:4071 — 2% text-000 wash over bg-000 */
+  background: color-mix(
+    in srgb,
+    var(--color-text-primary, #131313) 2%,
+    var(--color-background-primary, #fff)
+  );
+  color: var(--color-text-tertiary, #7b7974);
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+form.elicit .elicit-dropzone:hover {
+  border-color: var(--color-text-info, #184f95);
+  background: color-mix(
+    in srgb,
+    var(--color-text-info, #184f95) 4%,
+    transparent
+  );
+}
+form.elicit .elicit-dropzone svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+form.elicit .elicit-dropzone input[type="file"] {
+  display: none;
+}
+
+form.elicit .elicit-file-tile {
+  /* FileThumbnail ThumbnailInteractionContainer:
+   * rounded-lg border-0.5 border-border-300/25 shadow-sm shadow-always-black/5
+   * bg-bg-000 px-2.5 py-2 gap-2.5 → 8px radius, 0.5px border, 8/10px pad */
+  width: 120px;
+  height: 120px;
+  border: 0.5px solid var(--elicit-border-faint);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--color-background-primary, #fff);
+  box-shadow: var(--elicit-shadow-sm);
+  box-sizing: border-box;
+  position: relative;
+}
+form.elicit .elicit-file-tile .name {
+  /* FileThumbnail title: text-[12px] text-text-100 break-words line-clamp-3 */
+  font-size: 12px;
+  color: var(--color-text-primary, #131313);
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+form.elicit .elicit-file-tile .badge {
+  /* FileThumbnail ThumbnailTagContainer:
+   * h-[18px] px-1 border-0.5 border-border-300/25 shadow-sm rounded
+   * bg-bg-000/70 font-medium + inner text-[9px] uppercase font-bold */
+  align-self: flex-start;
+  height: 18px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  border: 0.5px solid var(--elicit-border-faint);
+  border-radius: 4px;
+  background: color-mix(
+    in srgb,
+    var(--color-background-primary, #fff) 70%,
+    transparent
+  );
+  box-shadow: var(--elicit-shadow-sm);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--color-text-tertiary, #7b7974);
+  text-transform: uppercase;
+}
+/* FileThumbnail RemoveButton: w-5 h-5 -top-2 -left-2 rounded-full
+ * border-0.5 border-border-300/25 bg-bg-000/90 backdrop-blur-sm.
+ * Always visible (no group-hover in iframe — touch + no Tailwind group). */
+form.elicit .elicit-file-tile .remove {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0.5px solid var(--elicit-border-faint);
+  border-radius: 9999px;
+  background: color-mix(
+    in srgb,
+    var(--color-background-primary, #fff) 90%,
+    transparent
+  );
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--color-text-tertiary, #7b7974);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
+}
+form.elicit .elicit-file-tile .remove:hover {
+  color: var(--color-text-secondary, #383835);
+  background: color-mix(
+    in srgb,
+    var(--color-background-primary, #fff) 50%,
+    transparent
+  );
+}
+
+/* Footer — DS Button tokens transcribed (variant=secondary / variant=primary,
+ * size=default: h-9 px-4 rounded-lg min-w-[5rem] font-base-bold). */
+form.elicit .elicit-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  /* Explicit height (mirrors .elicit-header) so the submitted-state height:0
+   * transition can interpolate — auto→0 snaps. 36px buttons + 32px breathing room. */
+  height: 68px;
+  padding: 0 24px;
+  border-top: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+}
+form.elicit .elicit-skip,
+form.elicit .elicit-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 80px;
+  padding: 0 16px;
+  border-radius: 8px;
+  /* DS Button primary/secondary = font-base-bold (tw-typography.js:26) */
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 100ms ease-out,
+    border-color 100ms ease-out,
+    transform 150ms cubic-bezier(0.165, 0.85, 0.45, 1);
+}
+form.elicit .elicit-skip:active,
+form.elicit .elicit-submit:active {
+  transform: scale(0.96);
+}
+/* secondary */
+form.elicit .elicit-skip {
+  border: 0.5px solid
+    color-mix(
+      in srgb,
+      var(--color-border-secondary, rgba(30, 30, 29, 0.3)) 30%,
+      transparent
+    );
+  background: transparent;
+  color: var(--color-text-primary, #131313);
+}
+form.elicit .elicit-skip:hover {
+  background: var(--color-background-secondary, #f9f9f7);
+  border-color: transparent;
+}
+/* primary */
+form.elicit .elicit-submit {
+  border: none;
+  background: var(--color-text-primary, #131313);
+  color: var(--color-background-primary, #fff);
+}
+form.elicit .elicit-submit:hover {
+  transform: scaleX(1.005) scaleY(1.015);
+}
+/* :hover and :active are both true during a mouse click; equal specificity →
+ * source order wins, so without this the hover-grow above masks the press-down. */
+form.elicit .elicit-submit:hover:active {
+  transform: scale(0.96);
+}
+
+/* Post-submit — submitElicitation() adds .elicit-transitioning (body fades
+ * out), then after 150ms swaps the body for the Q/A summary and adds
+ * .elicit-submitted (chrome transitions to the bare card while body fades
+ * back in). Mirrors AskUserQuestion: outer card = AskUserQuestionToolUseCell
+ * .tsx:177 (rounded-xl border-0.5 border-border-300 p-4, no bg-bg-000 when
+ * submitted), rows = SubmittedResponses.tsx:14-36. */
+form.elicit .elicit-body {
+  transition: opacity 150ms ease-out;
+}
+form.elicit.elicit-transitioning .elicit-body {
+  opacity: 0;
+}
+form.elicit.elicit-submitted {
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 16px;
+  margin: 4px;
+}
+/* `display: none` can't transition — collapse to zero so the chrome animates
+ * away with the form's 200ms transition instead of snapping. */
+form.elicit .elicit-header,
+form.elicit .elicit-footer {
+  transition:
+    opacity 200ms ease-out,
+    height 200ms ease-out,
+    padding 200ms ease-out,
+    border-width 200ms ease-out,
+    /* step to hidden after the collapse so Skip/Submit leave the tab order +
+     * a11y tree (pointer-events:none alone doesn't). */
+    visibility 0s linear 200ms;
+}
+form.elicit.elicit-submitted .elicit-header,
+form.elicit.elicit-submitted .elicit-footer {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+}
+form.elicit.elicit-submitted .elicit-body {
+  padding: 0;
+}
+/* Quota-fallback "1" sentinel restore: shape check skips renderSubmittedSummary
+ * so the body still has live inputs — dim them so the locked state reads. */
+form.elicit.elicit-submitted .elicit-body:not(:has(.elicit-summary)) {
+  pointer-events: none;
+  opacity: 0.5;
+}
+/* sessionStorage restore path adds this alongside .elicit-submitted so
+ * scroll-back/reload shows the summary immediately (no replayed crossfade). */
+form.elicit.elicit-restored,
+form.elicit.elicit-restored .elicit-body,
+form.elicit.elicit-restored .elicit-header,
+form.elicit.elicit-restored .elicit-footer {
+  transition: none;
+}
+form.elicit .elicit-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+form.elicit .elicit-summary-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* SubmittedResponses question: text-text-300 font-claude-response-small-bold
+ * (serif 14 / 600 / 1.5) */
+form.elicit .elicit-summary-q {
+  font-family: var(--font-serif, "Anthropic Serif", Georgia, serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #383835);
+}
+/* SubmittedResponses answer: text-text-500 font-base (sans 14 / 430 / 1.4) */
+form.elicit .elicit-summary-a {
+  font-weight: 430;
+  color: var(--color-text-tertiary, #7b7974);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Headings — bare tags get correct color in both modes */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+}
+
+.leader {
+  stroke: var(--t);
+  stroke-width: 0.5;
+  stroke-dasharray: 4 3;
+  fill: none;
+}
+
+/* Color ramp classes — apply to <g> or shape element (rect/ellipse/circle/polygon), never <path>.
+   light-dark() responds to ancestor color-scheme, not just OS preference. */
+g.c-purple > rect,
+g.c-purple > ellipse,
+g.c-purple > circle,
+g.c-purple > polygon,
+rect.c-purple,
+ellipse.c-purple,
+circle.c-purple,
+polygon.c-purple {
+  fill: light-dark(#eeedfe, #3c3489);
+  stroke: light-dark(#534ab7, #afa9ec);
+}
+.c-purple > .th,
+.c-purple > .t {
+  fill: light-dark(#3c3489, #cecbf6);
+}
+.c-purple > .ts {
+  fill: light-dark(#534ab7, #afa9ec);
+}
+g.c-teal > rect,
+g.c-teal > ellipse,
+g.c-teal > circle,
+g.c-teal > polygon,
+rect.c-teal,
+ellipse.c-teal,
+circle.c-teal,
+polygon.c-teal {
+  fill: light-dark(#e1f5ee, #085041);
+  stroke: light-dark(#0f6e56, #5dcaa5);
+}
+.c-teal > .th,
+.c-teal > .t {
+  fill: light-dark(#085041, #9fe1cb);
+}
+.c-teal > .ts {
+  fill: light-dark(#0f6e56, #5dcaa5);
+}
+g.c-coral > rect,
+g.c-coral > ellipse,
+g.c-coral > circle,
+g.c-coral > polygon,
+rect.c-coral,
+ellipse.c-coral,
+circle.c-coral,
+polygon.c-coral {
+  fill: light-dark(#faece7, #712b13);
+  stroke: light-dark(#993c1d, #f0997b);
+}
+.c-coral > .th,
+.c-coral > .t {
+  fill: light-dark(#712b13, #f5c4b3);
+}
+.c-coral > .ts {
+  fill: light-dark(#993c1d, #f0997b);
+}
+g.c-pink > rect,
+g.c-pink > ellipse,
+g.c-pink > circle,
+g.c-pink > polygon,
+rect.c-pink,
+ellipse.c-pink,
+circle.c-pink,
+polygon.c-pink {
+  fill: light-dark(#fbeaf0, #72243e);
+  stroke: light-dark(#993556, #ed93b1);
+}
+.c-pink > .th,
+.c-pink > .t {
+  fill: light-dark(#72243e, #f4c0d1);
+}
+.c-pink > .ts {
+  fill: light-dark(#993556, #ed93b1);
+}
+g.c-gray > rect,
+g.c-gray > ellipse,
+g.c-gray > circle,
+g.c-gray > polygon,
+rect.c-gray,
+ellipse.c-gray,
+circle.c-gray,
+polygon.c-gray {
+  fill: light-dark(#f1efe8, #444441);
+  stroke: light-dark(#5f5e5a, #b4b2a9);
+}
+.c-gray > .th,
+.c-gray > .t {
+  fill: light-dark(#444441, #d3d1c7);
+}
+.c-gray > .ts {
+  fill: light-dark(#5f5e5a, #b4b2a9);
+}
+g.c-blue > rect,
+g.c-blue > ellipse,
+g.c-blue > circle,
+g.c-blue > polygon,
+rect.c-blue,
+ellipse.c-blue,
+circle.c-blue,
+polygon.c-blue {
+  fill: light-dark(#e6f1fb, #0c447c);
+  stroke: light-dark(#185fa5, #85b7eb);
+}
+.c-blue > .th,
+.c-blue > .t {
+  fill: light-dark(#0c447c, #b5d4f4);
+}
+.c-blue > .ts {
+  fill: light-dark(#185fa5, #85b7eb);
+}
+g.c-green > rect,
+g.c-green > ellipse,
+g.c-green > circle,
+g.c-green > polygon,
+rect.c-green,
+ellipse.c-green,
+circle.c-green,
+polygon.c-green {
+  fill: light-dark(#eaf3de, #27500a);
+  stroke: light-dark(#3b6d11, #97c459);
+}
+.c-green > .th,
+.c-green > .t {
+  fill: light-dark(#27500a, #c0dd97);
+}
+.c-green > .ts {
+  fill: light-dark(#3b6d11, #97c459);
+}
+g.c-amber > rect,
+g.c-amber > ellipse,
+g.c-amber > circle,
+g.c-amber > polygon,
+rect.c-amber,
+ellipse.c-amber,
+circle.c-amber,
+polygon.c-amber {
+  fill: light-dark(#faeeda, #633806);
+  stroke: light-dark(#854f0b, #ef9f27);
+}
+.c-amber > .th,
+.c-amber > .t {
+  fill: light-dark(#633806, #fac775);
+}
+.c-amber > .ts {
+  fill: light-dark(#854f0b, #ef9f27);
+}
+g.c-red > rect,
+g.c-red > ellipse,
+g.c-red > circle,
+g.c-red > polygon,
+rect.c-red,
+ellipse.c-red,
+circle.c-red,
+polygon.c-red {
+  fill: light-dark(#fcebeb, #791f1f);
+  stroke: light-dark(#a32d2d, #f09595);
+}
+.c-red > .th,
+.c-red > .t {
+  fill: light-dark(#791f1f, #f7c1c1);
+}
+.c-red > .ts {
+  fill: light-dark(#a32d2d, #f09595);
+}
+
+/* Mermaid class/ER diagrams — match house aesthetic.
+   Mermaid v11 class/ER renderers use <path> (not <rect>) with inline stroke/fill
+   attrs that IGNORE themeVariables mainBkg/nodeBorder. Labels are
+   <foreignObject><div><span class="nodeLabel"><p>text</p> — NOT <text>. All style
+   fixes require !important to beat inline attrs + mermaid's inline <style>.
+   Selectors target .classDiagram/.erDiagram SVG root classes (always present)
+   rather than a .mermaid wrapper (which the model sometimes omits). */
+svg.classDiagram,
+svg.erDiagram {
+  font-size: 13px;
+  max-width: 100%;
+  height: auto;
+}
+/* Mermaid sizes foreignObject to fit measured text width. If we upsize post-render,
+   text clips. So: overflow visible on FO, and widen inner div past its max-width. */
+svg.classDiagram foreignObject,
+svg.erDiagram foreignObject {
+  overflow: visible;
+}
+svg.classDiagram foreignObject > div,
+svg.erDiagram foreignObject > div {
+  max-width: none !important;
+}
+/* Body text: members, methods, attribute rows */
+svg.classDiagram .nodeLabel,
+svg.erDiagram .nodeLabel,
+svg.classDiagram .label foreignObject div,
+svg.erDiagram .label foreignObject div {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--color-text-secondary) !important;
+}
+/* Titles: classDiagram wraps in .label-group; erDiagram wraps in .name */
+svg.classDiagram .label-group .nodeLabel,
+svg.erDiagram .name .nodeLabel {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--color-text-primary) !important;
+}
+/* Kill mermaid's inline style="font-weight: bolder" on the .label wrapper */
+svg.classDiagram .label-group .label {
+  font-weight: 500 !important;
+}
+/* Edge labels (relationship verbs + cardinality) */
+svg.classDiagram .edgeLabel,
+svg.classDiagram .edgeLabel span,
+svg.classDiagram .edgeTerminals foreignObject div,
+svg.erDiagram .edgeLabel,
+svg.erDiagram .edgeLabel span {
+  font-size: 11px !important;
+  color: var(--color-text-tertiary) !important;
+}
+/* Box outlines, row stripes, dividers — all rendered as <path> with inline attrs.
+   Mermaid's '#id .node path { fill:... }' CSS beats fill="none" attr — force fill:none. */
+svg.classDiagram .node path[stroke]:not([stroke="none"]),
+svg.classDiagram .divider path,
+svg.erDiagram .node path[stroke]:not([stroke="none"]),
+svg.erDiagram .divider path {
+  stroke: var(--color-border-tertiary) !important;
+  stroke-width: 0.5px !important;
+  fill: none !important;
+}
+/* classDiagram: box fill (inside .basic.label-container). Mermaid's inline CSS
+   '#id .node path { stroke:... }' beats the stroke="none" attr (SVG attrs have
+   lowest specificity), and the fill path is open (no Z) so the phantom stroke
+   only paints top/right/bottom — left edge looks darker. Kill the stroke. */
+svg.classDiagram .node .basic path[fill]:not([fill="none"]) {
+  fill: var(--color-background-primary) !important;
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+/* erDiagram: header row (anonymous first-child <g>) uses secondary bg */
+svg.erDiagram .node > g:first-child > path[fill]:not([fill="none"]) {
+  fill: var(--color-background-secondary) !important;
+}
+/* erDiagram: row stripes */
+svg.erDiagram .row-rect-odd path[fill]:not([fill="none"]) {
+  fill: var(--color-background-primary) !important;
+}
+svg.erDiagram .row-rect-even path[fill]:not([fill="none"]) {
+  fill: var(--color-background-secondary) !important;
+}
+/* Connector lines */
+svg.erDiagram .relationshipLine,
+svg.classDiagram .relation {
+  stroke: var(--color-text-tertiary) !important;
+  stroke-width: 1px !important;
+}
+svg.classDiagram .marker,
+svg.classDiagram marker path,
+svg.erDiagram .marker,
+svg.erDiagram marker path {
+  stroke: var(--color-text-tertiary) !important;
+  stroke-width: 1px !important;
+}
+svg.classDiagram marker path[fill]:not([fill="none"]):not([fill="transparent"]),
+svg.erDiagram marker path[fill]:not([fill="none"]):not([fill="transparent"]) {
+  fill: var(--color-text-tertiary) !important;
+}
+/* Relationship label background — kill default 0.7 opacity */
+svg.classDiagram .labelBkg,
+svg.erDiagram .labelBkg {
+  background-color: var(--color-background-primary) !important;
+  opacity: 1 !important;
+}
+
+body {
+  position: relative;
+}
+#vis-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#vis-container > svg {
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Action buttons group.
+   hidden attr is removed on tool-input (final) so buttons never show during streaming.
+   Popover items: Copy to clipboard, Download file. */
+#action-btns {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2147483647;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+/* display:flex above would override UA [hidden] — restore it */
+#action-btns[hidden] {
+  display: none;
+}
+body:hover #action-btns {
+  opacity: 1;
+}
+/* Hide on touch-primary (mobile) devices — both the reveal above
+   (body:hover) and the popover open (#more-btn:hover) are hover-driven,
+   so on a device without hover the ⋯ trigger either never appears or
+   sticks visible after a stray tap with no way to open the menu. */
+@media (hover: none) and (pointer: coarse) {
+  #action-btns {
+    display: none;
+  }
+}
+/* 28×28 chip style for the ⋯ trigger.
+   bg-100 at rest (visible over widget content), bg-300 on hover.
+   No border — bg change is enough hover feedback. Transparent border stays
+   for layout stability. Fallback light-dark() values match the design-system
+   --bg-100/--bg-300 tokens (widget iframe doesn't receive them via host
+   context, only --color-background-* semantic vars). */
+#action-btns > button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-sm, 6px);
+  background: var(--bg-100, light-dark(#faf9f5, #262624));
+  border: 1px solid transparent;
+  color: var(--color-text-secondary, #3d3d3a);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+#action-btns > button:hover {
+  background: var(--bg-300, light-dark(#f0eee6, #141413));
+}
+/* Popover — drops down-left from the trigger.
+   Styled to match the native claude.ai Radix dropdown: white bg, backdrop
+   blur, 0.5px border, subtle shadow. Items are single-line icon + label,
+   matching the conversation menu (Star/Rename/Add to project). */
+#more-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 8rem;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--color-background-primary, #fff);
+  border: 0.5px solid var(--color-border-secondary, rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 2px 8px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.24));
+  font-family: var(--font-sans, system-ui);
+  color: var(--color-text-secondary, #3d3d3a);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0s linear 0.15s;
+}
+/* Reveal only when hovering the ⋯ trigger or the popover itself. A 4px
+   dead-zone between trigger and popover would close it, so
+   #more-popover:hover keeps it open during the crossing. */
+#more-btn:hover ~ #more-popover,
+#more-popover:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0s;
+}
+/* Popover items — single-line icon + label, matching native dropdown menu */
+.more-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans, system-ui) !important;
+  color: inherit;
+  transition: background 0.1s ease;
+  white-space: nowrap;
+}
+.more-item:hover {
+  background: var(--color-background-secondary, #f5f4ed);
+  color: var(--color-text-primary, #141413);
+}
+.more-item-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.more-item-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.more-item-label {
+  font-family: var(--font-sans, system-ui) !important;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+#copy-toast {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: var(--color-background-danger, #f7ecec);
+  color: var(--color-text-danger, #7f2c28);
+  border: 1px solid var(--color-border-danger, #a73d39);
+  font-family: var(--font-sans, system-ui);
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: var(--border-radius-md, 8px);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 2147483647;
+  white-space: nowrap;
+}
+#copy-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* HTML scripts-loading shimmer */
+#vis-container.scripts-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+#vis-container.scripts-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10000;
+  overflow: hidden;
+}
+#vis-container.scripts-loading::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 60%;
+  height: 200%;
+  z-index: 10001;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.08)) 50%,
+    transparent 100%
+  );
+  animation: scriptsShimmer 2s ease-in-out infinite;
+}
+@keyframes scriptsShimmer {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+  <style id="entry-animation">/* Entry animation for streaming SVG elements.
+   Scoped to #vis-container.streaming — widget-main.ts adds the class on first
+   tool-input-partial and removes it on tool-input. After streaming, scripts
+   that rebuild SVG via innerHTML (e.g. slider-driven charts) won't trigger this.
+   Uses CSS individual transform property (scale) to avoid conflicts with SVG transform attribute.
+   Excludes elements with transform/opacity attributes to prevent CSS overriding SVG values. */
+@keyframes svgFadeInScale {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+#vis-container.streaming
+  :where(
+    svg,
+    circle,
+    rect,
+    path,
+    polygon,
+    polyline,
+    line,
+    ellipse,
+    g,
+    text
+  ):not([transform]):not([opacity]) {
+  transition:
+    fill 0.4s ease-out,
+    stroke 0.4s ease-out,
+    opacity 0.4s ease-out;
+  animation: svgFadeInScale 0.5s ease-out;
+  transform-origin: center;
+}</style>
+<style id="mcp-host-variables">:root {
+  --color-background-primary: light-dark(rgba(255, 255, 255, 1), rgba(48, 48, 46, 1));
+  --color-background-secondary: light-dark(rgba(245, 244, 237, 1), rgba(38, 38, 36, 1));
+  --color-background-tertiary: light-dark(rgba(250, 249, 245, 1), rgba(20, 20, 19, 1));
+  --color-background-inverse: light-dark(rgba(20, 20, 19, 1), rgba(250, 249, 245, 1));
+  --color-background-ghost: light-dark(rgba(255, 255, 255, 0), rgba(48, 48, 46, 0));
+  --color-background-info: light-dark(rgba(214, 228, 246, 1), rgba(37, 62, 95, 1));
+  --color-background-danger: light-dark(rgba(247, 236, 236, 1), rgba(96, 42, 40, 1));
+  --color-background-success: light-dark(rgba(233, 241, 220, 1), rgba(27, 70, 20, 1));
+  --color-background-warning: light-dark(rgba(246, 238, 223, 1), rgba(72, 58, 15, 1));
+  --color-background-disabled: light-dark(rgba(255, 255, 255, 0.5), rgba(48, 48, 46, 0.5));
+  --color-text-primary: light-dark(rgba(20, 20, 19, 1), rgba(250, 249, 245, 1));
+  --color-text-secondary: light-dark(rgba(61, 61, 58, 1), rgba(194, 192, 182, 1));
+  --color-text-tertiary: light-dark(rgba(115, 114, 108, 1), rgba(156, 154, 146, 1));
+  --color-text-inverse: light-dark(rgba(255, 255, 255, 1), rgba(20, 20, 19, 1));
+  --color-text-info: light-dark(rgba(50, 102, 173, 1), rgba(128, 170, 221, 1));
+  --color-text-danger: light-dark(rgba(127, 44, 40, 1), rgba(238, 136, 132, 1));
+  --color-text-success: light-dark(rgba(38, 91, 25, 1), rgba(122, 185, 72, 1));
+  --color-text-warning: light-dark(rgba(90, 72, 21, 1), rgba(209, 160, 65, 1));
+  --color-text-disabled: light-dark(rgba(20, 20, 19, 0.5), rgba(250, 249, 245, 0.5));
+  --color-text-ghost: light-dark(rgba(115, 114, 108, 0.5), rgba(156, 154, 146, 0.5));
+  --color-border-primary: light-dark(rgba(31, 30, 29, 0.4), rgba(222, 220, 209, 0.4));
+  --color-border-secondary: light-dark(rgba(31, 30, 29, 0.3), rgba(222, 220, 209, 0.3));
+  --color-border-tertiary: light-dark(rgba(31, 30, 29, 0.15), rgba(222, 220, 209, 0.15));
+  --color-border-inverse: light-dark(rgba(255, 255, 255, 0.3), rgba(20, 20, 19, 0.15));
+  --color-border-ghost: light-dark(rgba(31, 30, 29, 0), rgba(222, 220, 209, 0));
+  --color-border-info: light-dark(rgba(70, 130, 213, 1), rgba(70, 130, 213, 1));
+  --color-border-danger: light-dark(rgba(167, 61, 57, 1), rgba(205, 92, 88, 1));
+  --color-border-success: light-dark(rgba(67, 116, 38, 1), rgba(89, 145, 48, 1));
+  --color-border-warning: light-dark(rgba(128, 92, 31, 1), rgba(168, 120, 41, 1));
+  --color-border-disabled: light-dark(rgba(31, 30, 29, 0.1), rgba(222, 220, 209, 0.1));
+  --color-ring-primary: light-dark(rgba(20, 20, 19, 0.7), rgba(250, 249, 245, 0.7));
+  --color-ring-secondary: light-dark(rgba(61, 61, 58, 0.7), rgba(194, 192, 182, 0.7));
+  --color-ring-inverse: light-dark(rgba(255, 255, 255, 0.7), rgba(20, 20, 19, 0.7));
+  --color-ring-info: light-dark(rgba(50, 102, 173, 0.5), rgba(128, 170, 221, 0.5));
+  --color-ring-danger: light-dark(rgba(167, 61, 57, 0.5), rgba(205, 92, 88, 0.5));
+  --color-ring-success: light-dark(rgba(67, 116, 38, 0.5), rgba(89, 145, 48, 0.5));
+  --color-ring-warning: light-dark(rgba(128, 92, 31, 0.5), rgba(168, 120, 41, 0.5));
+  --font-sans: Anthropic Sans, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-text-xs-size: 12px;
+  --font-text-sm-size: 14px;
+  --font-text-md-size: 16px;
+  --font-text-lg-size: 20px;
+  --font-heading-xs-size: 12px;
+  --font-heading-sm-size: 14px;
+  --font-heading-md-size: 16px;
+  --font-heading-lg-size: 20px;
+  --font-heading-xl-size: 24px;
+  --font-heading-2xl-size: 28px;
+  --font-heading-3xl-size: 36px;
+  --font-text-xs-line-height: 1.4;
+  --font-text-sm-line-height: 1.4;
+  --font-text-md-line-height: 1.4;
+  --font-text-lg-line-height: 1.25;
+  --font-heading-xs-line-height: 1.4;
+  --font-heading-sm-line-height: 1.4;
+  --font-heading-md-line-height: 1.4;
+  --font-heading-lg-line-height: 1.25;
+  --font-heading-xl-line-height: 1.25;
+  --font-heading-2xl-line-height: 1.1;
+  --font-heading-3xl-line-height: 1;
+  --border-radius-xs: 4px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 10px;
+  --border-radius-xl: 12px;
+  --border-radius-full: 9999px;
+  --border-width-regular: 0.5px;
+  --shadow-hairline: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}</style></head>
+<body>
+  <!-- Pre-defined SVG markers — available to all SVGs via url(#arrow) -->
+  <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </marker>
+    </defs>
+  </svg>
+  <div id="vis-container">
+<h2 class="sr-only">SOLVARZ by Sparkz Solution — Investor Pitch Book (Guy Kawasaki 10/20/30 Method)</h2>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+
+  .pb-root { transition: background .25s, color .25s; }
+
+  /* ── LIGHT ── */
+  .pb-root.light {
+    --bg0: #ffffff;
+    --bg1: #f5f5f5;
+    --bg2: #ebebeb;
+    --tx0: #111111;
+    --tx1: #444444;
+    --tx2: #888888;
+    --bd:  #d8d8d8;
+    --acc: #185FA5;
+    --acc-bg: #E6F1FB;
+    --acc-bd: #B5D4F4;
+    --teal: #0F6E56;
+    --teal-bg: #E1F5EE;
+    --amber: #854F0B;
+    --amber-bg: #FAEEDA;
+    --purple: #534AB7;
+    --purple-bg: #EEEDFE;
+    --coral: #993C1D;
+    --coral-bg: #FAECE7;
+    --bar1: #B5D4F4;
+    --bar2: #185FA5;
+    --bar3: #0C447C;
+    --alloc-a: #185FA5;
+    --alloc-b: #0F6E56;
+    --alloc-c: #854F0B;
+    --solvarz-cell: #E6F1FB;
+    --solvarz-hd: #B5D4F4;
+    --solvarz-tx: #185FA5;
+    --solvarz-hd-tx: #0C447C;
+    --team-bg: #E6F1FB;
+    --team-tx: #185FA5;
+  }
+
+  /* ── DARK ── */
+  .pb-root.dark {
+    --bg0: #141414;
+    --bg1: #1e1e1e;
+    --bg2: #272727;
+    --tx0: #f0f0f0;
+    --tx1: #b0b0b0;
+    --tx2: #666666;
+    --bd:  #333333;
+    --acc: #5BA3E8;
+    --acc-bg: #0e2238;
+    --acc-bd: #1e4470;
+    --teal: #3EC99A;
+    --teal-bg: #0a2a20;
+    --amber: #F0A830;
+    --amber-bg: #2a1f06;
+    --purple: #9B94F0;
+    --purple-bg: #1a1740;
+    --coral: #E07A5A;
+    --coral-bg: #2a1208;
+    --bar1: #1e4470;
+    --bar2: #3a7dc4;
+    --bar3: #5BA3E8;
+    --alloc-a: #3a7dc4;
+    --alloc-b: #2a9e76;
+    --alloc-c: #c47e22;
+    --solvarz-cell: #0e2238;
+    --solvarz-hd: #1e4470;
+    --solvarz-tx: #5BA3E8;
+    --solvarz-hd-tx: #8ec6f5;
+    --team-bg: #0e2238;
+    --team-tx: #5BA3E8;
+  }
+
+  .pb-root { padding: .5rem; }
+
+  /* TOGGLE */
+  .pb-toggle-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: .25rem 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .pb-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--bd);
+    background: var(--bg1);
+    color: var(--tx1);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .2s;
+    user-select: none;
+  }
+  .pb-toggle-btn:hover { background: var(--bg2); }
+  .pb-toggle-icon { font-size: 14px; line-height: 1; }
+
+  .pb-wrap { max-width: 680px; margin: 0 auto; padding-bottom: 3rem; }
+
+  .pb-slide {
+    border: 0.5px solid var(--bd);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background: var(--bg0);
+  }
+
+  .pb-slide-num { font-family:'DM Mono',monospace; font-size:11px; color:var(--tx2); letter-spacing:.08em; margin-bottom:.5rem; }
+  .pb-slide-label { display:inline-block; font-size:11px; font-weight:500; padding:3px 10px; border-radius:999px; border:0.5px solid var(--bd); color:var(--tx1); margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em; }
+
+  h1.pb-title { font-family:'DM Serif Display',serif; font-size:32px; line-height:1.15; margin:0 0 .4rem; color:var(--tx0); font-weight:400; }
+  h2.pb-h2 { font-family:'DM Serif Display',serif; font-size:22px; line-height:1.25; margin:0 0 .75rem; color:var(--tx0); font-weight:400; }
+  .pb-tagline { font-size:14px; color:var(--tx1); letter-spacing:.05em; margin-bottom:1.5rem; font-family:'DM Mono',monospace; }
+  .pb-body { font-size:14px; line-height:1.75; color:var(--tx1); margin:0 0 .75rem; }
+  .pb-divider { border:none; border-top:0.5px solid var(--bd); margin:1.25rem 0; }
+
+  .pb-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:1rem; }
+  .pb-grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:1rem; }
+
+  .pb-card { background:var(--bg1); border-radius:8px; padding:1rem; }
+  .pb-card-label { font-size:11px; font-family:'DM Mono',monospace; color:var(--tx2); margin-bottom:4px; text-transform:uppercase; letter-spacing:.06em; }
+  .pb-card-val { font-size:20px; font-weight:500; color:var(--tx0); margin-bottom:2px; }
+  .pb-card-sub { font-size:12px; color:var(--tx1); line-height:1.5; }
+
+  .pb-bullet { display:flex; gap:10px; margin-bottom:.6rem; align-items:flex-start; }
+  .pb-bullet-dot { width:6px; height:6px; border-radius:50%; background:var(--tx2); margin-top:7px; flex-shrink:0; }
+  .pb-bullet-text { font-size:14px; line-height:1.65; color:var(--tx1); }
+
+  .pb-badge { display:inline-block; font-size:11px; padding:3px 9px; border-radius:999px; font-weight:500; margin-right:4px; margin-bottom:4px; }
+  .pb-badge-blue   { background:var(--acc-bg);    color:var(--acc); }
+  .pb-badge-teal   { background:var(--teal-bg);   color:var(--teal); }
+  .pb-badge-amber  { background:var(--amber-bg);  color:var(--amber); }
+  .pb-badge-purple { background:var(--purple-bg); color:var(--purple); }
+  .pb-badge-coral  { background:var(--coral-bg);  color:var(--coral); }
+
+  .pb-highlight-box { border-left:3px solid var(--bd); padding:.75rem 1rem; border-radius:0 8px 8px 0; background:var(--bg1); margin:1rem 0; }
+  .pb-highlight-box p { font-size:13px; line-height:1.7; color:var(--tx1); margin:0; }
+
+  .pb-stat-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:0.5px solid var(--bd); }
+  .pb-stat-row:last-child { border-bottom:none; }
+  .pb-stat-key { font-size:13px; color:var(--tx1); }
+  .pb-stat-val { font-size:13px; font-weight:500; color:var(--tx0); font-family:'DM Mono',monospace; text-align:right; max-width:55%; }
+
+  .pb-section-title { font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.07em; color:var(--tx2); margin:1rem 0 .5rem; font-family:'DM Mono',monospace; }
+
+  .pb-comp-row { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:0; }
+  .pb-comp-cell { padding:10px 12px; font-size:12px; border-bottom:0.5px solid var(--bd); color:var(--tx1); line-height:1.4; }
+  .pb-comp-cell.header { font-weight:500; color:var(--tx0); font-size:11px; background:var(--bg1); }
+  .pb-comp-cell.solvarz { background:var(--solvarz-cell); color:var(--solvarz-tx); font-weight:500; }
+  .pb-comp-cell.solvarz.header { background:var(--solvarz-hd); color:var(--solvarz-hd-tx); }
+
+  .pb-flow { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:.75rem; }
+  .pb-flow-node { background:var(--bg1); border:0.5px solid var(--bd); border-radius:8px; padding:6px 12px; font-size:12px; font-weight:500; color:var(--tx0); }
+  .pb-flow-arrow { font-size:14px; color:var(--tx2); }
+
+  .pb-swarm { border:0.5px solid var(--bd); border-radius:12px; padding:1rem 1.25rem; margin-top:1rem; }
+  .pb-swarm-center { text-align:center; padding:.5rem 0; }
+  .pb-swarm-title { font-size:13px; font-weight:500; color:var(--tx0); margin-bottom:.5rem; }
+  .pb-agents { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:.75rem; }
+  .pb-agent { background:var(--bg1); border-radius:8px; padding:8px 10px; font-size:11px; font-family:'DM Mono',monospace; color:var(--tx1); text-align:center; line-height:1.5; }
+  .pb-agent span { display:block; font-size:10px; color:var(--tx2); }
+
+  .pb-market-bar { margin-bottom:.75rem; }
+  .pb-market-label { display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px; }
+  .pb-market-label span:first-child { color:var(--tx1); }
+  .pb-market-label span:last-child { font-weight:500; color:var(--tx0); font-family:'DM Mono',monospace; }
+  .pb-bar-track { background:var(--bg2); border-radius:999px; height:8px; overflow:hidden; }
+  .pb-bar-fill { height:100%; border-radius:999px; }
+
+  .pb-ask-alloc { display:flex; height:12px; border-radius:999px; overflow:hidden; margin:.75rem 0 .4rem; }
+  .pb-alloc-a { flex:4; background:var(--alloc-a); }
+  .pb-alloc-b { flex:4; background:var(--alloc-b); }
+  .pb-alloc-c { flex:2; background:var(--alloc-c); }
+  .pb-alloc-legend { display:flex; gap:12px; flex-wrap:wrap; }
+  .pb-alloc-item { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--tx1); }
+  .pb-alloc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+  .pb-give-card { border:0.5px solid var(--bd); border-radius:12px; padding:1rem 1.25rem; margin-bottom:.75rem; }
+  .pb-give-option { font-size:13px; font-weight:500; color:var(--tx0); margin-bottom:.35rem; }
+  .pb-give-detail { font-size:12px; color:var(--tx1); line-height:1.65; }
+  .pb-give-tag { display:inline-block; font-size:10px; font-family:'DM Mono',monospace; padding:2px 8px; border-radius:999px; font-weight:500; margin-bottom:.4rem; background:var(--acc-bg); color:var(--acc); }
+
+  .pb-calc-table { width:100%; border-collapse:collapse; margin-top:.75rem; font-size:12px; }
+  .pb-calc-table th { background:var(--bg1); padding:8px 12px; text-align:left; font-weight:500; font-size:11px; color:var(--tx1); text-transform:uppercase; letter-spacing:.05em; font-family:'DM Mono',monospace; }
+  .pb-calc-table td { padding:8px 12px; border-bottom:0.5px solid var(--bd); color:var(--tx1); line-height:1.5; }
+  .pb-calc-table tr:last-child td { border-bottom:none; }
+  .pb-calc-table .val { font-weight:500; color:var(--tx0); font-family:'DM Mono',monospace; text-align:right; }
+  .pb-calc-table .total-row td { background:var(--bg1); font-weight:500; color:var(--tx0); }
+  .pb-calc-table .total-row .val { color:var(--acc); }
+
+  .pb-footer { text-align:center; padding:1rem 0; font-size:12px; color:var(--tx2); font-family:'DM Mono',monospace; }
+
+  @media(max-width:480px){
+    .pb-grid-2{grid-template-columns:1fr}
+    .pb-grid-3{grid-template-columns:1fr 1fr}
+    .pb-comp-row{grid-template-columns:1fr 1fr}
+    .pb-agents{grid-template-columns:1fr 1fr}
+  }
+</style>
+
+<div class="pb-root dark" id="pbRoot">
+
+  <!-- TOGGLE -->
+  <div class="pb-toggle-bar">
+    <button class="pb-toggle-btn" id="toggleBtn" onclick="toggleTheme()">
+      <span class="pb-toggle-icon" id="toggleIcon">☀️</span>
+      <span id="toggleLabel">Light Mode</span>
+    </button>
+  </div>
+
+  <div class="pb-wrap">
+
+    <!-- SLIDE 1 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 01 / 10</div>
+      <div class="pb-slide-label">Title</div>
+      <h1 class="pb-title">Sparkz Solution</h1>
+      <div class="pb-tagline">Introducing SOLVARZ — The Agentic Digital Agency</div>
+      <div class="pb-highlight-box">
+        <p style="font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx0);font-style:italic;">"Scalable. Precise. Hyper-Efficient."</p>
+      </div>
+      <p class="pb-body">SOLVARZ adalah produk unggulan Sparkz Solution — sebuah AI-native Digital Agency yang membangun website enterprise, aplikasi web & mobile, serta identitas brand berkelas dunia. Dioperasikan 90% oleh Agentic AI dan 10% human experts, kami menghadirkan kecepatan dan kualitas yang belum pernah ada sebelumnya.</p>
+      <hr class="pb-divider">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem">
+        <span class="pb-badge pb-badge-blue">AI-Native Agency</span>
+        <span class="pb-badge pb-badge-teal">Enterprise Grade</span>
+        <span class="pb-badge pb-badge-purple">Agentic AI Operations</span>
+        <span class="pb-badge pb-badge-amber">Pre-Seed Round</span>
+      </div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Entitas</span><span class="pb-stat-val">Sparkz Solution / SOLVARZ</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Tahap</span><span class="pb-stat-val">Pre-Seed — Validasi MVP</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Founder</span><span class="pb-stat-val">Hanindiyo Saputro — IT Consultant</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Target Pendanaan</span><span class="pb-stat-val">$36,000 / Rp 630.000.000</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Target Pasar</span><span class="pb-stat-val">Indonesia · Singapura · ASEAN</span></div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 02 / 10</div>
+      <div class="pb-slide-label">Problem</div>
+      <h2 class="pb-h2">Industri Digital Agency Rusak dari Dalam</h2>
+      <p class="pb-body">Bisnis enterprise di Asia Tenggara membutuhkan solusi digital berkelas tinggi — namun model agensi tradisional membuat mereka terjebak dalam inefisiensi yang mahal.</p>
+      <div class="pb-grid-2">
+        <div class="pb-card"><div class="pb-card-label">Masalah 01</div><div class="pb-card-val" style="font-size:16px">Siklus Lambat</div><div class="pb-card-sub">Proyek enterprise memakan waktu berbulan-bulan akibat overhead sumber daya manusia yang besar dan proses revisi yang tidak efisien.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 02</div><div class="pb-card-val" style="font-size:16px">Biaya Tinggi</div><div class="pb-card-sub">Biaya operasional manusia diteruskan ke klien. Proyek enterprise rata-rata membengkak <strong style="color:var(--tx0)">$20,000–$100,000 / Rp 330 Jt–1,65 M</strong> di agensi tradisional.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 03</div><div class="pb-card-val" style="font-size:16px">Human Error</div><div class="pb-card-sub">Kesalahan coding dan desain pada skala enterprise menambah biaya rework rata-rata <strong style="color:var(--tx0)">$5,000–$15,000 / Rp 82–247 Juta</strong> per insiden.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 04</div><div class="pb-card-val" style="font-size:16px">Sulit Adaptasi</div><div class="pb-card-sub">Adaptasi teknologi baru terkendala tenaga ahli spesifik dengan biaya retensi <strong style="color:var(--tx0)">$2,000–$8,000 / Rp 33–132 Jt</strong> per bulan.</div></div>
+      </div>
+      <div class="pb-highlight-box" style="margin-top:1.25rem"><p>Akibatnya: klien membayar terlalu mahal, menunggu terlalu lama, dan masih mendapat produk yang tidak konsisten. <strong style="color:var(--tx0)">Pasar membutuhkan model baru.</strong></p></div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 03 / 10</div>
+      <div class="pb-slide-label">Solution</div>
+      <h2 class="pb-h2">SOLVARZ: Enterprise-Grade Agentic AI Agency</h2>
+      <p class="pb-body">SOLVARZ mendisrupsi model agensi konvensional dengan menempatkan AI sebagai tenaga kerja utama dan human experts sebagai lapisan kontrol kualitas dan keamanan.</p>
+      <div class="pb-section-title">Keunggulan Kunci</div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">70% lebih cepat</strong> — Siklus pengembangan dipangkas drastis berkat orkestrasi AI agent yang bekerja paralel 24/7 tanpa batas kapasitas manusia.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agent as a Service (AaaS)</strong> — Klien tidak hanya mendapatkan produk jadi, tetapi juga infrastruktur AI yang dapat mengelola operasional digital mereka secara mandiri.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Scalable Quality</strong> — Standar kualitas enterprise yang konsisten dijamin oleh orkestrasi AI agent terspesialisasi, mengeliminasi human error dari proses produksi.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Model 90/10</strong> — 90% Agentic AI Operations + 10% Human Experts sebagai lapisan keamanan strategis. Efisiensi maksimal, risiko minimal.</div></div>
+      <div class="pb-grid-3" style="margin-top:1.25rem">
+        <div class="pb-card" style="text-align:center"><div class="pb-card-val">70%</div><div class="pb-card-sub">Lebih cepat dari agensi konvensional</div></div>
+        <div class="pb-card" style="text-align:center"><div class="pb-card-val">90%</div><div class="pb-card-sub">Operasional dijalankan AI agents</div></div>
+        <div class="pb-card" style="text-align:center"><div class="pb-card-val">24/7</div><div class="pb-card-sub">Kapasitas produksi tanpa henti</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 04 / 10</div>
+      <div class="pb-slide-label">Underlying Magic</div>
+      <h2 class="pb-h2">The Secret Sauce: SOLVARZ Swarm</h2>
+      <p class="pb-body">Di balik kecepatan dan kualitas SOLVARZ terdapat sistem orkestrasi AI multi-agent yang kami sebut <strong style="color:var(--tx0)">SOLVARZ Swarm</strong> — The Agentic Orchestration Layer.</p>
+      <div class="pb-swarm">
+        <div class="pb-swarm-center">
+          <div class="pb-swarm-title">SOLVARZ Swarm — Agentic Orchestration Layer</div>
+          <div style="font-size:12px;color:var(--tx2);font-family:'DM Mono',monospace">Multi-agent collaboration · Zero human bottleneck · Minutes, not months</div>
+        </div>
+        <div class="pb-agents">
+          <div class="pb-agent">AGENT: RESEARCH<span>Data · Insights · Brief</span></div>
+          <div class="pb-agent">AGENT: ARCHITECT<span>Tech Stack · System Design</span></div>
+          <div class="pb-agent">AGENT: COPYWRITER<span>Content · Messaging · SEO</span></div>
+          <div class="pb-agent">AGENT: DEVELOPER<span>Code · API · Integration</span></div>
+          <div class="pb-agent">AGENT: DESIGNER<span>UI/UX · Brand · Visual</span></div>
+          <div class="pb-agent">AGENT: QA<span>Testing · Validation · Review</span></div>
+        </div>
+      </div>
+      <div class="pb-section-title" style="margin-top:1.25rem">Cara Kerja</div>
+      <div class="pb-flow">
+        <div class="pb-flow-node">Input Brief Klien</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node">Orchestrator AI</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node">Swarm Parallel</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node">Human Review</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node">Deliverable</div>
+      </div>
+      <div class="pb-highlight-box" style="margin-top:1rem"><p>Agent A (Research) berkolaborasi secara instan dengan Agent B (Copywriting) dan Agent C (Design) tanpa perlu manajemen manusia di tengahnya. Workflow kompleks diselesaikan dalam hitungan menit secara otomatis.</p></div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 05 / 10</div>
+      <div class="pb-slide-label">Business Model</div>
+      <h2 class="pb-h2">Empat Aliran Pendapatan yang Saling Menguatkan</h2>
+      <p class="pb-body">Model bisnis SOLVARZ dirancang untuk menghasilkan pendapatan beragam — dari proyek bernilai tinggi satu kali hingga recurring revenue yang terukur.</p>
+      <div class="pb-grid-2">
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--acc)">Stream 01 — Core Revenue</div><div class="pb-card-val" style="font-size:15px">High-Value Projects</div><div class="pb-card-sub">Website & aplikasi enterprise. Nilai proyek <strong style="color:var(--tx0)">$5,000–$50,000 / Rp 82–825 Juta</strong> per engagement.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--teal)">Stream 02 — Growth Play</div><div class="pb-card-val" style="font-size:15px">Micro SaaS Ecosystem</div><div class="pb-card-sub">Produk SaaS vertikal berbasis AI. Subscription <strong style="color:var(--tx0)">$29–$299/bulan / Rp 480 Rb–4,9 Jt/bulan</strong>.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--purple)">Stream 03 — B2B Expansion</div><div class="pb-card-val" style="font-size:15px">Agent as a Service</div><div class="pb-card-sub">Infrastruktur AI agent untuk perusahaan lain. Mulai <strong style="color:var(--tx0)">$500–$5,000/bulan / Rp 8,25–82,5 Jt/bulan</strong>.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--amber)">Stream 04 — Recurring</div><div class="pb-card-val" style="font-size:15px">Tiered Subscription</div><div class="pb-card-sub">Kelola sosmed, SEO, content marketing berbasis AI. Mulai <strong style="color:var(--tx0)">$199–$999/bulan / Rp 3,28–16,5 Jt/bulan</strong>.</div></div>
+      </div>
+      <div class="pb-section-title" style="margin-top:1.25rem">Unit Ekonomi</div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Rata-rata nilai proyek enterprise</span><span class="pb-stat-val">$5K–$50K / Rp 82–825 Juta</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Target recurring revenue (Year 2)</span><span class="pb-stat-val">30–40% dari total revenue</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Target gross margin (AI-driven ops)</span><span class="pb-stat-val">65–80%</span></div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 06 / 10</div>
+      <div class="pb-slide-label">Market Size</div>
+      <h2 class="pb-h2">Pasar yang Besar, Momentum yang Tepat</h2>
+      <p class="pb-body">Pasar Agentic AI diproyeksikan tumbuh dengan CAGR 40%+ hingga 2030, menempatkan SOLVARZ di garis depan revolusi efisiensi industri digital global.</p>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>TAM — Global B2B Tech & Digital Services</span><span>$1,8 T / Rp 29.700 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:100%;background:var(--bar1)"></div></div></div>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>SAM — Southeast Asia Digital Service Economy</span><span>$55 M / Rp 907,5 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:50%;background:var(--bar2)"></div></div></div>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>SOM — Target SOLVARZ (Tahun 3–5)</span><span>$150 Juta / Rp 2,475 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:12%;background:var(--bar3)"></div></div></div>
+      <div class="pb-grid-3" style="margin-top:1.25rem">
+        <div class="pb-card" style="border:0.5px solid var(--acc-bd)"><div class="pb-card-label">TAM Global</div><div class="pb-card-val" style="font-size:17px">$1,8 T</div><div class="pb-card-sub">Rp 29.700 Triliun — Digital Marketing, Custom Software, Cybersecurity terakselerasi AI</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--teal-bg)"><div class="pb-card-label">SAM — ASEAN</div><div class="pb-card-val" style="font-size:17px">$55 M</div><div class="pb-card-sub">Rp 907,5 Triliun — Ekonomi digital ASEAN menuju $300B GMV di 2026</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--purple-bg)"><div class="pb-card-label">SOM Target</div><div class="pb-card-val" style="font-size:17px">$150 Jt</div><div class="pb-card-sub">Rp 2,475 Triliun — 2–3% pasar IT premium Indonesia + Singapura. Tahun ke-3 hingga 5</div></div>
+      </div>
+      <div class="pb-highlight-box" style="margin-top:1rem"><p>Target SOM $150 Juta / Rp 2,475 Triliun tercapai melalui model operasional rendah biaya namun margin tinggi — keunggulan struktural yang hanya bisa dicapai oleh AI-native company seperti SOLVARZ.</p></div>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 07 / 10</div>
+      <div class="pb-slide-label">Marketing & Sales</div>
+      <h2 class="pb-h2">Inbound via Our Own Efficiency</h2>
+      <p class="pb-body">Strategi go-to-market SOLVARZ bukan sekadar menjual produk — kami <strong style="color:var(--tx0)">menggunakan produk kami sendiri</strong> sebagai mesin akuisisi klien yang paling meyakinkan.</p>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agentic Custom Enterprise Development:</strong> Layanan pengembangan end-to-end untuk kebutuhan enterprise berskala besar — sistem manajemen internal, platform B2B, hingga aplikasi layanan publik — seluruhnya dikerjakan SOLVARZ Swarm. Klien mendapatkan solusi fully custom dalam fraksi waktu dibanding agensi konvensional, dengan harga kompetitif karena efisiensi AI. Ini menjadi pintu masuk utama ke akun enterprise bernilai tinggi sekaligus proof-of-concept nyata kapabilitas SOLVARZ.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Content Hyper-Generation:</strong> AI Agents kami sendiri mendominasi SEO dan media sosial dengan konten berkualitas tinggi secara massal — menjadikan SOLVARZ thought leader di industri AI agency sebelum kompetitor sempat bereaksi.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">The "Speed Test" Lead Magnet:</strong> Calon klien mendapatkan draf strategi digital atau wireframe website yang dibuat AI dalam 1 jam — gratis. Pengalaman langsung ini mengonversi skeptis menjadi believers lebih efektif dari pitching manapun.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Targeting Tech Startups & SMEs:</strong> Fokus pada segmen yang tumbuh cepat dan membutuhkan skalabilitas tinggi namun terkendala budget agensi besar. SOLVARZ menawarkan kualitas enterprise dengan biaya kompetitif.</div></div>
+      <hr class="pb-divider">
+      <div class="pb-section-title">Kanal Utama</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span class="pb-badge pb-badge-coral">Enterprise Direct</span>
+        <span class="pb-badge pb-badge-blue">SEO & Content AI</span>
+        <span class="pb-badge pb-badge-teal">Social Media Domination</span>
+        <span class="pb-badge pb-badge-purple">Speed Test Funnel</span>
+        <span class="pb-badge pb-badge-amber">Strategic Partnership</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 08 / 10</div>
+      <div class="pb-slide-label">Competition</div>
+      <h2 class="pb-h2">SOLVARZ Sits in the Winning Quadrant</h2>
+      <p class="pb-body">Lanskap kompetitif saat ini terbagi tiga — dan ketiganya memiliki trade-off krusial yang SOLVARZ atasi sekaligus.</p>
+      <div style="border:0.5px solid var(--bd);border-radius:12px;overflow:hidden;margin-top:1rem">
+        <div class="pb-comp-row">
+          <div class="pb-comp-cell header">Dimensi</div>
+          <div class="pb-comp-cell header solvarz">SOLVARZ</div>
+          <div class="pb-comp-cell header">Agensi Tradisional</div>
+          <div class="pb-comp-cell header">Freelancer</div>
+        </div>
+        <div class="pb-comp-row"><div class="pb-comp-cell">Kecepatan Delivery</div><div class="pb-comp-cell solvarz">Sangat Tinggi ↑↑</div><div class="pb-comp-cell">Lambat, berbulan-bulan</div><div class="pb-comp-cell">Bervariasi, tidak pasti</div></div>
+        <div class="pb-comp-row"><div class="pb-comp-cell">Biaya Klien</div><div class="pb-comp-cell solvarz">Kompetitif, margin efisien</div><div class="pb-comp-cell">Tinggi — overhead besar</div><div class="pb-comp-cell">Murah, kualitas tidak pasti</div></div>
+        <div class="pb-comp-row"><div class="pb-comp-cell">Konsistensi Kualitas</div><div class="pb-comp-cell solvarz">Konsisten — AI-enforced</div><div class="pb-comp-cell">Tergantung tim</div><div class="pb-comp-cell">Rendah, sulit dikontrol</div></div>
+        <div class="pb-comp-row"><div class="pb-comp-cell">Skalabilitas</div><div class="pb-comp-cell solvarz">Unlimited — AI scales</div><div class="pb-comp-cell">Terbatas kapasitas manusia</div><div class="pb-comp-cell">Sangat terbatas</div></div>
+        <div class="pb-comp-row" style="border-bottom:none"><div class="pb-comp-cell">AI Infrastructure</div><div class="pb-comp-cell solvarz">Native — produk kami</div><div class="pb-comp-cell">Sebagian adopsi tools AI</div><div class="pb-comp-cell">Tidak ada / minimal</div></div>
+      </div>
+      <div class="pb-highlight-box" style="margin-top:1.25rem"><p>AI DIY Tools (SaaS generik) pun bukan solusi — klien masih harus mengoperasikan sendiri. SOLVARZ memberikan <strong style="color:var(--tx0)">hasil jadi end-to-end</strong> dengan infrastruktur AI sebagai fondasi.</p></div>
+    </div>
+
+    <!-- SLIDE 9 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 09 / 10</div>
+      <div class="pb-slide-label">Management Team</div>
+      <h2 class="pb-h2">Didirikan oleh Praktisi, Bukan Sekadar Visioner</h2>
+      <p class="pb-body">SOLVARZ lahir dari pengalaman langsung di lapangan IT consulting — bukan dari teori semata. Founder memahami secara mendalam pain points yang SOLVARZ selesaikan.</p>
+      <div class="pb-card" style="margin-top:1rem;border:0.5px solid var(--bd)">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:1rem">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--team-bg);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;color:var(--team-tx);flex-shrink:0">HS</div>
+          <div>
+            <div style="font-size:15px;font-weight:500;color:var(--tx0)">Hanindiyo Saputro</div>
+            <div style="font-size:12px;color:var(--tx1);font-family:'DM Mono',monospace">Founder & IT Consultant — Sparkz Solution / SOLVARZ</div>
+          </div>
+        </div>
+        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">IT Consultant dengan pengalaman langsung menangani kebutuhan teknologi korporat dan enterprise.</div></div>
+        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">Membangun arsitektur Agentic AI (SOLVARZ Swarm) dari ground-up sebagai solusi atas inefisiensi yang diobservasi langsung di industri.</div></div>
+        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">Pipeline klien awal mencakup dua nama besar: <strong style="color:var(--tx0)">Jasa Raharja</strong> dan <strong style="color:var(--tx0)">SGS</strong> — bukti kredibilitas nyata sebelum pendanaan.</div></div>
+      </div>
+      <div class="pb-highlight-box" style="margin-top:1rem"><p>Dengan pendanaan Pre-Seed ini, roadmap pertama adalah membangun <strong style="color:var(--tx0)">Core Team</strong> yang akan mengisi peran strategis di bidang AI Engineering, Business Development, dan Client Success.</p></div>
+      <div class="pb-section-title">Posisi yang Akan Direkrut (Post-Funding)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span class="pb-badge pb-badge-blue">AI/ML Engineer</span>
+        <span class="pb-badge pb-badge-teal">Business Development Lead</span>
+        <span class="pb-badge pb-badge-purple">Client Success Manager</span>
+        <span class="pb-badge pb-badge-amber">Full-Stack Developer</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 10 -->
+    <div class="pb-slide">
+      <div class="pb-slide-num">SLIDE 10 / 10</div>
+      <div class="pb-slide-label">Status · Timeline · The Ask · The Give</div>
+      <h2 class="pb-h2">Pre-Seed Round — $36,000 / Rp 630.000.000</h2>
+      <p class="pb-body">SOLVARZ berada di momentum yang tepat: pipeline klien enterprise sudah ada, teknologi dalam tahap finalisasi. Dana Pre-Seed ini akan mengakselerasi validasi MVP dan akuisisi klien awal secara sistematis.</p>
+      <div class="pb-section-title">Status Saat Ini</div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val">Jasa Raharja · SGS</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Teknologi Inti (SOLVARZ Swarm)</span><span class="pb-stat-val">In Development</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Tahap Pendanaan</span><span class="pb-stat-val">Pre-Seed — Validasi MVP</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">3 Pilot Clients · MVP Launch</span></div>
+      <div class="pb-section-title" style="margin-top:1.25rem">Alokasi Dana — $36,000 / Rp 630.000.000</div>
+      <div class="pb-ask-alloc"><div class="pb-alloc-a"></div><div class="pb-alloc-b"></div><div class="pb-alloc-c"></div></div>
+      <div class="pb-alloc-legend">
+        <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a)"></div>40% Infrastruktur & API AI — $14,400 / Rp 252 Juta</div>
+        <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b)"></div>40% Core Team — $14,400 / Rp 252 Juta</div>
+        <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c)"></div>20% Marketing & Akuisisi Klien — $7,200 / Rp 126 Juta</div>
+      </div>
+      <div class="pb-section-title" style="margin-top:1.25rem">Roadmap 12 Bulan</div>
+      <div class="pb-flow">
+        <div class="pb-flow-node" style="font-size:11px">Q1: Infra Setup &amp; Swarm MVP</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node" style="font-size:11px">Q2: 3 Pilot Clients Live</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node" style="font-size:11px">Q3: Revenue &amp; Iterasi</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node" style="font-size:11px">Q4: Seed Round Ready</div>
+      </div>
+      <hr class="pb-divider">
+      <div class="pb-section-title" style="margin-top:0">The Give — Skema Return Investor</div>
+      <p class="pb-body" style="font-size:13px">Skema bagi hasil yang adil dan transparan, langsung terikat pada performa bisnis nyata.</p>
+      <div class="pb-give-card">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
+          <div class="pb-give-option">Revenue Share per Proyek — 2,5x Return</div>
+          <span class="pb-give-tag">10% per proyek · Cap $90,000</span>
+        </div>
+        <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% bagi hasil dari net revenue setiap proyek</strong> yang berhasil diselesaikan dan dibayarkan klien, hingga total pengembalian mencapai <strong style="color:var(--tx0)">2,5x nilai investasi</strong>. Setelah cap terpenuhi, revenue share otomatis berakhir.</div>
+        <div class="pb-section-title" style="margin-top:.25rem">Rincian Perhitungan Return Investor</div>
+        <table class="pb-calc-table">
+          <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
+          <tbody>
+            <tr><td>Modal investasi awal</td><td class="val">$36,000</td><td class="val">630.000.000</td></tr>
+            <tr><td>Multiplier return</td><td class="val">2,5x</td><td class="val">2,5x</td></tr>
+            <tr class="total-row"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$90,000</strong></td><td class="val"><strong>1.575.000.000</strong></td></tr>
+            <tr><td>Pokok investasi (kembali)</td><td class="val">$36,000</td><td class="val">630.000.000</td></tr>
+            <tr><td>Keuntungan bersih investor</td><td class="val">$54,000</td><td class="val">945.000.000</td></tr>
+          </tbody>
+        </table>
+        <div class="pb-section-title" style="margin-top:1rem">Cara Kerja per Proyek</div>
+        <table class="pb-calc-table">
+          <thead><tr><th>Skenario Proyek</th><th style="text-align:right">Nilai Proyek</th><th style="text-align:right">Bagian Investor (10%)</th></tr></thead>
+          <tbody>
+            <tr><td>Proyek kecil (website SME)</td><td class="val">$5,000 / Rp 82,5 Jt</td><td class="val">$500 / Rp 8,25 Jt</td></tr>
+            <tr><td>Proyek menengah (web app)</td><td class="val">$15,000 / Rp 247,5 Jt</td><td class="val">$1,500 / Rp 24,75 Jt</td></tr>
+            <tr><td>Proyek besar (enterprise system)</td><td class="val">$50,000 / Rp 825 Jt</td><td class="val">$5,000 / Rp 82,5 Jt</td></tr>
+          </tbody>
+        </table>
+        <div class="pb-section-title" style="margin-top:1rem">Estimasi Kecepatan Cap Tercapai</div>
+        <table class="pb-calc-table">
+          <thead><tr><th>Rata-rata Nilai Proyek</th><th style="text-align:right">Share per Proyek</th><th style="text-align:right">Jumlah Proyek hingga Cap</th></tr></thead>
+          <tbody>
+            <tr><td>$5,000 / Rp 82,5 Juta</td><td class="val">$500</td><td class="val">180 proyek</td></tr>
+            <tr><td>$15,000 / Rp 247,5 Juta</td><td class="val">$1,500</td><td class="val">60 proyek</td></tr>
+            <tr><td>$30,000 / Rp 495 Juta</td><td class="val">$3,000</td><td class="val">30 proyek</td></tr>
+            <tr class="total-row"><td><strong>$50,000 / Rp 825 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>18 proyek</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="pb-highlight-box" style="margin-top:1rem;border-left-color:var(--acc)"><p>Setelah cap $90,000 / Rp 1,575 miliar terpenuhi, seluruh revenue SOLVARZ kembali 100% ke perusahaan. Semakin besar nilai proyek yang masuk, semakin cepat kewajiban investor selesai.</p></div>
+      </div>
+      <div class="pb-highlight-box" style="border-left-color:var(--acc)">
+        <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:var(--tx0)">Investasi ini bukan sekadar membiayai agensi baru — ini adalah taruhan pada model operasional masa depan: di mana AI adalah tenaga kerja, dan manusia adalah arsitek strateginya.</p>
+      </div>
+    </div>
+
+    <div class="pb-footer">SOLVARZ by Sparkz Solution · Pitch Book v5 · Confidential</div>
+  </div>
+</div>
+
+<script>
+  function toggleTheme() {
+    const root = document.getElementById('pbRoot');
+    const icon = document.getElementById('toggleIcon');
+    const label = document.getElementById('toggleLabel');
+    const isDark = root.classList.contains('dark');
+    if (isDark) {
+      root.classList.replace('dark', 'light');
+      icon.textContent = '🌙';
+      label.textContent = 'Dark Mode';
+    } else {
+      root.classList.replace('light', 'dark');
+      icon.textContent = '☀️';
+      label.textContent = 'Light Mode';
+    }
+  }
+</script>
+
+</body></html>
