@@ -292,7 +292,6 @@ button:not(#action-btns button):not(form.elicit button) {
   padding: 8px 16px;
   font-size: 14px;
   background: transparent;
-  color: var(--color-text-primary);
   border: 0.5px solid var(--color-border-secondary);
   border-radius: var(--border-radius-md);
   cursor: pointer;
@@ -1453,216 +1452,113 @@ body:hover #action-btns {
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
+  .pb-root{transition:background .25s,color .25s}
+  .pb-root.light{--bg0:#ffffff;--bg1:#f5f5f5;--bg2:#ebebeb;--tx0:#111111;--tx1:#444444;--tx2:#888888;--bd:#d8d8d8;--acc:#185FA5;--acc-bg:#E6F1FB;--acc-bd:#B5D4F4;--teal:#0F6E56;--teal-bg:#E1F5EE;--amber:#854F0B;--amber-bg:#FAEEDA;--purple:#534AB7;--purple-bg:#EEEDFE;--coral:#993C1D;--coral-bg:#FAECE7;--bar1:#B5D4F4;--bar2:#185FA5;--bar3:#0C447C;--alloc-a:#185FA5;--alloc-b:#0F6E56;--alloc-c:#854F0B;--solvarz-cell:#E6F1FB;--solvarz-hd:#B5D4F4;--solvarz-tx:#185FA5;--solvarz-hd-tx:#0C447C;--team-bg:#E6F1FB;--team-tx:#185FA5;--plan-a:#185FA5;--plan-a-bg:#E6F1FB;--plan-b:#0F6E56;--plan-b-bg:#E1F5EE}
+  .pb-root.dark{--bg0:#141414;--bg1:#1e1e1e;--bg2:#272727;--tx0:#f0f0f0;--tx1:#b0b0b0;--tx2:#666666;--bd:#333333;--acc:#5BA3E8;--acc-bg:#0e2238;--acc-bd:#1e4470;--teal:#3EC99A;--teal-bg:#0a2a20;--amber:#F0A830;--amber-bg:#2a1f06;--purple:#9B94F0;--purple-bg:#1a1740;--coral:#E07A5A;--coral-bg:#2a1208;--bar1:#1e4470;--bar2:#3a7dc4;--bar3:#5BA3E8;--alloc-a:#3a7dc4;--alloc-b:#2a9e76;--alloc-c:#c47e22;--solvarz-cell:#0e2238;--solvarz-hd:#1e4470;--solvarz-tx:#5BA3E8;--solvarz-hd-tx:#8ec6f5;--team-bg:#0e2238;--team-tx:#5BA3E8;--plan-a:#5BA3E8;--plan-a-bg:#0e2238;--plan-b:#3EC99A;--plan-b-bg:#0a2a20}
+  .pb-root{padding:.5rem}
+  .pb-toggle-bar{display:flex;justify-content:flex-end;padding:.25rem 0 1rem;position:sticky;top:0;z-index:100}
+  .pb-toggle-btn{display:flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;border:1px solid var(--bd);background:var(--bg1);color:var(--tx1);font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;transition:all .2s;user-select:none}
+  .pb-toggle-btn:hover{background:var(--bg2)}
+  .pb-wrap{max-width:680px;margin:0 auto;padding-bottom:3rem}
+  .pb-slide{border:0.5px solid var(--bd);border-radius:12px;padding:2rem;margin-bottom:1.5rem;background:var(--bg0)}
+  .pb-slide-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--tx2);letter-spacing:.08em;margin-bottom:.5rem}
+  .pb-slide-label{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px;border:0.5px solid var(--bd);color:var(--tx1);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em}
+  h1.pb-title{font-family:'DM Serif Display',serif;font-size:32px;line-height:1.15;margin:0 0 .4rem;color:var(--tx0);font-weight:400}
+  h2.pb-h2{font-family:'DM Serif Display',serif;font-size:22px;line-height:1.25;margin:0 0 .75rem;color:var(--tx0);font-weight:400}
+  .pb-body{font-size:14px;line-height:1.75;color:var(--tx1);margin:0 0 .75rem}
+  .pb-divider{border:none;border-top:0.5px solid var(--bd);margin:1.25rem 0}
+  .pb-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:1rem}
+  .pb-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:1rem}
+  .pb-card{background:var(--bg1);border-radius:8px;padding:1rem}
+  .pb-card-label{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+  .pb-card-val{font-size:20px;font-weight:500;color:var(--tx0);margin-bottom:2px}
+  .pb-card-sub{font-size:12px;color:var(--tx1);line-height:1.5}
+  .pb-bullet{display:flex;gap:10px;margin-bottom:.6rem;align-items:flex-start}
+  .pb-bullet-dot{width:6px;height:6px;border-radius:50%;background:var(--tx2);margin-top:7px;flex-shrink:0}
+  .pb-bullet-text{font-size:14px;line-height:1.65;color:var(--tx1)}
+  .pb-badge{display:inline-block;font-size:11px;padding:3px 9px;border-radius:999px;font-weight:500;margin-right:4px;margin-bottom:4px}
+  .pb-badge-blue{background:var(--acc-bg);color:var(--acc)}
+  .pb-badge-teal{background:var(--teal-bg);color:var(--teal)}
+  .pb-badge-amber{background:var(--amber-bg);color:var(--amber)}
+  .pb-badge-purple{background:var(--purple-bg);color:var(--purple)}
+  .pb-badge-coral{background:var(--coral-bg);color:var(--coral)}
+  .pb-highlight-box{border-left:3px solid var(--bd);padding:.75rem 1rem;border-radius:0 8px 8px 0;background:var(--bg1);margin:1rem 0}
+  .pb-highlight-box p{font-size:13px;line-height:1.7;color:var(--tx1);margin:0}
+  .pb-stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:0.5px solid var(--bd)}
+  .pb-stat-row:last-child{border-bottom:none}
+  .pb-stat-key{font-size:13px;color:var(--tx1)}
+  .pb-stat-val{font-size:13px;font-weight:500;color:var(--tx0);font-family:'DM Mono',monospace;text-align:right;max-width:58%}
+  .pb-section-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin:1rem 0 .5rem;font-family:'DM Mono',monospace}
+  .pb-comp-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:0}
+  .pb-comp-cell{padding:10px 12px;font-size:12px;border-bottom:0.5px solid var(--bd);color:var(--tx1);line-height:1.4}
+  .pb-comp-cell.header{font-weight:500;color:var(--tx0);font-size:11px;background:var(--bg1)}
+  .pb-comp-cell.solvarz{background:var(--solvarz-cell);color:var(--solvarz-tx);font-weight:500}
+  .pb-comp-cell.solvarz.header{background:var(--solvarz-hd);color:var(--solvarz-hd-tx)}
+  .pb-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:.75rem}
+  .pb-flow-node{background:var(--bg1);border:0.5px solid var(--bd);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:500;color:var(--tx0)}
+  .pb-flow-arrow{font-size:14px;color:var(--tx2)}
+  .pb-swarm{border:0.5px solid var(--bd);border-radius:12px;padding:1rem 1.25rem;margin-top:1rem}
+  .pb-swarm-center{text-align:center;padding:.5rem 0}
+  .pb-swarm-title{font-size:13px;font-weight:500;color:var(--tx0);margin-bottom:.5rem}
+  .pb-agents{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:.75rem}
+  .pb-agent{background:var(--bg1);border-radius:8px;padding:8px 10px;font-size:11px;font-family:'DM Mono',monospace;color:var(--tx1);text-align:center;line-height:1.5}
+  .pb-agent span{display:block;font-size:10px;color:var(--tx2)}
+  .pb-market-bar{margin-bottom:.75rem}
+  .pb-market-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+  .pb-market-label span:first-child{color:var(--tx1)}
+  .pb-market-label span:last-child{font-weight:500;color:var(--tx0);font-family:'DM Mono',monospace}
+  .pb-bar-track{background:var(--bg2);border-radius:999px;height:8px;overflow:hidden}
+  .pb-bar-fill{height:100%;border-radius:999px}
+  .pb-ask-alloc{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:.75rem 0 .4rem}
+  .pb-alloc-a{flex:4;background:var(--alloc-a)}
+  .pb-alloc-b{flex:4;background:var(--alloc-b)}
+  .pb-alloc-c{flex:2;background:var(--alloc-c)}
+  .pb-alloc-legend{display:flex;gap:12px;flex-wrap:wrap}
+  .pb-alloc-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx1)}
+  .pb-alloc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-  .pb-root { transition: background .25s, color .25s; }
+  /* PLAN TABS */
+  .pb-plan-tabs{display:flex;gap:0;margin-bottom:1.25rem;border:0.5px solid var(--bd);border-radius:10px;overflow:hidden}
+  .pb-plan-tab{flex:1;padding:10px 16px;font-size:13px;font-weight:500;cursor:pointer;text-align:center;border:none;background:var(--bg1);color:var(--tx1);transition:all .18s;font-family:'Outfit',sans-serif}
+  .pb-plan-tab:first-child{border-right:0.5px solid var(--bd)}
+  .pb-plan-tab.active-a{background:var(--plan-a-bg);color:var(--plan-a);font-weight:600}
+  .pb-plan-tab.active-b{background:var(--plan-b-bg);color:var(--plan-b);font-weight:600}
+  .pb-plan-content{display:none}
+  .pb-plan-content.active{display:block}
 
-  /* ── LIGHT ── */
-  .pb-root.light {
-    --bg0: #ffffff;
-    --bg1: #f5f5f5;
-    --bg2: #ebebeb;
-    --tx0: #111111;
-    --tx1: #444444;
-    --tx2: #888888;
-    --bd:  #d8d8d8;
-    --acc: #185FA5;
-    --acc-bg: #E6F1FB;
-    --acc-bd: #B5D4F4;
-    --teal: #0F6E56;
-    --teal-bg: #E1F5EE;
-    --amber: #854F0B;
-    --amber-bg: #FAEEDA;
-    --purple: #534AB7;
-    --purple-bg: #EEEDFE;
-    --coral: #993C1D;
-    --coral-bg: #FAECE7;
-    --bar1: #B5D4F4;
-    --bar2: #185FA5;
-    --bar3: #0C447C;
-    --alloc-a: #185FA5;
-    --alloc-b: #0F6E56;
-    --alloc-c: #854F0B;
-    --solvarz-cell: #E6F1FB;
-    --solvarz-hd: #B5D4F4;
-    --solvarz-tx: #185FA5;
-    --solvarz-hd-tx: #0C447C;
-    --team-bg: #E6F1FB;
-    --team-tx: #185FA5;
-  }
+  .pb-plan-header{border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem}
+  .pb-plan-header-a{background:var(--plan-a-bg);border:0.5px solid var(--acc-bd)}
+  .pb-plan-header-b{background:var(--plan-b-bg);border:0.5px solid var(--teal-bg)}
+  .pb-plan-title{font-size:17px;font-weight:600;margin-bottom:3px}
+  .pb-plan-title-a{color:var(--plan-a)}
+  .pb-plan-title-b{color:var(--plan-b)}
+  .pb-plan-subtitle{font-size:12px;font-family:'DM Mono',monospace;color:var(--tx2)}
 
-  /* ── DARK ── */
-  .pb-root.dark {
-    --bg0: #141414;
-    --bg1: #1e1e1e;
-    --bg2: #272727;
-    --tx0: #f0f0f0;
-    --tx1: #b0b0b0;
-    --tx2: #666666;
-    --bd:  #333333;
-    --acc: #5BA3E8;
-    --acc-bg: #0e2238;
-    --acc-bd: #1e4470;
-    --teal: #3EC99A;
-    --teal-bg: #0a2a20;
-    --amber: #F0A830;
-    --amber-bg: #2a1f06;
-    --purple: #9B94F0;
-    --purple-bg: #1a1740;
-    --coral: #E07A5A;
-    --coral-bg: #2a1208;
-    --bar1: #1e4470;
-    --bar2: #3a7dc4;
-    --bar3: #5BA3E8;
-    --alloc-a: #3a7dc4;
-    --alloc-b: #2a9e76;
-    --alloc-c: #c47e22;
-    --solvarz-cell: #0e2238;
-    --solvarz-hd: #1e4470;
-    --solvarz-tx: #5BA3E8;
-    --solvarz-hd-tx: #8ec6f5;
-    --team-bg: #0e2238;
-    --team-tx: #5BA3E8;
-  }
+  .pb-give-card{border:0.5px solid var(--bd);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem}
+  .pb-give-option{font-size:13px;font-weight:500;color:var(--tx0);margin-bottom:.35rem}
+  .pb-give-detail{font-size:12px;color:var(--tx1);line-height:1.65}
+  .pb-give-tag{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:999px;font-weight:500;margin-bottom:.4rem}
+  .pb-give-tag-a{background:var(--acc-bg);color:var(--acc)}
+  .pb-give-tag-b{background:var(--teal-bg);color:var(--teal)}
 
-  .pb-root { padding: .5rem; }
-
-  /* TOGGLE */
-  .pb-toggle-bar {
-    display: flex;
-    justify-content: flex-end;
-    padding: .25rem 0 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .pb-toggle-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--bd);
-    background: var(--bg1);
-    color: var(--tx1);
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all .2s;
-    user-select: none;
-  }
-  .pb-toggle-btn:hover { background: var(--bg2); }
-  .pb-toggle-icon { font-size: 14px; line-height: 1; }
-
-  .pb-wrap { max-width: 680px; margin: 0 auto; padding-bottom: 3rem; }
-
-  .pb-slide {
-    border: 0.5px solid var(--bd);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    background: var(--bg0);
-  }
-
-  .pb-slide-num { font-family:'DM Mono',monospace; font-size:11px; color:var(--tx2); letter-spacing:.08em; margin-bottom:.5rem; }
-  .pb-slide-label { display:inline-block; font-size:11px; font-weight:500; padding:3px 10px; border-radius:999px; border:0.5px solid var(--bd); color:var(--tx1); margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em; }
-
-  h1.pb-title { font-family:'DM Serif Display',serif; font-size:32px; line-height:1.15; margin:0 0 .4rem; color:var(--tx0); font-weight:400; }
-  h2.pb-h2 { font-family:'DM Serif Display',serif; font-size:22px; line-height:1.25; margin:0 0 .75rem; color:var(--tx0); font-weight:400; }
-  .pb-tagline { font-size:14px; color:var(--tx1); letter-spacing:.05em; margin-bottom:1.5rem; font-family:'DM Mono',monospace; }
-  .pb-body { font-size:14px; line-height:1.75; color:var(--tx1); margin:0 0 .75rem; }
-  .pb-divider { border:none; border-top:0.5px solid var(--bd); margin:1.25rem 0; }
-
-  .pb-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:1rem; }
-  .pb-grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:1rem; }
-
-  .pb-card { background:var(--bg1); border-radius:8px; padding:1rem; }
-  .pb-card-label { font-size:11px; font-family:'DM Mono',monospace; color:var(--tx2); margin-bottom:4px; text-transform:uppercase; letter-spacing:.06em; }
-  .pb-card-val { font-size:20px; font-weight:500; color:var(--tx0); margin-bottom:2px; }
-  .pb-card-sub { font-size:12px; color:var(--tx1); line-height:1.5; }
-
-  .pb-bullet { display:flex; gap:10px; margin-bottom:.6rem; align-items:flex-start; }
-  .pb-bullet-dot { width:6px; height:6px; border-radius:50%; background:var(--tx2); margin-top:7px; flex-shrink:0; }
-  .pb-bullet-text { font-size:14px; line-height:1.65; color:var(--tx1); }
-
-  .pb-badge { display:inline-block; font-size:11px; padding:3px 9px; border-radius:999px; font-weight:500; margin-right:4px; margin-bottom:4px; }
-  .pb-badge-blue   { background:var(--acc-bg);    color:var(--acc); }
-  .pb-badge-teal   { background:var(--teal-bg);   color:var(--teal); }
-  .pb-badge-amber  { background:var(--amber-bg);  color:var(--amber); }
-  .pb-badge-purple { background:var(--purple-bg); color:var(--purple); }
-  .pb-badge-coral  { background:var(--coral-bg);  color:var(--coral); }
-
-  .pb-highlight-box { border-left:3px solid var(--bd); padding:.75rem 1rem; border-radius:0 8px 8px 0; background:var(--bg1); margin:1rem 0; }
-  .pb-highlight-box p { font-size:13px; line-height:1.7; color:var(--tx1); margin:0; }
-
-  .pb-stat-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:0.5px solid var(--bd); }
-  .pb-stat-row:last-child { border-bottom:none; }
-  .pb-stat-key { font-size:13px; color:var(--tx1); }
-  .pb-stat-val { font-size:13px; font-weight:500; color:var(--tx0); font-family:'DM Mono',monospace; text-align:right; max-width:55%; }
-
-  .pb-section-title { font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.07em; color:var(--tx2); margin:1rem 0 .5rem; font-family:'DM Mono',monospace; }
-
-  .pb-comp-row { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:0; }
-  .pb-comp-cell { padding:10px 12px; font-size:12px; border-bottom:0.5px solid var(--bd); color:var(--tx1); line-height:1.4; }
-  .pb-comp-cell.header { font-weight:500; color:var(--tx0); font-size:11px; background:var(--bg1); }
-  .pb-comp-cell.solvarz { background:var(--solvarz-cell); color:var(--solvarz-tx); font-weight:500; }
-  .pb-comp-cell.solvarz.header { background:var(--solvarz-hd); color:var(--solvarz-hd-tx); }
-
-  .pb-flow { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:.75rem; }
-  .pb-flow-node { background:var(--bg1); border:0.5px solid var(--bd); border-radius:8px; padding:6px 12px; font-size:12px; font-weight:500; color:var(--tx0); }
-  .pb-flow-arrow { font-size:14px; color:var(--tx2); }
-
-  .pb-swarm { border:0.5px solid var(--bd); border-radius:12px; padding:1rem 1.25rem; margin-top:1rem; }
-  .pb-swarm-center { text-align:center; padding:.5rem 0; }
-  .pb-swarm-title { font-size:13px; font-weight:500; color:var(--tx0); margin-bottom:.5rem; }
-  .pb-agents { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:.75rem; }
-  .pb-agent { background:var(--bg1); border-radius:8px; padding:8px 10px; font-size:11px; font-family:'DM Mono',monospace; color:var(--tx1); text-align:center; line-height:1.5; }
-  .pb-agent span { display:block; font-size:10px; color:var(--tx2); }
-
-  .pb-market-bar { margin-bottom:.75rem; }
-  .pb-market-label { display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px; }
-  .pb-market-label span:first-child { color:var(--tx1); }
-  .pb-market-label span:last-child { font-weight:500; color:var(--tx0); font-family:'DM Mono',monospace; }
-  .pb-bar-track { background:var(--bg2); border-radius:999px; height:8px; overflow:hidden; }
-  .pb-bar-fill { height:100%; border-radius:999px; }
-
-  .pb-ask-alloc { display:flex; height:12px; border-radius:999px; overflow:hidden; margin:.75rem 0 .4rem; }
-  .pb-alloc-a { flex:4; background:var(--alloc-a); }
-  .pb-alloc-b { flex:4; background:var(--alloc-b); }
-  .pb-alloc-c { flex:2; background:var(--alloc-c); }
-  .pb-alloc-legend { display:flex; gap:12px; flex-wrap:wrap; }
-  .pb-alloc-item { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--tx1); }
-  .pb-alloc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-
-  .pb-give-card { border:0.5px solid var(--bd); border-radius:12px; padding:1rem 1.25rem; margin-bottom:.75rem; }
-  .pb-give-option { font-size:13px; font-weight:500; color:var(--tx0); margin-bottom:.35rem; }
-  .pb-give-detail { font-size:12px; color:var(--tx1); line-height:1.65; }
-  .pb-give-tag { display:inline-block; font-size:10px; font-family:'DM Mono',monospace; padding:2px 8px; border-radius:999px; font-weight:500; margin-bottom:.4rem; background:var(--acc-bg); color:var(--acc); }
-
-  .pb-calc-table { width:100%; border-collapse:collapse; margin-top:.75rem; font-size:12px; }
-  .pb-calc-table th { background:var(--bg1); padding:8px 12px; text-align:left; font-weight:500; font-size:11px; color:var(--tx1); text-transform:uppercase; letter-spacing:.05em; font-family:'DM Mono',monospace; }
-  .pb-calc-table td { padding:8px 12px; border-bottom:0.5px solid var(--bd); color:var(--tx1); line-height:1.5; }
-  .pb-calc-table tr:last-child td { border-bottom:none; }
-  .pb-calc-table .val { font-weight:500; color:var(--tx0); font-family:'DM Mono',monospace; text-align:right; }
-  .pb-calc-table .total-row td { background:var(--bg1); font-weight:500; color:var(--tx0); }
-  .pb-calc-table .total-row .val { color:var(--acc); }
-
-  .pb-footer { text-align:center; padding:1rem 0; font-size:12px; color:var(--tx2); font-family:'DM Mono',monospace; }
-
-  @media(max-width:480px){
-    .pb-grid-2{grid-template-columns:1fr}
-    .pb-grid-3{grid-template-columns:1fr 1fr}
-    .pb-comp-row{grid-template-columns:1fr 1fr}
-    .pb-agents{grid-template-columns:1fr 1fr}
-  }
+  .pb-calc-table{width:100%;border-collapse:collapse;margin-top:.75rem;font-size:12px}
+  .pb-calc-table th{background:var(--bg1);padding:8px 12px;text-align:left;font-weight:500;font-size:11px;color:var(--tx1);text-transform:uppercase;letter-spacing:.05em;font-family:'DM Mono',monospace}
+  .pb-calc-table td{padding:8px 12px;border-bottom:0.5px solid var(--bd);color:var(--tx1);line-height:1.5}
+  .pb-calc-table tr:last-child td{border-bottom:none}
+  .pb-calc-table .val{font-weight:500;color:var(--tx0);font-family:'DM Mono',monospace;text-align:right}
+  .pb-calc-table .total-row td{background:var(--bg1);font-weight:500;color:var(--tx0)}
+  .pb-calc-table .total-row-a .val{color:var(--plan-a)}
+  .pb-calc-table .total-row-b .val{color:var(--plan-b)}
+  .pb-footer{text-align:center;padding:1rem 0;font-size:12px;color:var(--tx2);font-family:'DM Mono',monospace}
+  .pb-kurs-note{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx2);padding:4px 10px;border-radius:999px;border:0.5px solid var(--bd);display:inline-block;margin-bottom:1rem}
+  @media(max-width:480px){.pb-grid-2{grid-template-columns:1fr}.pb-grid-3{grid-template-columns:1fr 1fr}.pb-comp-row{grid-template-columns:1fr 1fr}.pb-agents{grid-template-columns:1fr 1fr}}
 </style>
 
-<div class="pb-root dark" id="pbRoot">
-
-  <!-- TOGGLE -->
+<div class="pb-root light" id="pbRoot">
   <div class="pb-toggle-bar">
     <button class="pb-toggle-btn" id="toggleBtn" onclick="toggleTheme()">
-      <span class="pb-toggle-icon" id="toggleIcon">☀️</span>
-      <span id="toggleLabel">Light Mode</span>
+      <span id="toggleIcon">🌙</span>
+      <span id="toggleLabel">Dark Mode</span>
     </button>
   </div>
 
@@ -1672,12 +1568,11 @@ body:hover #action-btns {
     <div class="pb-slide">
       <div class="pb-slide-num">SLIDE 01 / 10</div>
       <div class="pb-slide-label">Title</div>
+      <div class="pb-kurs-note">Kurs Acuan: $1 = Rp 18.500</div>
       <h1 class="pb-title">Sparkz Solution</h1>
-      <div class="pb-tagline">Introducing SOLVARZ — The Agentic Digital Agency</div>
-      <div class="pb-highlight-box">
-        <p style="font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx0);font-style:italic;">"Scalable. Precise. Hyper-Efficient."</p>
-      </div>
-      <p class="pb-body">SOLVARZ adalah produk unggulan Sparkz Solution — sebuah AI-native Digital Agency yang membangun website enterprise, aplikasi web & mobile, serta identitas brand berkelas dunia. Dioperasikan 90% oleh Agentic AI dan 10% human experts, kami menghadirkan kecepatan dan kualitas yang belum pernah ada sebelumnya.</p>
+      <div style="font-size:14px;color:var(--tx1);letter-spacing:.05em;margin-bottom:1.5rem;font-family:'DM Mono',monospace">Introducing SOLVARZ — The Agentic Digital Agency</div>
+      <div class="pb-highlight-box"><p style="font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx0);font-style:italic;">"Scalable. Precise. Hyper-Efficient."</p></div>
+      <p class="pb-body">SOLVARZ adalah produk unggulan Sparkz Solution — sebuah AI-native Digital Agency yang membangun website enterprise, aplikasi web & mobile, serta identitas brand berkelas dunia. Dioperasikan 90% oleh Agentic AI dan 10% human experts.</p>
       <hr class="pb-divider">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem">
         <span class="pb-badge pb-badge-blue">AI-Native Agency</span>
@@ -1688,7 +1583,7 @@ body:hover #action-btns {
       <div class="pb-stat-row"><span class="pb-stat-key">Entitas</span><span class="pb-stat-val">Sparkz Solution / SOLVARZ</span></div>
       <div class="pb-stat-row"><span class="pb-stat-key">Tahap</span><span class="pb-stat-val">Pre-Seed — Validasi MVP</span></div>
       <div class="pb-stat-row"><span class="pb-stat-key">Founder</span><span class="pb-stat-val">Hanindiyo Saputro — IT Consultant</span></div>
-      <div class="pb-stat-row"><span class="pb-stat-key">Target Pendanaan</span><span class="pb-stat-val">$36,000 / Rp 630.000.000</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Target Pendanaan</span><span class="pb-stat-val">$36,000 / Rp 666.000.000</span></div>
       <div class="pb-stat-row"><span class="pb-stat-key">Target Pasar</span><span class="pb-stat-val">Indonesia · Singapura · ASEAN</span></div>
     </div>
 
@@ -1699,10 +1594,10 @@ body:hover #action-btns {
       <h2 class="pb-h2">Industri Digital Agency Rusak dari Dalam</h2>
       <p class="pb-body">Bisnis enterprise di Asia Tenggara membutuhkan solusi digital berkelas tinggi — namun model agensi tradisional membuat mereka terjebak dalam inefisiensi yang mahal.</p>
       <div class="pb-grid-2">
-        <div class="pb-card"><div class="pb-card-label">Masalah 01</div><div class="pb-card-val" style="font-size:16px">Siklus Lambat</div><div class="pb-card-sub">Proyek enterprise memakan waktu berbulan-bulan akibat overhead sumber daya manusia yang besar dan proses revisi yang tidak efisien.</div></div>
-        <div class="pb-card"><div class="pb-card-label">Masalah 02</div><div class="pb-card-val" style="font-size:16px">Biaya Tinggi</div><div class="pb-card-sub">Biaya operasional manusia diteruskan ke klien. Proyek enterprise rata-rata membengkak <strong style="color:var(--tx0)">$20,000–$100,000 / Rp 330 Jt–1,65 M</strong> di agensi tradisional.</div></div>
-        <div class="pb-card"><div class="pb-card-label">Masalah 03</div><div class="pb-card-val" style="font-size:16px">Human Error</div><div class="pb-card-sub">Kesalahan coding dan desain pada skala enterprise menambah biaya rework rata-rata <strong style="color:var(--tx0)">$5,000–$15,000 / Rp 82–247 Juta</strong> per insiden.</div></div>
-        <div class="pb-card"><div class="pb-card-label">Masalah 04</div><div class="pb-card-val" style="font-size:16px">Sulit Adaptasi</div><div class="pb-card-sub">Adaptasi teknologi baru terkendala tenaga ahli spesifik dengan biaya retensi <strong style="color:var(--tx0)">$2,000–$8,000 / Rp 33–132 Jt</strong> per bulan.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 01</div><div class="pb-card-val" style="font-size:16px">Siklus Lambat</div><div class="pb-card-sub">Proyek enterprise memakan waktu berbulan-bulan akibat overhead sumber daya manusia yang besar dan proses revisi tidak efisien.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 02</div><div class="pb-card-val" style="font-size:16px">Biaya Tinggi</div><div class="pb-card-sub">Proyek enterprise rata-rata membengkak <strong style="color:var(--tx0)">$20K–$100K / Rp 370 Jt–1,85 M</strong> di agensi tradisional akibat overhead manusia.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 03</div><div class="pb-card-val" style="font-size:16px">Human Error</div><div class="pb-card-sub">Biaya rework akibat bug dan inkonsistensi desain rata-rata <strong style="color:var(--tx0)">$5K–$15K / Rp 92,5–277,5 Juta</strong> per insiden.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 04</div><div class="pb-card-val" style="font-size:16px">Sulit Adaptasi</div><div class="pb-card-sub">Biaya retensi tenaga ahli spesifik <strong style="color:var(--tx0)">$2K–$8K / Rp 37–148 Juta</strong> per bulan menghambat adaptasi teknologi baru.</div></div>
       </div>
       <div class="pb-highlight-box" style="margin-top:1.25rem"><p>Akibatnya: klien membayar terlalu mahal, menunggu terlalu lama, dan masih mendapat produk yang tidak konsisten. <strong style="color:var(--tx0)">Pasar membutuhkan model baru.</strong></p></div>
     </div>
@@ -1714,10 +1609,10 @@ body:hover #action-btns {
       <h2 class="pb-h2">SOLVARZ: Enterprise-Grade Agentic AI Agency</h2>
       <p class="pb-body">SOLVARZ mendisrupsi model agensi konvensional dengan menempatkan AI sebagai tenaga kerja utama dan human experts sebagai lapisan kontrol kualitas dan keamanan.</p>
       <div class="pb-section-title">Keunggulan Kunci</div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">70% lebih cepat</strong> — Siklus pengembangan dipangkas drastis berkat orkestrasi AI agent yang bekerja paralel 24/7 tanpa batas kapasitas manusia.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agent as a Service (AaaS)</strong> — Klien tidak hanya mendapatkan produk jadi, tetapi juga infrastruktur AI yang dapat mengelola operasional digital mereka secara mandiri.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Scalable Quality</strong> — Standar kualitas enterprise yang konsisten dijamin oleh orkestrasi AI agent terspesialisasi, mengeliminasi human error dari proses produksi.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Model 90/10</strong> — 90% Agentic AI Operations + 10% Human Experts sebagai lapisan keamanan strategis. Efisiensi maksimal, risiko minimal.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">70% lebih cepat</strong> — Siklus pengembangan dipangkas drastis berkat orkestrasi AI agent yang bekerja paralel 24/7.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agent as a Service (AaaS)</strong> — Klien mendapatkan produk jadi sekaligus infrastruktur AI yang mengelola operasional digital mereka secara mandiri.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Scalable Quality</strong> — Standar kualitas enterprise yang konsisten, mengeliminasi human error dari proses produksi.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Model 90/10</strong> — 90% Agentic AI Operations + 10% Human Experts. Efisiensi maksimal, risiko minimal.</div></div>
       <div class="pb-grid-3" style="margin-top:1.25rem">
         <div class="pb-card" style="text-align:center"><div class="pb-card-val">70%</div><div class="pb-card-sub">Lebih cepat dari agensi konvensional</div></div>
         <div class="pb-card" style="text-align:center"><div class="pb-card-val">90%</div><div class="pb-card-sub">Operasional dijalankan AI agents</div></div>
@@ -1730,7 +1625,7 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 04 / 10</div>
       <div class="pb-slide-label">Underlying Magic</div>
       <h2 class="pb-h2">The Secret Sauce: SOLVARZ Swarm</h2>
-      <p class="pb-body">Di balik kecepatan dan kualitas SOLVARZ terdapat sistem orkestrasi AI multi-agent yang kami sebut <strong style="color:var(--tx0)">SOLVARZ Swarm</strong> — The Agentic Orchestration Layer.</p>
+      <p class="pb-body">Di balik kecepatan dan kualitas SOLVARZ terdapat sistem orkestrasi AI multi-agent: <strong style="color:var(--tx0)">SOLVARZ Swarm</strong> — The Agentic Orchestration Layer.</p>
       <div class="pb-swarm">
         <div class="pb-swarm-center">
           <div class="pb-swarm-title">SOLVARZ Swarm — Agentic Orchestration Layer</div>
@@ -1747,13 +1642,13 @@ body:hover #action-btns {
       </div>
       <div class="pb-section-title" style="margin-top:1.25rem">Cara Kerja</div>
       <div class="pb-flow">
-        <div class="pb-flow-node">Input Brief Klien</div><div class="pb-flow-arrow">→</div>
+        <div class="pb-flow-node">Input Brief</div><div class="pb-flow-arrow">→</div>
         <div class="pb-flow-node">Orchestrator AI</div><div class="pb-flow-arrow">→</div>
         <div class="pb-flow-node">Swarm Parallel</div><div class="pb-flow-arrow">→</div>
         <div class="pb-flow-node">Human Review</div><div class="pb-flow-arrow">→</div>
         <div class="pb-flow-node">Deliverable</div>
       </div>
-      <div class="pb-highlight-box" style="margin-top:1rem"><p>Agent A (Research) berkolaborasi secara instan dengan Agent B (Copywriting) dan Agent C (Design) tanpa perlu manajemen manusia di tengahnya. Workflow kompleks diselesaikan dalam hitungan menit secara otomatis.</p></div>
+      <div class="pb-highlight-box" style="margin-top:1rem"><p>Agent Research, Copywriting, dan Design berkolaborasi instan tanpa manajemen manusia di tengahnya. Workflow kompleks selesai dalam hitungan menit secara otomatis.</p></div>
     </div>
 
     <!-- SLIDE 5 -->
@@ -1761,15 +1656,15 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 05 / 10</div>
       <div class="pb-slide-label">Business Model</div>
       <h2 class="pb-h2">Empat Aliran Pendapatan yang Saling Menguatkan</h2>
-      <p class="pb-body">Model bisnis SOLVARZ dirancang untuk menghasilkan pendapatan beragam — dari proyek bernilai tinggi satu kali hingga recurring revenue yang terukur.</p>
+      <p class="pb-body">Model bisnis SOLVARZ dirancang untuk menghasilkan pendapatan beragam — dari proyek bernilai tinggi hingga recurring revenue yang terukur.</p>
       <div class="pb-grid-2">
-        <div class="pb-card"><div class="pb-card-label" style="color:var(--acc)">Stream 01 — Core Revenue</div><div class="pb-card-val" style="font-size:15px">High-Value Projects</div><div class="pb-card-sub">Website & aplikasi enterprise. Nilai proyek <strong style="color:var(--tx0)">$5,000–$50,000 / Rp 82–825 Juta</strong> per engagement.</div></div>
-        <div class="pb-card"><div class="pb-card-label" style="color:var(--teal)">Stream 02 — Growth Play</div><div class="pb-card-val" style="font-size:15px">Micro SaaS Ecosystem</div><div class="pb-card-sub">Produk SaaS vertikal berbasis AI. Subscription <strong style="color:var(--tx0)">$29–$299/bulan / Rp 480 Rb–4,9 Jt/bulan</strong>.</div></div>
-        <div class="pb-card"><div class="pb-card-label" style="color:var(--purple)">Stream 03 — B2B Expansion</div><div class="pb-card-val" style="font-size:15px">Agent as a Service</div><div class="pb-card-sub">Infrastruktur AI agent untuk perusahaan lain. Mulai <strong style="color:var(--tx0)">$500–$5,000/bulan / Rp 8,25–82,5 Jt/bulan</strong>.</div></div>
-        <div class="pb-card"><div class="pb-card-label" style="color:var(--amber)">Stream 04 — Recurring</div><div class="pb-card-val" style="font-size:15px">Tiered Subscription</div><div class="pb-card-sub">Kelola sosmed, SEO, content marketing berbasis AI. Mulai <strong style="color:var(--tx0)">$199–$999/bulan / Rp 3,28–16,5 Jt/bulan</strong>.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--acc)">Stream 01 — Core Revenue</div><div class="pb-card-val" style="font-size:15px">High-Value Projects</div><div class="pb-card-sub">Website & aplikasi enterprise. Nilai proyek <strong style="color:var(--tx0)">$5K–$50K / Rp 92,5–925 Juta</strong> per engagement.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--teal)">Stream 02 — Growth Play</div><div class="pb-card-val" style="font-size:15px">Micro SaaS Ecosystem</div><div class="pb-card-sub">Produk SaaS vertikal berbasis AI. Subscription <strong style="color:var(--tx0)">$29–$299/bln / Rp 537 Rb–5,53 Jt/bln</strong>.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--purple)">Stream 03 — B2B Expansion</div><div class="pb-card-val" style="font-size:15px">Agent as a Service</div><div class="pb-card-sub">Infrastruktur AI agent untuk perusahaan lain. Mulai <strong style="color:var(--tx0)">$500–$5K/bln / Rp 9,25–92,5 Jt/bln</strong>.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--amber)">Stream 04 — Recurring</div><div class="pb-card-val" style="font-size:15px">Tiered Subscription</div><div class="pb-card-sub">Kelola sosmed, SEO, content marketing berbasis AI. Mulai <strong style="color:var(--tx0)">$199–$999/bln / Rp 3,68–18,5 Jt/bln</strong>.</div></div>
       </div>
       <div class="pb-section-title" style="margin-top:1.25rem">Unit Ekonomi</div>
-      <div class="pb-stat-row"><span class="pb-stat-key">Rata-rata nilai proyek enterprise</span><span class="pb-stat-val">$5K–$50K / Rp 82–825 Juta</span></div>
+      <div class="pb-stat-row"><span class="pb-stat-key">Rata-rata nilai proyek enterprise</span><span class="pb-stat-val">$5K–$50K / Rp 92,5–925 Juta</span></div>
       <div class="pb-stat-row"><span class="pb-stat-key">Target recurring revenue (Year 2)</span><span class="pb-stat-val">30–40% dari total revenue</span></div>
       <div class="pb-stat-row"><span class="pb-stat-key">Target gross margin (AI-driven ops)</span><span class="pb-stat-val">65–80%</span></div>
     </div>
@@ -1780,15 +1675,15 @@ body:hover #action-btns {
       <div class="pb-slide-label">Market Size</div>
       <h2 class="pb-h2">Pasar yang Besar, Momentum yang Tepat</h2>
       <p class="pb-body">Pasar Agentic AI diproyeksikan tumbuh dengan CAGR 40%+ hingga 2030, menempatkan SOLVARZ di garis depan revolusi efisiensi industri digital global.</p>
-      <div class="pb-market-bar"><div class="pb-market-label"><span>TAM — Global B2B Tech & Digital Services</span><span>$1,8 T / Rp 29.700 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:100%;background:var(--bar1)"></div></div></div>
-      <div class="pb-market-bar"><div class="pb-market-label"><span>SAM — Southeast Asia Digital Service Economy</span><span>$55 M / Rp 907,5 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:50%;background:var(--bar2)"></div></div></div>
-      <div class="pb-market-bar"><div class="pb-market-label"><span>SOM — Target SOLVARZ (Tahun 3–5)</span><span>$150 Juta / Rp 2,475 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:12%;background:var(--bar3)"></div></div></div>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>TAM — Global B2B Tech & Digital Services</span><span>$1,8 T / Rp 33.300 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:100%;background:var(--bar1)"></div></div></div>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>SAM — Southeast Asia Digital Service Economy</span><span>$55 B / Rp 1.017,5 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:50%;background:var(--bar2)"></div></div></div>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>SOM — Target SOLVARZ (Tahun 3–5)</span><span>$150 Juta / Rp 2.775 Miliar</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:12%;background:var(--bar3)"></div></div></div>
       <div class="pb-grid-3" style="margin-top:1.25rem">
-        <div class="pb-card" style="border:0.5px solid var(--acc-bd)"><div class="pb-card-label">TAM Global</div><div class="pb-card-val" style="font-size:17px">$1,8 T</div><div class="pb-card-sub">Rp 29.700 Triliun — Digital Marketing, Custom Software, Cybersecurity terakselerasi AI</div></div>
-        <div class="pb-card" style="border:0.5px solid var(--teal-bg)"><div class="pb-card-label">SAM — ASEAN</div><div class="pb-card-val" style="font-size:17px">$55 M</div><div class="pb-card-sub">Rp 907,5 Triliun — Ekonomi digital ASEAN menuju $300B GMV di 2026</div></div>
-        <div class="pb-card" style="border:0.5px solid var(--purple-bg)"><div class="pb-card-label">SOM Target</div><div class="pb-card-val" style="font-size:17px">$150 Jt</div><div class="pb-card-sub">Rp 2,475 Triliun — 2–3% pasar IT premium Indonesia + Singapura. Tahun ke-3 hingga 5</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--acc-bd)"><div class="pb-card-label">TAM Global</div><div class="pb-card-val" style="font-size:17px">$1,8 T</div><div class="pb-card-sub">Rp 33.300 Triliun — Digital Marketing, Custom Software, Cybersecurity terakselerasi AI</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--teal-bg)"><div class="pb-card-label">SAM — ASEAN</div><div class="pb-card-val" style="font-size:17px">$55 B</div><div class="pb-card-sub">Rp 1.017,5 Triliun — Ekonomi digital ASEAN menuju $300B GMV di 2026</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--purple-bg)"><div class="pb-card-label">SOM Target</div><div class="pb-card-val" style="font-size:17px">$150 Jt</div><div class="pb-card-sub">Rp 2.775 Miliar — 2–3% pasar IT premium Indonesia + Singapura. Tahun ke-3 hingga 5</div></div>
       </div>
-      <div class="pb-highlight-box" style="margin-top:1rem"><p>Target SOM $150 Juta / Rp 2,475 Triliun tercapai melalui model operasional rendah biaya namun margin tinggi — keunggulan struktural yang hanya bisa dicapai oleh AI-native company seperti SOLVARZ.</p></div>
+      <div class="pb-highlight-box" style="margin-top:1rem"><p>Target SOM $150 Juta / Rp 2.775 Miliar tercapai melalui model operasional rendah biaya namun margin tinggi — keunggulan struktural eksklusif AI-native company.</p></div>
     </div>
 
     <!-- SLIDE 7 -->
@@ -1796,11 +1691,11 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 07 / 10</div>
       <div class="pb-slide-label">Marketing & Sales</div>
       <h2 class="pb-h2">Inbound via Our Own Efficiency</h2>
-      <p class="pb-body">Strategi go-to-market SOLVARZ bukan sekadar menjual produk — kami <strong style="color:var(--tx0)">menggunakan produk kami sendiri</strong> sebagai mesin akuisisi klien yang paling meyakinkan.</p>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agentic Custom Enterprise Development:</strong> Layanan pengembangan end-to-end untuk kebutuhan enterprise berskala besar — sistem manajemen internal, platform B2B, hingga aplikasi layanan publik — seluruhnya dikerjakan SOLVARZ Swarm. Klien mendapatkan solusi fully custom dalam fraksi waktu dibanding agensi konvensional, dengan harga kompetitif karena efisiensi AI. Ini menjadi pintu masuk utama ke akun enterprise bernilai tinggi sekaligus proof-of-concept nyata kapabilitas SOLVARZ.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Content Hyper-Generation:</strong> AI Agents kami sendiri mendominasi SEO dan media sosial dengan konten berkualitas tinggi secara massal — menjadikan SOLVARZ thought leader di industri AI agency sebelum kompetitor sempat bereaksi.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">The "Speed Test" Lead Magnet:</strong> Calon klien mendapatkan draf strategi digital atau wireframe website yang dibuat AI dalam 1 jam — gratis. Pengalaman langsung ini mengonversi skeptis menjadi believers lebih efektif dari pitching manapun.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Targeting Tech Startups & SMEs:</strong> Fokus pada segmen yang tumbuh cepat dan membutuhkan skalabilitas tinggi namun terkendala budget agensi besar. SOLVARZ menawarkan kualitas enterprise dengan biaya kompetitif.</div></div>
+      <p class="pb-body">Kami <strong style="color:var(--tx0)">menggunakan produk kami sendiri</strong> sebagai mesin akuisisi klien yang paling meyakinkan.</p>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agentic Custom Enterprise Development:</strong> Layanan pengembangan end-to-end untuk enterprise berskala besar — sistem manajemen internal, platform B2B, hingga aplikasi layanan publik — seluruhnya dikerjakan SOLVARZ Swarm. Pintu masuk utama ke akun enterprise bernilai tinggi sekaligus proof-of-concept nyata kapabilitas SOLVARZ.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Content Hyper-Generation:</strong> AI Agents kami mendominasi SEO dan media sosial dengan konten berkualitas tinggi secara massal — menjadikan SOLVARZ thought leader di industri AI agency.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">The "Speed Test" Lead Magnet:</strong> Calon klien mendapatkan draf strategi digital atau wireframe website yang dibuat AI dalam 1 jam — gratis.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Targeting Tech Startups & SMEs:</strong> Segmen yang tumbuh cepat, butuh skalabilitas tinggi, namun terkendala budget agensi besar.</div></div>
       <hr class="pb-divider">
       <div class="pb-section-title">Kanal Utama</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -1817,21 +1712,16 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 08 / 10</div>
       <div class="pb-slide-label">Competition</div>
       <h2 class="pb-h2">SOLVARZ Sits in the Winning Quadrant</h2>
-      <p class="pb-body">Lanskap kompetitif saat ini terbagi tiga — dan ketiganya memiliki trade-off krusial yang SOLVARZ atasi sekaligus.</p>
+      <p class="pb-body">Lanskap kompetitif terbagi tiga — dan ketiganya memiliki trade-off krusial yang SOLVARZ atasi sekaligus.</p>
       <div style="border:0.5px solid var(--bd);border-radius:12px;overflow:hidden;margin-top:1rem">
-        <div class="pb-comp-row">
-          <div class="pb-comp-cell header">Dimensi</div>
-          <div class="pb-comp-cell header solvarz">SOLVARZ</div>
-          <div class="pb-comp-cell header">Agensi Tradisional</div>
-          <div class="pb-comp-cell header">Freelancer</div>
-        </div>
+        <div class="pb-comp-row"><div class="pb-comp-cell header">Dimensi</div><div class="pb-comp-cell header solvarz">SOLVARZ</div><div class="pb-comp-cell header">Agensi Tradisional</div><div class="pb-comp-cell header">Freelancer</div></div>
         <div class="pb-comp-row"><div class="pb-comp-cell">Kecepatan Delivery</div><div class="pb-comp-cell solvarz">Sangat Tinggi ↑↑</div><div class="pb-comp-cell">Lambat, berbulan-bulan</div><div class="pb-comp-cell">Bervariasi, tidak pasti</div></div>
         <div class="pb-comp-row"><div class="pb-comp-cell">Biaya Klien</div><div class="pb-comp-cell solvarz">Kompetitif, margin efisien</div><div class="pb-comp-cell">Tinggi — overhead besar</div><div class="pb-comp-cell">Murah, kualitas tidak pasti</div></div>
         <div class="pb-comp-row"><div class="pb-comp-cell">Konsistensi Kualitas</div><div class="pb-comp-cell solvarz">Konsisten — AI-enforced</div><div class="pb-comp-cell">Tergantung tim</div><div class="pb-comp-cell">Rendah, sulit dikontrol</div></div>
         <div class="pb-comp-row"><div class="pb-comp-cell">Skalabilitas</div><div class="pb-comp-cell solvarz">Unlimited — AI scales</div><div class="pb-comp-cell">Terbatas kapasitas manusia</div><div class="pb-comp-cell">Sangat terbatas</div></div>
         <div class="pb-comp-row" style="border-bottom:none"><div class="pb-comp-cell">AI Infrastructure</div><div class="pb-comp-cell solvarz">Native — produk kami</div><div class="pb-comp-cell">Sebagian adopsi tools AI</div><div class="pb-comp-cell">Tidak ada / minimal</div></div>
       </div>
-      <div class="pb-highlight-box" style="margin-top:1.25rem"><p>AI DIY Tools (SaaS generik) pun bukan solusi — klien masih harus mengoperasikan sendiri. SOLVARZ memberikan <strong style="color:var(--tx0)">hasil jadi end-to-end</strong> dengan infrastruktur AI sebagai fondasi.</p></div>
+      <div class="pb-highlight-box" style="margin-top:1.25rem"><p>SOLVARZ memberikan <strong style="color:var(--tx0)">hasil jadi end-to-end</strong> dengan infrastruktur AI sebagai fondasi — sesuatu yang tidak bisa ditawarkan kompetitor manapun saat ini.</p></div>
     </div>
 
     <!-- SLIDE 9 -->
@@ -1839,7 +1729,7 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 09 / 10</div>
       <div class="pb-slide-label">Management Team</div>
       <h2 class="pb-h2">Didirikan oleh Praktisi, Bukan Sekadar Visioner</h2>
-      <p class="pb-body">SOLVARZ lahir dari pengalaman langsung di lapangan IT consulting — bukan dari teori semata. Founder memahami secara mendalam pain points yang SOLVARZ selesaikan.</p>
+      <p class="pb-body">SOLVARZ lahir dari pengalaman langsung di lapangan IT consulting. Founder memahami secara mendalam pain points yang SOLVARZ selesaikan.</p>
       <div class="pb-card" style="margin-top:1rem;border:0.5px solid var(--bd)">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:1rem">
           <div style="width:48px;height:48px;border-radius:50%;background:var(--team-bg);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;color:var(--team-tx);flex-shrink:0">HS</div>
@@ -1849,10 +1739,10 @@ body:hover #action-btns {
           </div>
         </div>
         <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">IT Consultant dengan pengalaman langsung menangani kebutuhan teknologi korporat dan enterprise.</div></div>
-        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">Membangun arsitektur Agentic AI (SOLVARZ Swarm) dari ground-up sebagai solusi atas inefisiensi yang diobservasi langsung di industri.</div></div>
-        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">Pipeline klien awal mencakup dua nama besar: <strong style="color:var(--tx0)">Jasa Raharja</strong> dan <strong style="color:var(--tx0)">SGS</strong> — bukti kredibilitas nyata sebelum pendanaan.</div></div>
+        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">Membangun arsitektur SOLVARZ Swarm dari ground-up sebagai solusi atas inefisiensi yang diobservasi langsung di industri.</div></div>
+        <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">Pipeline klien awal: <strong style="color:var(--tx0)">Jasa Raharja</strong> dan <strong style="color:var(--tx0)">SGS</strong> — bukti kredibilitas nyata sebelum pendanaan.</div></div>
       </div>
-      <div class="pb-highlight-box" style="margin-top:1rem"><p>Dengan pendanaan Pre-Seed ini, roadmap pertama adalah membangun <strong style="color:var(--tx0)">Core Team</strong> yang akan mengisi peran strategis di bidang AI Engineering, Business Development, dan Client Success.</p></div>
+      <div class="pb-highlight-box" style="margin-top:1rem"><p>Dengan pendanaan Pre-Seed ini, roadmap pertama adalah membangun <strong style="color:var(--tx0)">Core Team</strong> di bidang AI Engineering, Business Development, dan Client Success.</p></div>
       <div class="pb-section-title">Posisi yang Akan Direkrut (Post-Funding)</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
         <span class="pb-badge pb-badge-blue">AI/ML Engineer</span>
@@ -1866,74 +1756,136 @@ body:hover #action-btns {
     <div class="pb-slide">
       <div class="pb-slide-num">SLIDE 10 / 10</div>
       <div class="pb-slide-label">Status · Timeline · The Ask · The Give</div>
-      <h2 class="pb-h2">Pre-Seed Round — $36,000 / Rp 630.000.000</h2>
-      <p class="pb-body">SOLVARZ berada di momentum yang tepat: pipeline klien enterprise sudah ada, teknologi dalam tahap finalisasi. Dana Pre-Seed ini akan mengakselerasi validasi MVP dan akuisisi klien awal secara sistematis.</p>
-      <div class="pb-section-title">Status Saat Ini</div>
-      <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val">Jasa Raharja · SGS</span></div>
-      <div class="pb-stat-row"><span class="pb-stat-key">Teknologi Inti (SOLVARZ Swarm)</span><span class="pb-stat-val">In Development</span></div>
-      <div class="pb-stat-row"><span class="pb-stat-key">Tahap Pendanaan</span><span class="pb-stat-val">Pre-Seed — Validasi MVP</span></div>
-      <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">3 Pilot Clients · MVP Launch</span></div>
-      <div class="pb-section-title" style="margin-top:1.25rem">Alokasi Dana — $36,000 / Rp 630.000.000</div>
-      <div class="pb-ask-alloc"><div class="pb-alloc-a"></div><div class="pb-alloc-b"></div><div class="pb-alloc-c"></div></div>
-      <div class="pb-alloc-legend">
-        <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a)"></div>40% Infrastruktur & API AI — $14,400 / Rp 252 Juta</div>
-        <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b)"></div>40% Core Team — $14,400 / Rp 252 Juta</div>
-        <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c)"></div>20% Marketing & Akuisisi Klien — $7,200 / Rp 126 Juta</div>
+      <h2 class="pb-h2">Pre-Seed Round — Pilih Paket Investasi</h2>
+      <p class="pb-body">SOLVARZ membuka dua jalur investasi Pre-Seed yang fleksibel — disesuaikan dengan kapasitas dan ekspektasi return investor.</p>
+
+      <!-- PLAN TABS -->
+      <div class="pb-plan-tabs">
+        <button class="pb-plan-tab active-a" id="tabA" onclick="switchPlan('A')" >
+          🅐 &nbsp; Plan A — $36,000 &nbsp;·&nbsp; 2,5x Return
+        </button>
+        <button class="pb-plan-tab" id="tabB" onclick="switchPlan('B')">
+          🅑 &nbsp; Plan B — $12,000 &nbsp;·&nbsp; 2x Return
+        </button>
       </div>
-      <div class="pb-section-title" style="margin-top:1.25rem">Roadmap 12 Bulan</div>
-      <div class="pb-flow">
-        <div class="pb-flow-node" style="font-size:11px">Q1: Infra Setup &amp; Swarm MVP</div><div class="pb-flow-arrow">→</div>
-        <div class="pb-flow-node" style="font-size:11px">Q2: 3 Pilot Clients Live</div><div class="pb-flow-arrow">→</div>
-        <div class="pb-flow-node" style="font-size:11px">Q3: Revenue &amp; Iterasi</div><div class="pb-flow-arrow">→</div>
-        <div class="pb-flow-node" style="font-size:11px">Q4: Seed Round Ready</div>
-      </div>
-      <hr class="pb-divider">
-      <div class="pb-section-title" style="margin-top:0">The Give — Skema Return Investor</div>
-      <p class="pb-body" style="font-size:13px">Skema bagi hasil yang adil dan transparan, langsung terikat pada performa bisnis nyata.</p>
-      <div class="pb-give-card">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
-          <div class="pb-give-option">Revenue Share per Proyek — 2,5x Return</div>
-          <span class="pb-give-tag">10% per proyek · Cap $90,000</span>
+
+      <!-- PLAN A -->
+      <div class="pb-plan-content active" id="planA">
+        <div class="pb-plan-header pb-plan-header-a">
+          <div class="pb-plan-title pb-plan-title-a">Plan A — Full Pre-Seed Round</div>
+          <div class="pb-plan-subtitle">$36,000 / Rp 666.000.000 &nbsp;·&nbsp; Revenue Share 2,5x &nbsp;·&nbsp; Cap $90,000</div>
         </div>
-        <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% bagi hasil dari net revenue setiap proyek</strong> yang berhasil diselesaikan dan dibayarkan klien, hingga total pengembalian mencapai <strong style="color:var(--tx0)">2,5x nilai investasi</strong>. Setelah cap terpenuhi, revenue share otomatis berakhir.</div>
-        <div class="pb-section-title" style="margin-top:.25rem">Rincian Perhitungan Return Investor</div>
-        <table class="pb-calc-table">
-          <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
-          <tbody>
-            <tr><td>Modal investasi awal</td><td class="val">$36,000</td><td class="val">630.000.000</td></tr>
-            <tr><td>Multiplier return</td><td class="val">2,5x</td><td class="val">2,5x</td></tr>
-            <tr class="total-row"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$90,000</strong></td><td class="val"><strong>1.575.000.000</strong></td></tr>
-            <tr><td>Pokok investasi (kembali)</td><td class="val">$36,000</td><td class="val">630.000.000</td></tr>
-            <tr><td>Keuntungan bersih investor</td><td class="val">$54,000</td><td class="val">945.000.000</td></tr>
-          </tbody>
-        </table>
-        <div class="pb-section-title" style="margin-top:1rem">Cara Kerja per Proyek</div>
-        <table class="pb-calc-table">
-          <thead><tr><th>Skenario Proyek</th><th style="text-align:right">Nilai Proyek</th><th style="text-align:right">Bagian Investor (10%)</th></tr></thead>
-          <tbody>
-            <tr><td>Proyek kecil (website SME)</td><td class="val">$5,000 / Rp 82,5 Jt</td><td class="val">$500 / Rp 8,25 Jt</td></tr>
-            <tr><td>Proyek menengah (web app)</td><td class="val">$15,000 / Rp 247,5 Jt</td><td class="val">$1,500 / Rp 24,75 Jt</td></tr>
-            <tr><td>Proyek besar (enterprise system)</td><td class="val">$50,000 / Rp 825 Jt</td><td class="val">$5,000 / Rp 82,5 Jt</td></tr>
-          </tbody>
-        </table>
-        <div class="pb-section-title" style="margin-top:1rem">Estimasi Kecepatan Cap Tercapai</div>
-        <table class="pb-calc-table">
-          <thead><tr><th>Rata-rata Nilai Proyek</th><th style="text-align:right">Share per Proyek</th><th style="text-align:right">Jumlah Proyek hingga Cap</th></tr></thead>
-          <tbody>
-            <tr><td>$5,000 / Rp 82,5 Juta</td><td class="val">$500</td><td class="val">180 proyek</td></tr>
-            <tr><td>$15,000 / Rp 247,5 Juta</td><td class="val">$1,500</td><td class="val">60 proyek</td></tr>
-            <tr><td>$30,000 / Rp 495 Juta</td><td class="val">$3,000</td><td class="val">30 proyek</td></tr>
-            <tr class="total-row"><td><strong>$50,000 / Rp 825 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>18 proyek</strong></td></tr>
-          </tbody>
-        </table>
-        <div class="pb-highlight-box" style="margin-top:1rem;border-left-color:var(--acc)"><p>Setelah cap $90,000 / Rp 1,575 miliar terpenuhi, seluruh revenue SOLVARZ kembali 100% ke perusahaan. Semakin besar nilai proyek yang masuk, semakin cepat kewajiban investor selesai.</p></div>
+        <div class="pb-section-title" style="margin-top:.25rem">Status & Milestone</div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val">Jasa Raharja · SGS</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">3 Pilot Clients · MVP Launch</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Tahap Berikutnya</span><span class="pb-stat-val">Seed Round (Q4)</span></div>
+        <div class="pb-section-title" style="margin-top:1rem">Alokasi Dana</div>
+        <div class="pb-ask-alloc"><div class="pb-alloc-a"></div><div class="pb-alloc-b"></div><div class="pb-alloc-c"></div></div>
+        <div class="pb-alloc-legend">
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a)"></div>40% Infrastruktur & API AI — $14,400 / Rp 266,4 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b)"></div>40% Core Team — $14,400 / Rp 266,4 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c)"></div>20% Marketing & Akuisisi — $7,200 / Rp 133,2 Juta</div>
+        </div>
+        <div class="pb-section-title" style="margin-top:1rem">Roadmap 12 Bulan</div>
+        <div class="pb-flow">
+          <div class="pb-flow-node" style="font-size:11px">Q1: Infra Setup & MVP</div><div class="pb-flow-arrow">→</div>
+          <div class="pb-flow-node" style="font-size:11px">Q2: 3 Pilot Clients</div><div class="pb-flow-arrow">→</div>
+          <div class="pb-flow-node" style="font-size:11px">Q3: Revenue & Iterasi</div><div class="pb-flow-arrow">→</div>
+          <div class="pb-flow-node" style="font-size:11px">Q4: Seed Round</div>
+        </div>
+        <div class="pb-give-card" style="margin-top:1.25rem;border-color:var(--acc-bd)">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
+            <div class="pb-give-option">The Give — Revenue Share 2,5x Return</div>
+            <span class="pb-give-tag pb-give-tag-a">10% per proyek · Cap $90,000</span>
+          </div>
+          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2,5x</strong> nilai investasi. Revenue share berakhir otomatis saat cap tercapai.</div>
+          <div class="pb-section-title" style="margin-top:.25rem">Rincian Return Investor</div>
+          <table class="pb-calc-table">
+            <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
+            <tbody>
+              <tr><td>Modal investasi awal</td><td class="val">$36,000</td><td class="val">666.000.000</td></tr>
+              <tr><td>Multiplier return</td><td class="val">2,5x</td><td class="val">2,5x</td></tr>
+              <tr class="total-row total-row-a"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$90,000</strong></td><td class="val"><strong>1.665.000.000</strong></td></tr>
+              <tr><td>Pokok investasi (kembali)</td><td class="val">$36,000</td><td class="val">666.000.000</td></tr>
+              <tr><td>Keuntungan bersih investor</td><td class="val">$54,000</td><td class="val">999.000.000</td></tr>
+            </tbody>
+          </table>
+          <div class="pb-section-title" style="margin-top:1rem">Estimasi Kecepatan Cap Tercapai</div>
+          <table class="pb-calc-table">
+            <thead><tr><th>Rata-rata Nilai Proyek</th><th style="text-align:right">Share / Proyek</th><th style="text-align:right">Proyek hingga Cap</th></tr></thead>
+            <tbody>
+              <tr><td>$5,000 / Rp 92,5 Juta</td><td class="val">$500</td><td class="val">180 proyek</td></tr>
+              <tr><td>$15,000 / Rp 277,5 Juta</td><td class="val">$1,500</td><td class="val">60 proyek</td></tr>
+              <tr><td>$30,000 / Rp 555 Juta</td><td class="val">$3,000</td><td class="val">30 proyek</td></tr>
+              <tr class="total-row total-row-a"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>18 proyek</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="pb-highlight-box" style="border-left-color:var(--acc)">
+
+      <!-- PLAN B -->
+      <div class="pb-plan-content" id="planB">
+        <div class="pb-plan-header pb-plan-header-b">
+          <div class="pb-plan-title pb-plan-title-b">Plan B — Partial Pre-Seed Round</div>
+          <div class="pb-plan-subtitle">$12,000 / Rp 222.000.000 &nbsp;·&nbsp; Revenue Share 2x &nbsp;·&nbsp; Cap $24,000</div>
+        </div>
+        <div class="pb-section-title" style="margin-top:.25rem">Status & Milestone</div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val">Jasa Raharja · SGS</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">1–2 Pilot Clients · MVP Awal</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Catatan</span><span class="pb-stat-val">Dapat dikombinasikan dengan Plan A</span></div>
+        <div class="pb-section-title" style="margin-top:1rem">Alokasi Dana</div>
+        <div class="pb-ask-alloc"><div class="pb-alloc-a"></div><div class="pb-alloc-b"></div><div class="pb-alloc-c"></div></div>
+        <div class="pb-alloc-legend">
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a)"></div>40% Infrastruktur & API AI — $4,800 / Rp 88,8 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b)"></div>40% Core Team — $4,800 / Rp 88,8 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c)"></div>20% Marketing & Akuisisi — $2,400 / Rp 44,4 Juta</div>
+        </div>
+        <div class="pb-section-title" style="margin-top:1rem">Roadmap 12 Bulan</div>
+        <div class="pb-flow">
+          <div class="pb-flow-node" style="font-size:11px">Q1: Setup & MVP Awal</div><div class="pb-flow-arrow">→</div>
+          <div class="pb-flow-node" style="font-size:11px">Q2: 1–2 Pilot Clients</div><div class="pb-flow-arrow">→</div>
+          <div class="pb-flow-node" style="font-size:11px">Q3: Validasi & Revenue</div><div class="pb-flow-arrow">→</div>
+          <div class="pb-flow-node" style="font-size:11px">Q4: Full Round Ready</div>
+        </div>
+        <div class="pb-give-card" style="margin-top:1.25rem;border-color:var(--teal-bg)">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
+            <div class="pb-give-option">The Give — Revenue Share 2x Return</div>
+            <span class="pb-give-tag pb-give-tag-b">10% per proyek · Cap $24,000</span>
+          </div>
+          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2x</strong> nilai investasi. Revenue share berakhir otomatis saat cap tercapai.</div>
+          <div class="pb-section-title" style="margin-top:.25rem">Rincian Return Investor</div>
+          <table class="pb-calc-table">
+            <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
+            <tbody>
+              <tr><td>Modal investasi awal</td><td class="val">$12,000</td><td class="val">222.000.000</td></tr>
+              <tr><td>Multiplier return</td><td class="val">2x</td><td class="val">2x</td></tr>
+              <tr class="total-row total-row-b"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$24,000</strong></td><td class="val"><strong>444.000.000</strong></td></tr>
+              <tr><td>Pokok investasi (kembali)</td><td class="val">$12,000</td><td class="val">222.000.000</td></tr>
+              <tr><td>Keuntungan bersih investor</td><td class="val">$12,000</td><td class="val">222.000.000</td></tr>
+            </tbody>
+          </table>
+          <div class="pb-section-title" style="margin-top:1rem">Estimasi Kecepatan Cap Tercapai</div>
+          <table class="pb-calc-table">
+            <thead><tr><th>Rata-rata Nilai Proyek</th><th style="text-align:right">Share / Proyek</th><th style="text-align:right">Proyek hingga Cap</th></tr></thead>
+            <tbody>
+              <tr><td>$5,000 / Rp 92,5 Juta</td><td class="val">$500</td><td class="val">48 proyek</td></tr>
+              <tr><td>$15,000 / Rp 277,5 Juta</td><td class="val">$1,500</td><td class="val">16 proyek</td></tr>
+              <tr><td>$30,000 / Rp 555 Juta</td><td class="val">$3,000</td><td class="val">8 proyek</td></tr>
+              <tr class="total-row total-row-b"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>5 proyek</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pb-highlight-box" style="border-left-color:var(--teal)">
+          <p>Plan B dapat dikombinasikan dengan investor lain untuk memenuhi total Pre-Seed $36,000. Misalnya: 1 investor Plan B ($12,000) + 1 investor Plan A sebesar $24,000 = full round tercapai dengan pembagian return yang proporsional.</p>
+        </div>
+      </div>
+
+      <div class="pb-highlight-box" style="border-left-color:var(--acc);margin-top:1rem">
         <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:var(--tx0)">Investasi ini bukan sekadar membiayai agensi baru — ini adalah taruhan pada model operasional masa depan: di mana AI adalah tenaga kerja, dan manusia adalah arsitek strateginya.</p>
       </div>
     </div>
 
-    <div class="pb-footer">SOLVARZ by Sparkz Solution · Pitch Book v5 · Confidential</div>
+    <div class="pb-footer">SOLVARZ by Sparkz Solution · Pitch Book v6 · Confidential · $1 = Rp 18.500</div>
   </div>
 </div>
 
@@ -1943,14 +1895,26 @@ body:hover #action-btns {
     const icon = document.getElementById('toggleIcon');
     const label = document.getElementById('toggleLabel');
     const isDark = root.classList.contains('dark');
-    if (isDark) {
-      root.classList.replace('dark', 'light');
-      icon.textContent = '🌙';
-      label.textContent = 'Dark Mode';
+    root.classList.replace(isDark ? 'dark' : 'light', isDark ? 'light' : 'dark');
+    icon.textContent = isDark ? '🌙' : '☀️';
+    label.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  }
+
+  function switchPlan(plan) {
+    const tabA = document.getElementById('tabA');
+    const tabB = document.getElementById('tabB');
+    const planA = document.getElementById('planA');
+    const planB = document.getElementById('planB');
+    if (plan === 'A') {
+      tabA.className = 'pb-plan-tab active-a';
+      tabB.className = 'pb-plan-tab';
+      planA.className = 'pb-plan-content active';
+      planB.className = 'pb-plan-content';
     } else {
-      root.classList.replace('light', 'dark');
-      icon.textContent = '☀️';
-      label.textContent = 'Light Mode';
+      tabA.className = 'pb-plan-tab';
+      tabB.className = 'pb-plan-tab active-b';
+      planA.className = 'pb-plan-content';
+      planB.className = 'pb-plan-content active';
     }
   }
 </script>
