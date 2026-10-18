@@ -1,132 +1,1066 @@
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOLVARZ by Sparkz Solution</title>
-  <style id="mcp-host-fonts">
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Regular-Static.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+<!doctype html>
+<html data-saved=""><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link id="icon-font" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css" media="print" onload="this.media='all'"><noscript><link id="icon-font" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css"></noscript><style>
+:root{--font-anthropic-sans:"anthropic-sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;--font-anthropic-serif:"anthropic-serif", ui-serif, Georgia, "Times New Roman", serif}
+:root {
+  --radius: calc(0.5rem * var(--cds-rem-scale, 1));
+  --radius-composer: calc(0.875rem * var(--cds-rem-scale, 1));
+  --h-control: calc(2rem * var(--cds-rem-scale, 1));
+  --h-control-nested: calc(1.375rem * var(--cds-rem-scale, 1));
+  --icon: calc(1.25rem * var(--cds-rem-scale, 1));
+  --pad-xs: calc(0.375rem * var(--cds-rem-scale, 1));
+  --pad-sm: calc(0.5rem * var(--cds-rem-scale, 1));
+  --pad-md: calc(0.75rem * var(--cds-rem-scale, 1));
+  --pad-lg: calc(1rem * var(--cds-rem-scale, 1));
+  --pad-xl: calc(1.5rem * var(--cds-rem-scale, 1));
+  --gap-xs: calc(0.5rem * var(--cds-rem-scale, 1));
+  --gap-sm: calc(0.75rem * var(--cds-rem-scale, 1));
+  --gap-md: calc(1rem * var(--cds-rem-scale, 1));
+  --gap-lg: calc(1.75rem * var(--cds-rem-scale, 1));
+  --gap-xl: calc(2.5rem * var(--cds-rem-scale, 1));
+  --outset-x: 0px;
+  --outset-y: 0px;
+  --border-editor-comment-target: var(--yellow-450);
+  --shadow-drop-ring: inset 0 0 0 2px var(--fill-accent);
+  --shadow-drop-ring-danger: inset 0 0 0 2px var(--fill-danger);
+  --shadow-drop-glow: inset 0 0 24px -2px hsl(from var(--fill-accent) h s l / 20%);
+  --shadow-drop-glow-danger: inset 0 0 24px -2px hsl(from var(--fill-danger) h s l / 20%);
+  --ring-hairline: 1px;
+  --font-mono: var(--font-mono-override,) var(--font-anthropic-mono, "SF Mono"), "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-mono-ui: var(--font-anthropic-mono, "SF Mono"), "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-system: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "PingFang TC", "Hiragino Sans", "Apple SD Gothic Neo", sans-serif;
+  --font-sans: var(--font-anthropic-sans, var(--font-system)), var(--font-system);
+  --font-sans-display: var(--font-anthropic-sans-display, var(--font-sans)), var(--font-sans);
+  --font-voice: var(--font-anthropic-serif, ui-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-snap: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-overshoot: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --dur-fast: 60ms;
+  --dur-snap: 120ms;
+  --dur-base: 200ms;
+  --dur-sheet: 300ms;
+  --dur-slow: 450ms;
+  --btn-spring: linear(0, 0.2459, 0.6526, 0.9468, 1.0764, 1.0915, 1.0585, 1.0219, 0.9993, 0.9914, 0.9921, 0.9957, 0.9988, 1.0004, 1);
+  --black: #000000;
+  --oncolor-200: hsl(60 6.7% 97.1% / 0.75);
+  --oncolor-300: hsl(60 6.7% 97.1% / 0.5);
+  --clay: #d97757;
+  --clay-emphasized: #c6613f;
+  --heather: #cbcadb;
+  --plum: #827dbd;
+  --cactus: #bcd1ca;
+  --mineral: #629987;
+  --gray-0: #ffffff;
+  --gray-10: #fcfcfb;
+  --gray-20: #f9f9f7;
+  --gray-30: #f6f6f4;
+  --gray-40: #f3f3f0;
+  --gray-50: #f0efec;
+  --gray-60: #edece8;
+  --gray-70: #eae9e4;
+  --gray-80: #e7e6e1;
+  --gray-90: #e4e3dd;
+  --gray-100: #e1e0d9;
+  --gray-150: #d2d1c7;
+  --gray-200: #c3c2b7;
+  --gray-250: #b4b3a8;
+  --gray-300: #a5a49a;
+  --gray-350: #97958d;
+  --gray-400: #898781;
+  --gray-450: #7b7974;
+  --gray-500: #6d6b67;
+  --gray-550: #5f5e5a;
+  --gray-600: #52514e;
+  --gray-650: #454442;
+  --gray-700: #383835;
+  --gray-750: #2c2c2a;
+  --gray-800: #20201f;
+  --gray-810: #1e1e1d;
+  --gray-820: #1c1c1b;
+  --gray-830: #1a1a19;
+  --gray-840: #181817;
+  --gray-850: #151515;
+  --gray-860: #131313;
+  --gray-870: #111111;
+  --gray-880: #0f0f0f;
+  --gray-890: #0d0d0d;
+  --gray-900: #0b0b0b;
+  --red-0: #ffffff;
+  --red-10: #fffbfb;
+  --red-20: #fef7f7;
+  --red-30: #fef3f3;
+  --red-40: #fdefef;
+  --red-50: #fbebeb;
+  --red-60: #fae7e7;
+  --red-70: #fae3e3;
+  --red-80: #fadfdf;
+  --red-90: #fadada;
+  --red-100: #fad6d6;
+  --red-150: #f7c1c1;
+  --red-200: #f4abab;
+  --red-250: #f09595;
+  --red-300: #ec7e7e;
+  --red-350: #e66767;
+  --red-400: #e34948;
+  --red-450: #d03b3b;
+  --red-500: #b93535;
+  --red-550: #a32c2c;
+  --red-600: #8e2626;
+  --red-650: #791e1e;
+  --red-700: #641919;
+  --red-750: #511212;
+  --red-800: #3c0e0e;
+  --red-810: #380d0d;
+  --red-820: #340c0c;
+  --red-830: #310b0b;
+  --red-840: #2d0a0a;
+  --red-850: #280a0a;
+  --red-860: #230b0a;
+  --red-870: #1d0b0a;
+  --red-880: #170c0b;
+  --red-890: #110c0b;
+  --red-900: #0b0b0b;
+  --orange-0: #ffffff;
+  --orange-10: #fefbfa;
+  --orange-20: #fdf7f5;
+  --orange-30: #fcf4f0;
+  --orange-40: #faf0ec;
+  --orange-50: #f9ece7;
+  --orange-60: #f8e9e2;
+  --orange-70: #f7e5dd;
+  --orange-80: #f7e1d7;
+  --orange-90: #f7dcd1;
+  --orange-100: #f7d8cb;
+  --orange-150: #f3c5b2;
+  --orange-200: #f4ae94;
+  --orange-250: #f09978;
+  --orange-300: #ec835a;
+  --orange-350: #eb6834;
+  --orange-400: #d95926;
+  --orange-450: #c25124;
+  --orange-500: #ae461c;
+  --orange-550: #993d19;
+  --orange-600: #863311;
+  --orange-650: #712b0f;
+  --orange-700: #5d230b;
+  --orange-750: #4b1b08;
+  --orange-800: #371407;
+  --orange-810: #341307;
+  --orange-820: #301106;
+  --orange-830: #2d1006;
+  --orange-840: #290f06;
+  --orange-850: #240e07;
+  --orange-860: #1f0e08;
+  --orange-870: #1a0e09;
+  --orange-880: #150d0a;
+  --orange-890: #100c0b;
+  --orange-900: #0b0b0b;
+  --yellow-0: #ffffff;
+  --yellow-10: #fefcf8;
+  --yellow-20: #fcf8f1;
+  --yellow-30: #fbf5ea;
+  --yellow-40: #f9f2e4;
+  --yellow-50: #f9eeda;
+  --yellow-60: #faebce;
+  --yellow-70: #fae7c2;
+  --yellow-80: #fae3b8;
+  --yellow-90: #f9e0b0;
+  --yellow-100: #f9dca4;
+  --yellow-150: #f9c868;
+  --yellow-200: #fab219;
+  --yellow-250: #eda100;
+  --yellow-300: #db9300;
+  --yellow-350: #c98500;
+  --yellow-400: #b77700;
+  --yellow-450: #a66a00;
+  --yellow-500: #945d00;
+  --yellow-550: #835100;
+  --yellow-600: #734500;
+  --yellow-650: #623900;
+  --yellow-700: #512e00;
+  --yellow-750: #412400;
+  --yellow-800: #311a00;
+  --yellow-810: #2e1800;
+  --yellow-820: #2b1700;
+  --yellow-830: #271500;
+  --yellow-840: #231402;
+  --yellow-850: #1f1204;
+  --yellow-860: #1b1106;
+  --yellow-870: #171007;
+  --yellow-880: #130e09;
+  --yellow-890: #0f0d0a;
+  --yellow-900: #0b0b0b;
+  --green-0: #ffffff;
+  --green-10: #fafdfa;
+  --green-20: #f5fbf4;
+  --green-30: #f0f9ef;
+  --green-40: #ebf7e9;
+  --green-50: #e5f4e4;
+  --green-60: #e0f2de;
+  --green-70: #dbf0d8;
+  --green-80: #d5eed3;
+  --green-90: #d0eccd;
+  --green-100: #caeac7;
+  --green-150: #aee0a9;
+  --green-200: #91d68b;
+  --green-250: #73cb6d;
+  --green-300: #55bf50;
+  --green-350: #35b231;
+  --green-400: #0ca30c;
+  --green-450: #009300;
+  --green-500: #008300;
+  --green-550: #007300;
+  --green-600: #006300;
+  --green-650: #005400;
+  --green-700: #074506;
+  --green-750: #0f350d;
+  --green-800: #11260f;
+  --green-810: #10230f;
+  --green-820: #10210f;
+  --green-830: #101e0f;
+  --green-840: #101b0f;
+  --green-850: #0f180e;
+  --green-860: #0e160e;
+  --green-870: #0e130d;
+  --green-880: #0d100d;
+  --green-890: #0c0e0c;
+  --green-900: #0b0b0b;
+  --aqua-0: #ffffff;
+  --aqua-10: #f9fdfb;
+  --aqua-20: #f3fbf8;
+  --aqua-30: #edf9f4;
+  --aqua-40: #e8f7f1;
+  --aqua-50: #e2f4ed;
+  --aqua-60: #dcf2ea;
+  --aqua-70: #d5f0e6;
+  --aqua-80: #ceefe2;
+  --aqua-90: #c7eddf;
+  --aqua-100: #bfebdb;
+  --aqua-150: #a0e1c9;
+  --aqua-200: #7ad7b4;
+  --aqua-250: #5acba0;
+  --aqua-300: #3bbd8c;
+  --aqua-350: #1baf7a;
+  --aqua-400: #199e70;
+  --aqua-450: #138e65;
+  --aqua-500: #0f7e5c;
+  --aqua-550: #0e6e53;
+  --aqua-600: #065f49;
+  --aqua-650: #095040;
+  --aqua-700: #034235;
+  --aqua-750: #02342b;
+  --aqua-800: #022720;
+  --aqua-810: #02241e;
+  --aqua-820: #02221c;
+  --aqua-830: #021f1a;
+  --aqua-840: #031c18;
+  --aqua-850: #051a16;
+  --aqua-860: #071713;
+  --aqua-870: #081411;
+  --aqua-880: #0a110f;
+  --aqua-890: #0b0e0d;
+  --aqua-900: #0b0b0b;
+  --blue-0: #ffffff;
+  --blue-10: #fafcff;
+  --blue-20: #f5f9fe;
+  --blue-30: #f0f7fe;
+  --blue-40: #ebf4fc;
+  --blue-50: #e7f1fb;
+  --blue-60: #e2eefa;
+  --blue-70: #ddebfa;
+  --blue-80: #d7e8fa;
+  --blue-90: #d2e5fa;
+  --blue-100: #cde2fb;
+  --blue-150: #b7d3f6;
+  --blue-200: #9ec5f4;
+  --blue-250: #86b6ef;
+  --blue-300: #6da7ec;
+  --blue-350: #5598e7;
+  --blue-400: #3987e5;
+  --blue-450: #2a78d6;
+  --blue-500: #256abf;
+  --blue-550: #1c5cab;
+  --blue-600: #184f95;
+  --blue-650: #104281;
+  --blue-700: #0d366b;
+  --blue-750: #062b57;
+  --blue-800: #032042;
+  --blue-810: #031e3d;
+  --blue-820: #021c39;
+  --blue-830: #021a36;
+  --blue-840: #021831;
+  --blue-850: #03162c;
+  --blue-860: #051426;
+  --blue-870: #07121f;
+  --blue-880: #091018;
+  --blue-890: #0a0d11;
+  --blue-900: #0b0b0b;
+  --violet-0: #ffffff;
+  --violet-10: #fcfbff;
+  --violet-20: #f8f8ff;
+  --violet-30: #f5f4ff;
+  --violet-40: #f2f1ff;
+  --violet-50: #efedff;
+  --violet-60: #ebeafe;
+  --violet-70: #e8e6fe;
+  --violet-80: #e5e2fd;
+  --violet-90: #e2dffd;
+  --violet-100: #dfdbfd;
+  --violet-150: #cfcafb;
+  --violet-200: #bfb9f5;
+  --violet-250: #b0a7f2;
+  --violet-300: #a096eb;
+  --violet-350: #9085e9;
+  --violet-400: #8173e3;
+  --violet-450: #7161e0;
+  --violet-500: #6250d6;
+  --violet-550: #5645be;
+  --violet-600: #4a3aa7;
+  --violet-650: #3e318e;
+  --violet-700: #322777;
+  --violet-750: #271e60;
+  --violet-800: #1d1649;
+  --violet-810: #1b1544;
+  --violet-820: #19133f;
+  --violet-830: #17123b;
+  --violet-840: #151036;
+  --violet-850: #130f32;
+  --violet-860: #110e2b;
+  --violet-870: #0f0e23;
+  --violet-880: #0e0d1b;
+  --violet-890: #0c0c13;
+  --violet-900: #0b0b0b;
+  --magenta-0: #ffffff;
+  --magenta-10: #fefbfc;
+  --magenta-20: #fef6f9;
+  --magenta-30: #fdf2f6;
+  --magenta-40: #fbeff3;
+  --magenta-50: #faebf0;
+  --magenta-60: #f9e6ed;
+  --magenta-70: #f9e2eb;
+  --magenta-80: #f9dee8;
+  --magenta-90: #f9d9e5;
+  --magenta-100: #f9d4e2;
+  --magenta-150: #f3c0d3;
+  --magenta-200: #f3a8c3;
+  --magenta-250: #ed93b4;
+  --magenta-300: #e87ba4;
+  --magenta-350: #e46191;
+  --magenta-400: #d55181;
+  --magenta-450: #c04873;
+  --magenta-500: #ad3d66;
+  --magenta-550: #993458;
+  --magenta-600: #862a4c;
+  --magenta-650: #722340;
+  --magenta-700: #5e1c34;
+  --magenta-750: #4c1429;
+  --magenta-800: #390f1f;
+  --magenta-810: #360d1c;
+  --magenta-820: #320c1a;
+  --magenta-830: #2f0b18;
+  --magenta-840: #2b0a16;
+  --magenta-850: #270a14;
+  --magenta-860: #220a12;
+  --magenta-870: #1c0b11;
+  --magenta-880: #170b0f;
+  --magenta-890: #110b0d;
+  --magenta-900: #0b0b0b;
+  --role-accent-50: var(--blue-50);
+  --role-accent-100: var(--blue-100);
+  --role-accent-250: var(--blue-250);
+  --role-accent-300: var(--blue-300);
+  --role-accent-400: var(--blue-400);
+  --role-accent-450: var(--blue-450);
+  --role-accent-600: var(--blue-600);
+  --role-accent-700: var(--blue-700);
+  --role-accent-800: var(--blue-800);
+  --role-accent-850: var(--blue-850);
+  --role-accent-fill: var(--role-accent-450);
+  --role-accent-fill-hover: var(--role-accent-400);
+  --role-accent-on: var(--gray-0);
+  --role-danger-100: var(--red-100);
+  --role-danger-250: var(--red-250);
+  --role-danger-300: var(--red-300);
+  --role-danger-400: var(--red-400);
+  --role-danger-450: var(--red-450);
+  --role-danger-600: var(--red-600);
+  --role-danger-700: var(--red-700);
+  --role-danger-800: var(--red-800);
+  --role-danger-fill: var(--role-danger-450);
+  --role-danger-fill-hover: var(--role-danger-400);
+  --role-danger-on: var(--gray-0);
+  --role-success-100: var(--green-100);
+  --role-success-250: var(--green-250);
+  --role-success-400: var(--green-400);
+  --role-success-450: var(--green-450);
+  --role-success-600: var(--green-600);
+  --role-success-700: var(--green-700);
+  --role-success-800: var(--green-800);
+  --role-success-fill: var(--role-success-450);
+  --role-success-fill-hover: var(--role-success-400);
+  --role-success-on: var(--gray-900);
+  --role-warning-100: var(--yellow-100);
+  --role-warning-200: var(--yellow-200);
+  --role-warning-250: var(--yellow-250);
+  --role-warning-300: var(--yellow-300);
+  --role-warning-600: var(--yellow-600);
+  --role-warning-700: var(--yellow-700);
+  --role-warning-800: var(--yellow-800);
+  --role-warning-fill: var(--role-warning-200);
+  --role-warning-fill-hover: var(--role-warning-250);
+  --role-warning-on: var(--gray-900);
+  --role-pro-100: var(--violet-100);
+  --role-pro-250: var(--violet-250);
+  --role-pro-300: var(--violet-300);
+  --role-pro-400: var(--violet-400);
+  --role-pro-450: var(--violet-450);
+  --role-pro-600: var(--violet-600);
+  --role-pro-700: var(--violet-700);
+  --role-pro-800: var(--violet-800);
+  --role-pro-fill: var(--role-pro-450);
+  --role-pro-fill-hover: var(--role-pro-400);
+  --role-pro-on: var(--gray-0);
+  --role-tooltip-bg: var(--gray-900);
+  --role-tooltip-fg: var(--gray-0);
+  --fill-accent: var(--role-accent-fill);
+  --fill-accent-hover: var(--role-accent-fill-hover);
+  --fill-danger: var(--role-danger-fill);
+  --fill-danger-hover: var(--role-danger-fill-hover);
+  --fill-success: var(--role-success-fill);
+  --fill-success-hover: var(--role-success-fill-hover);
+  --fill-warning: var(--role-warning-fill);
+  --fill-warning-hover: var(--role-warning-fill-hover);
+  --fill-pro: var(--role-pro-fill);
+  --fill-pro-hover: var(--role-pro-fill-hover);
+  --fill-brand: var(--clay-emphasized);
+  --fill-brand-hover: var(--clay);
+  --bg-accent-muted: color-mix(in srgb, var(--fill-accent) 10%, transparent);
+  --bg-highlight: color-mix(in srgb, var(--fill-warning) 33%, transparent);
+  --bg-editor-claude-pending: color-mix(in srgb, var(--clay) 22%, transparent);
+  --bg-editor-highlight-yellow: var(--bg-highlight);
+  --bg-editor-highlight-green: color-mix(in srgb, var(--green-300) 33%, transparent);
+  --bg-editor-highlight-blue: color-mix(in srgb, var(--blue-300) 33%, transparent);
+  --bg-editor-highlight-magenta: color-mix(in srgb, var(--magenta-300) 33%, transparent);
+  --bg-editor-highlight-violet: color-mix(in srgb, var(--violet-300) 33%, transparent);
+  --bg-editor-highlight-gray: color-mix(in srgb, var(--gray-300) 33%, transparent);
+  --bg-editor-collaborator-1: color-mix(in srgb, var(--editor-collaborator-1) 22%, transparent);
+  --bg-editor-collaborator-2: color-mix(in srgb, var(--editor-collaborator-2) 22%, transparent);
+  --bg-editor-collaborator-3: color-mix(in srgb, var(--editor-collaborator-3) 22%, transparent);
+  --bg-editor-collaborator-4: color-mix(in srgb, var(--editor-collaborator-4) 22%, transparent);
+  --bg-editor-collaborator-5: color-mix(in srgb, var(--editor-collaborator-5) 22%, transparent);
+  --bg-editor-collaborator-6: color-mix(in srgb, var(--editor-collaborator-6) 22%, transparent);
+  --bg-editor-comment: color-mix(in srgb, var(--fill-warning) 20%, transparent);
+  --bg-editor-comment-active: color-mix(in srgb, var(--fill-warning) 45%, transparent);
+  --font-size-caption: calc(0.75rem * var(--cds-rem-scale, 1));
+  --font-size-footnote: calc(0.8125rem * var(--cds-rem-scale, 1));
+  --font-size-code: calc(0.8125rem * var(--cds-rem-scale, 1));
+  --font-size-body: calc(0.875rem * var(--cds-rem-scale, 1));
+  --font-size-prose: 1rem;
+  --font-size-heading: calc(0.9375rem * var(--cds-rem-scale, 1));
+  --font-size-title: calc(1.375rem * var(--cds-rem-scale, 1));
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 580;
+  --font-weight-bold: 600;
+  --leading-caption: calc(1.0625rem * var(--cds-rem-scale, 1));
+  --leading-footnote: calc(1.0625rem * var(--cds-rem-scale, 1));
+  --leading-code: calc(1.1875rem * var(--cds-rem-scale, 1));
+  --leading-body: calc(1.25rem * var(--cds-rem-scale, 1));
+  --leading-prose: 1.5rem;
+  --leading-heading: calc(1.25rem * var(--cds-rem-scale, 1));
+  --leading-title: calc(1.75rem * var(--cds-rem-scale, 1));
+  --on-accent: var(--role-accent-on);
+  --on-danger: var(--role-danger-on);
+  --on-success: var(--role-success-on);
+  --on-warning: var(--role-warning-on);
+  --on-pro: var(--role-pro-on);
+  --on-brand: #ffffff;
+  --editor-collaborator-1: var(--violet-450);
+  --editor-collaborator-2: var(--magenta-450);
+  --editor-collaborator-3: var(--aqua-500);
+  --editor-collaborator-4: var(--green-500);
+  --editor-collaborator-5: var(--yellow-500);
+  --editor-collaborator-6: var(--gray-500);
+  --opacity-disabled: 0.4;
+  --opacity-icon-secondary: 0.4;
+  --z-modal: 40;
+  --z-coachmark: 35;
+  --z-popover: 50;
+  --z-tooltip: 50;
+  --z-toast: 60;
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-RegularItalic-Static.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+:root,
+[data-mode="light"],
+[data-mode="dark"],
+[data-mode="system"] {
+  --border: var(--alpha-2);
+  --border-accent: var(--role-accent-250);
+  --border-danger: var(--role-danger-250);
+  --border-success: var(--role-success-250);
+  --border-warning: var(--role-warning-250);
+  --border-pro: var(--role-pro-250);
+  --border-editor-comment: var(--yellow-400);
+  --border-editor-comment-open: var(--yellow-450);
+  --border-git-added: color-mix(in srgb, var(--text-git-added) 40%, transparent);
+  --border-git-removed: color-mix(in srgb, var(--text-git-removed) 40%, transparent);
+  --border-git-modified: color-mix(in srgb, var(--text-git-modified) 40%, transparent);
+  --border-git-merged: color-mix(in srgb, var(--text-git-merged) 40%, transparent);
+  --border-git-closed: color-mix(in srgb, var(--text-git-closed) 40%, transparent);
+  --border-git-conflicting: color-mix(in srgb, var(--text-git-conflicting) 40%, transparent);
+  --border-git-draft: color-mix(in srgb, var(--text-git-draft) 40%, transparent);
+  --border-git-opened: var(--border-git-added);
+  --border-git-queued: var(--border-git-modified);
+  --border-strong: var(--alpha-3);
+  --border-stronger: hsl(from var(--neutral-900) h s l / 40%);
+  --shadow-sm: 0 1px 2px 0 hsl(from var(--gray-900) h s l / 6%), 0 2px 8px 0 var(--shadow-color);
+  --shadow-md: 0 2px 4px 0 hsl(from var(--gray-900) h s l / 7%), 0 6px 16px 0 var(--shadow-color);
+  --shadow-lg: 0 4px 8px 0 hsl(from var(--gray-900) h s l / 8%), 0 12px 28px -2px var(--shadow-color);
+  --shadow-color: hsl(from var(--gray-900) h s l / 8%);
+  --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.08);
+  --ring-outer: 1px;
+  --ring-inner: 0px;
+  --ring-color: var(--border);
+  --focus-shadow: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-accent), 0 0 6px 1px var(--bg-accent);
+  --focus-shadow-danger: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-danger), 0 0 6px 1px var(--bg-danger);
+  --pictogram-highlight-default: var(--gray-80);
+  --pictogram-highlight-heather: var(--heather);
+  --pictogram-highlight-cactus: var(--cactus);
+  --neutral-0: var(--gray-0);
+  --neutral-10: var(--gray-10);
+  --neutral-20: var(--gray-20);
+  --neutral-30: var(--gray-30);
+  --neutral-40: var(--gray-40);
+  --neutral-50: var(--gray-50);
+  --neutral-60: var(--gray-60);
+  --neutral-70: var(--gray-70);
+  --neutral-80: var(--gray-80);
+  --neutral-90: var(--gray-90);
+  --neutral-100: var(--gray-100);
+  --neutral-150: var(--gray-150);
+  --neutral-200: var(--gray-200);
+  --neutral-250: var(--gray-250);
+  --neutral-300: var(--gray-300);
+  --neutral-350: var(--gray-350);
+  --neutral-400: var(--gray-400);
+  --neutral-450: var(--gray-450);
+  --neutral-500: var(--gray-500);
+  --neutral-550: var(--gray-550);
+  --neutral-600: var(--gray-600);
+  --neutral-650: var(--gray-650);
+  --neutral-700: var(--gray-700);
+  --neutral-750: var(--gray-750);
+  --neutral-800: var(--gray-800);
+  --neutral-810: var(--gray-810);
+  --neutral-820: var(--gray-820);
+  --neutral-830: var(--gray-830);
+  --neutral-840: var(--gray-840);
+  --neutral-850: var(--gray-850);
+  --neutral-860: var(--gray-860);
+  --neutral-870: var(--gray-870);
+  --neutral-880: var(--gray-880);
+  --neutral-890: var(--gray-890);
+  --neutral-900: var(--gray-900);
+  --alpha-0: hsl(from var(--neutral-900) h s l / 0%);
+  --alpha-1: hsl(from var(--neutral-900) h s l / 5%);
+  --alpha-2: hsl(from var(--neutral-900) h s l / 10%);
+  --alpha-3: hsl(from var(--neutral-900) h s l / 20%);
+  --alpha-4: hsl(from var(--neutral-900) h s l / 35%);
+  --alpha-5: hsl(from var(--neutral-900) h s l / 50%);
+  --alpha-6: hsl(from var(--neutral-900) h s l / 60%);
+  --alpha-7: hsl(from var(--neutral-900) h s l / 70%);
+  --alpha-8: hsl(from var(--neutral-900) h s l / 85%);
+  --alpha-9: hsl(from var(--neutral-900) h s l / 95%);
+  --surface-0: var(--gray-20);
+  --surface-1: var(--gray-10);
+  --surface-2: var(--gray-0);
+  --surface-3: var(--gray-0);
+  --surface-popover: var(--surface-3);
+  --surface-panel: var(--surface-2);
+  --page-bg: var(--surface-0);
+  --fill-git-added: #1a8633;
+  --fill-git-added-hover: #1e9b3b;
+  --fill-git-removed: var(--text-git-removed);
+  --fill-git-removed-hover: #de295f;
+  --fill-git-modified: #8b751c;
+  --fill-git-modified-hover: #a08720;
+  --fill-git-merged: #855fd6;
+  --fill-git-merged-hover: #9473db;
+  --fill-git-closed: #ed0b00;
+  --fill-git-closed-hover: #ff1307;
+  --fill-git-conflicting: #b85b19;
+  --fill-git-conflicting-hover: #c5621b;
+  --fill-git-draft: var(--text-git-draft);
+  --fill-git-draft-hover: #808080;
+  --fill-git-opened: var(--fill-git-added);
+  --fill-git-opened-hover: var(--fill-git-added-hover);
+  --fill-git-queued: var(--fill-git-modified);
+  --fill-git-queued-hover: var(--fill-git-modified-hover);
+  --fill-primary: var(--neutral-900);
+  --fill-primary-hover: var(--neutral-750);
+  --fill-secondary: hsl(0 0% 100% / 0.1);
+  --fill-secondary-hover: var(--alpha-1);
+  --fill-secondary-ring: var(--border);
+  --fill-secondary-pressed-ring: var(--border);
+  --fill-field: hsl(0 0% 100% / 0.5);
+  --fill-field-ring: var(--border);
+  --fill-ghost-hover: var(--alpha-1);
+  --fill-ghost-selected: var(--alpha-2);
+  --fill-disabled: var(--alpha-1);
+  --fill-control: var(--alpha-2);
+  --fill-control-hover: var(--alpha-3);
+  --bg-accent: var(--role-accent-100);
+  --bg-danger: var(--role-danger-100);
+  --bg-success: var(--role-success-100);
+  --bg-warning: var(--role-warning-100);
+  --bg-pro: var(--role-pro-100);
+  --bg-tint-red: rgb(from var(--red-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-red-opaque: var(--red-100);
+  --bg-tint-orange: rgb(from var(--orange-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-orange-opaque: var(--orange-100);
+  --bg-tint-yellow: rgb(from var(--yellow-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-yellow-opaque: var(--yellow-100);
+  --bg-tint-green: rgb(from var(--green-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-green-opaque: var(--green-100);
+  --bg-tint-aqua: rgb(from var(--aqua-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-aqua-opaque: var(--aqua-100);
+  --bg-tint-blue: rgb(from var(--blue-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-blue-opaque: var(--blue-100);
+  --bg-tint-violet: rgb(from var(--violet-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-violet-opaque: var(--violet-100);
+  --bg-tint-magenta: rgb(from var(--magenta-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-magenta-opaque: var(--magenta-100);
+  --bg-git-added: color-mix(in srgb, var(--text-git-added) 20%, transparent);
+  --bg-git-removed: color-mix(in srgb, var(--text-git-removed) 20%, transparent);
+  --bg-git-modified: color-mix(in srgb, var(--text-git-modified) 20%, transparent);
+  --bg-git-merged: color-mix(in srgb, var(--text-git-merged) 20%, transparent);
+  --bg-git-closed: color-mix(in srgb, var(--text-git-closed) 20%, transparent);
+  --bg-git-conflicting: color-mix(in srgb, var(--text-git-conflicting) 20%, transparent);
+  --bg-git-draft: color-mix(in srgb, var(--text-git-draft) 20%, transparent);
+  --bg-git-opened: var(--bg-git-added);
+  --bg-git-queued: var(--bg-git-modified);
+  --bg-editor-canvas: var(--neutral-60);
+  --bg-neutral: var(--alpha-1);
+  --bg-neutral-hover: var(--alpha-2);
+  --bg-user-message: var(--bg-neutral);
+  --backdrop: rgb(0 0 0 / 0.4);
+  --text-accent: var(--role-accent-600);
+  --text-danger: var(--role-danger-600);
+  --text-success: var(--role-success-600);
+  --text-warning: var(--role-warning-600);
+  --text-pro: var(--role-pro-600);
+  --text-tint-red: var(--red-600);
+  --text-tint-orange: var(--orange-600);
+  --text-tint-yellow: var(--yellow-600);
+  --text-tint-green: var(--green-600);
+  --text-tint-aqua: var(--aqua-600);
+  --text-tint-blue: var(--blue-600);
+  --text-tint-violet: var(--violet-600);
+  --text-tint-magenta: var(--magenta-600);
+  --text-git-added: #1e9e3c;
+  --text-git-removed: #cd2054;
+  --text-git-modified: #98801f;
+  --text-git-merged: #8e6bd9;
+  --text-git-closed: #ff3a30;
+  --text-git-conflicting: #c5621b;
+  --text-git-draft: #737373;
+  --text-git-opened: var(--text-git-added);
+  --text-git-queued: var(--text-git-modified);
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted: var(--neutral-400);
+  --text-disabled: var(--alpha-4);
+  --on-primary: var(--neutral-0);
+  --on-git-added: var(--gray-0);
+  --on-git-removed: var(--gray-0);
+  --on-git-modified: var(--gray-0);
+  --on-git-merged: var(--gray-0);
+  --on-git-closed: var(--gray-0);
+  --on-git-conflicting: var(--gray-0);
+  --on-git-draft: var(--gray-0);
+  --on-git-opened: var(--on-git-added);
+  --on-git-queued: var(--on-git-modified);
+  --chart-categorical-1: var(--blue-450);
+  --chart-categorical-2: var(--orange-350);
+  --chart-categorical-3: var(--aqua-350);
+  --chart-categorical-4: var(--yellow-250);
+  --chart-categorical-5: var(--magenta-300);
+  --chart-categorical-6: var(--green-500);
+  --chart-categorical-7: var(--violet-500);
+  --chart-categorical-8: var(--red-400);
+  --chart-sequential-1: var(--blue-100);
+  --chart-sequential-2: var(--blue-200);
+  --chart-sequential-3: var(--blue-300);
+  --chart-sequential-4: var(--blue-400);
+  --chart-sequential-5: var(--blue-500);
+  --chart-sequential-6: var(--blue-600);
+  --chart-sequential-7: var(--blue-700);
+  --chart-diverging-1: var(--blue-500);
+  --chart-diverging-2: var(--blue-350);
+  --chart-diverging-3: var(--blue-200);
+  --chart-diverging-4: var(--gray-50);
+  --chart-diverging-5: var(--red-200);
+  --chart-diverging-6: var(--red-350);
+  --chart-diverging-7: var(--red-500);
+  --chart-status-good: var(--green-400);
+  --chart-status-warning: var(--yellow-200);
+  --chart-status-serious: var(--orange-300);
+  --chart-status-critical: var(--red-450);
+  --chart-muted: var(--gray-200);
+  --chart-reference: var(--gray-400);
+  --chart-reference-tint: hsl(from var(--gray-400) h s l / 15%);
+  --chart-grid: var(--alpha-2);
+  --chart-axis: var(--gray-200);
+  --chart-baseline: var(--gray-200);
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Medium-Static.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+@media screen {
+  [data-mode="dark"] {
+    --border-accent: var(--role-accent-700);
+    --border-danger: var(--role-danger-700);
+    --border-success: var(--role-success-700);
+    --border-warning: var(--role-warning-700);
+    --border-pro: var(--role-pro-700);
+    --border-editor-comment: var(--yellow-300);
+    --border-editor-comment-open: var(--yellow-200);
+    --shadow-color: rgba(0, 0, 0, 0.24);
+    --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.32), 0 2px 6px rgb(0 0 0 / 0.2);
+    --ring-outer: 0px;
+    --ring-inner: 1px;
+    --ring-color: var(--alpha-2);
+    --focus-shadow: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-accent), 0 0 6px 1px hsl(from var(--role-accent-600) h s l / 60%);
+    --focus-shadow-danger: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-danger), 0 0 6px 1px hsl(from var(--role-danger-600) h s l / 60%);
+    --pictogram-highlight-default: var(--gray-650);
+    --pictogram-highlight-heather: var(--plum);
+    --pictogram-highlight-cactus: var(--mineral);
+    --neutral-0: var(--gray-900);
+    --neutral-10: var(--gray-890);
+    --neutral-20: var(--gray-880);
+    --neutral-30: var(--gray-870);
+    --neutral-40: var(--gray-860);
+    --neutral-50: var(--gray-850);
+    --neutral-60: var(--gray-840);
+    --neutral-70: var(--gray-830);
+    --neutral-80: var(--gray-820);
+    --neutral-90: var(--gray-810);
+    --neutral-100: var(--gray-800);
+    --neutral-150: var(--gray-750);
+    --neutral-200: var(--gray-700);
+    --neutral-250: var(--gray-650);
+    --neutral-300: var(--gray-600);
+    --neutral-350: var(--gray-550);
+    --neutral-400: var(--gray-500);
+    --neutral-450: var(--gray-450);
+    --neutral-500: var(--gray-400);
+    --neutral-550: var(--gray-350);
+    --neutral-600: var(--gray-300);
+    --neutral-650: var(--gray-250);
+    --neutral-700: var(--gray-200);
+    --neutral-750: var(--gray-150);
+    --neutral-800: var(--gray-100);
+    --neutral-810: var(--gray-90);
+    --neutral-820: var(--gray-80);
+    --neutral-830: var(--gray-70);
+    --neutral-840: var(--gray-60);
+    --neutral-850: var(--gray-50);
+    --neutral-860: var(--gray-40);
+    --neutral-870: var(--gray-30);
+    --neutral-880: var(--gray-20);
+    --neutral-890: var(--gray-10);
+    --neutral-900: var(--gray-0);
+    --surface-0: var(--gray-900);
+    --surface-1: var(--gray-850);
+    --surface-2: var(--gray-830);
+    --surface-3: var(--gray-800);
+    --fill-git-added: var(--text-git-added);
+    --fill-git-added-hover: #27c840;
+    --fill-git-removed-hover: #ff1342;
+    --fill-git-modified: var(--text-git-modified);
+    --fill-git-modified-hover: #fac800;
+    --fill-git-merged: var(--text-git-merged);
+    --fill-git-merged-hover: #a67dff;
+    --fill-git-closed: var(--text-git-closed);
+    --fill-git-closed-hover: #ff4940;
+    --fill-git-conflicting: var(--text-git-conflicting);
+    --fill-git-conflicting-hover: #f97a1f;
+    --fill-git-draft-hover: #999999;
+    --fill-primary-hover: var(--gray-100);
+    --fill-secondary: var(--alpha-2);
+    --fill-secondary-hover: hsl(from var(--neutral-900) h s l / 14%);
+    --fill-secondary-ring: transparent;
+    --fill-field: var(--alpha-1);
+    --fill-ghost-hover: hsl(from var(--neutral-900) h s l / 7.5%);
+    --fill-ghost-selected: hsl(from var(--neutral-900) h s l / 15%);
+    --bg-accent: var(--role-accent-800);
+    --bg-danger: var(--role-danger-800);
+    --bg-success: var(--role-success-800);
+    --bg-warning: var(--role-warning-800);
+    --bg-pro: var(--role-pro-800);
+    --bg-tint-red: rgb(from var(--red-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-red-opaque: var(--red-800);
+    --bg-tint-orange: rgb(from var(--orange-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-orange-opaque: var(--orange-800);
+    --bg-tint-yellow: rgb(from var(--yellow-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-yellow-opaque: var(--yellow-800);
+    --bg-tint-green: rgb(from var(--green-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-green-opaque: var(--green-800);
+    --bg-tint-aqua: rgb(from var(--aqua-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-aqua-opaque: var(--aqua-800);
+    --bg-tint-blue: rgb(from var(--blue-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-blue-opaque: var(--blue-800);
+    --bg-tint-violet: rgb(from var(--violet-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-violet-opaque: var(--violet-800);
+    --bg-tint-magenta: rgb(from var(--magenta-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-magenta-opaque: var(--magenta-800);
+    --backdrop: rgb(0 0 0 / 0.5);
+    --text-accent: var(--role-accent-300);
+    --text-danger: var(--role-danger-300);
+    --text-success: var(--role-success-400);
+    --text-warning: var(--role-warning-300);
+    --text-pro: var(--role-pro-300);
+    --text-tint-red: var(--red-300);
+    --text-tint-orange: var(--orange-300);
+    --text-tint-yellow: var(--yellow-300);
+    --text-tint-green: var(--green-300);
+    --text-tint-aqua: var(--aqua-300);
+    --text-tint-blue: var(--blue-300);
+    --text-tint-violet: var(--violet-300);
+    --text-tint-magenta: var(--magenta-300);
+    --text-git-added: #32d74b;
+    --text-git-removed: #ff2c56;
+    --text-git-modified: #ffd014;
+    --text-git-merged: #b796ff;
+    --text-git-closed: #ff6159;
+    --text-git-conflicting: #fa832e;
+    --text-git-draft: #a6a6a6;
+    --text-primary: var(--gray-50);
+    --text-secondary: var(--gray-200);
+    --text-muted: var(--gray-400);
+    --on-git-added: var(--gray-900);
+    --on-git-removed: var(--gray-900);
+    --on-git-modified: var(--gray-900);
+    --on-git-merged: var(--gray-900);
+    --on-git-closed: var(--gray-900);
+    --on-git-conflicting: var(--gray-900);
+    --on-git-draft: var(--gray-900);
+    --chart-categorical-1: var(--blue-400);
+    --chart-categorical-2: var(--orange-400);
+    --chart-categorical-3: var(--aqua-400);
+    --chart-categorical-4: var(--yellow-350);
+    --chart-categorical-5: var(--magenta-400);
+    --chart-categorical-6: var(--green-500);
+    --chart-categorical-7: var(--violet-350);
+    --chart-categorical-8: var(--red-350);
+    --chart-sequential-1: var(--blue-700);
+    --chart-sequential-2: var(--blue-600);
+    --chart-sequential-3: var(--blue-500);
+    --chart-sequential-4: var(--blue-400);
+    --chart-sequential-5: var(--blue-300);
+    --chart-sequential-6: var(--blue-200);
+    --chart-sequential-7: var(--blue-100);
+    --chart-diverging-1: var(--blue-300);
+    --chart-diverging-2: var(--blue-450);
+    --chart-diverging-3: var(--blue-600);
+    --chart-diverging-4: var(--gray-700);
+    --chart-diverging-5: var(--red-600);
+    --chart-diverging-6: var(--red-450);
+    --chart-diverging-7: var(--red-300);
+    --chart-status-good: var(--green-400);
+    --chart-status-warning: var(--yellow-200);
+    --chart-status-serious: var(--orange-300);
+    --chart-status-critical: var(--red-450);
+    --chart-muted: var(--gray-550);
+    --chart-reference: var(--gray-350);
+    --chart-reference-tint: hsl(from var(--gray-350) h s l / 15%);
+    --chart-axis: var(--gray-700);
+    --chart-baseline: var(--gray-700);
+  }
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-MediumItalic-Static.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
+@media screen and (prefers-color-scheme: dark) {
+  :root:where(:not([data-mode="light"])),
+  [data-mode="system"] {
+    --border-accent: var(--role-accent-700);
+    --border-danger: var(--role-danger-700);
+    --border-success: var(--role-success-700);
+    --border-warning: var(--role-warning-700);
+    --border-pro: var(--role-pro-700);
+    --border-editor-comment: var(--yellow-300);
+    --border-editor-comment-open: var(--yellow-200);
+    --shadow-color: rgba(0, 0, 0, 0.24);
+    --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.32), 0 2px 6px rgb(0 0 0 / 0.2);
+    --ring-outer: 0px;
+    --ring-inner: 1px;
+    --ring-color: var(--alpha-2);
+    --focus-shadow: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-accent), 0 0 6px 1px hsl(from var(--role-accent-600) h s l / 60%);
+    --focus-shadow-danger: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-danger), 0 0 6px 1px hsl(from var(--role-danger-600) h s l / 60%);
+    --pictogram-highlight-default: var(--gray-650);
+    --pictogram-highlight-heather: var(--plum);
+    --pictogram-highlight-cactus: var(--mineral);
+    --neutral-0: var(--gray-900);
+    --neutral-10: var(--gray-890);
+    --neutral-20: var(--gray-880);
+    --neutral-30: var(--gray-870);
+    --neutral-40: var(--gray-860);
+    --neutral-50: var(--gray-850);
+    --neutral-60: var(--gray-840);
+    --neutral-70: var(--gray-830);
+    --neutral-80: var(--gray-820);
+    --neutral-90: var(--gray-810);
+    --neutral-100: var(--gray-800);
+    --neutral-150: var(--gray-750);
+    --neutral-200: var(--gray-700);
+    --neutral-250: var(--gray-650);
+    --neutral-300: var(--gray-600);
+    --neutral-350: var(--gray-550);
+    --neutral-400: var(--gray-500);
+    --neutral-450: var(--gray-450);
+    --neutral-500: var(--gray-400);
+    --neutral-550: var(--gray-350);
+    --neutral-600: var(--gray-300);
+    --neutral-650: var(--gray-250);
+    --neutral-700: var(--gray-200);
+    --neutral-750: var(--gray-150);
+    --neutral-800: var(--gray-100);
+    --neutral-810: var(--gray-90);
+    --neutral-820: var(--gray-80);
+    --neutral-830: var(--gray-70);
+    --neutral-840: var(--gray-60);
+    --neutral-850: var(--gray-50);
+    --neutral-860: var(--gray-40);
+    --neutral-870: var(--gray-30);
+    --neutral-880: var(--gray-20);
+    --neutral-890: var(--gray-10);
+    --neutral-900: var(--gray-0);
+    --surface-0: var(--gray-900);
+    --surface-1: var(--gray-850);
+    --surface-2: var(--gray-830);
+    --surface-3: var(--gray-800);
+    --fill-git-added: var(--text-git-added);
+    --fill-git-added-hover: #27c840;
+    --fill-git-removed-hover: #ff1342;
+    --fill-git-modified: var(--text-git-modified);
+    --fill-git-modified-hover: #fac800;
+    --fill-git-merged: var(--text-git-merged);
+    --fill-git-merged-hover: #a67dff;
+    --fill-git-closed: var(--text-git-closed);
+    --fill-git-closed-hover: #ff4940;
+    --fill-git-conflicting: var(--text-git-conflicting);
+    --fill-git-conflicting-hover: #f97a1f;
+    --fill-git-draft-hover: #999999;
+    --fill-primary-hover: var(--gray-100);
+    --fill-secondary: var(--alpha-2);
+    --fill-secondary-hover: hsl(from var(--neutral-900) h s l / 14%);
+    --fill-secondary-ring: transparent;
+    --fill-field: var(--alpha-1);
+    --fill-ghost-hover: hsl(from var(--neutral-900) h s l / 7.5%);
+    --fill-ghost-selected: hsl(from var(--neutral-900) h s l / 15%);
+    --bg-accent: var(--role-accent-800);
+    --bg-danger: var(--role-danger-800);
+    --bg-success: var(--role-success-800);
+    --bg-warning: var(--role-warning-800);
+    --bg-pro: var(--role-pro-800);
+    --bg-tint-red: rgb(from var(--red-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-red-opaque: var(--red-800);
+    --bg-tint-orange: rgb(from var(--orange-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-orange-opaque: var(--orange-800);
+    --bg-tint-yellow: rgb(from var(--yellow-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-yellow-opaque: var(--yellow-800);
+    --bg-tint-green: rgb(from var(--green-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-green-opaque: var(--green-800);
+    --bg-tint-aqua: rgb(from var(--aqua-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-aqua-opaque: var(--aqua-800);
+    --bg-tint-blue: rgb(from var(--blue-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-blue-opaque: var(--blue-800);
+    --bg-tint-violet: rgb(from var(--violet-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-violet-opaque: var(--violet-800);
+    --bg-tint-magenta: rgb(from var(--magenta-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-magenta-opaque: var(--magenta-800);
+    --backdrop: rgb(0 0 0 / 0.5);
+    --text-accent: var(--role-accent-300);
+    --text-danger: var(--role-danger-300);
+    --text-success: var(--role-success-400);
+    --text-warning: var(--role-warning-300);
+    --text-pro: var(--role-pro-300);
+    --text-tint-red: var(--red-300);
+    --text-tint-orange: var(--orange-300);
+    --text-tint-yellow: var(--yellow-300);
+    --text-tint-green: var(--green-300);
+    --text-tint-aqua: var(--aqua-300);
+    --text-tint-blue: var(--blue-300);
+    --text-tint-violet: var(--violet-300);
+    --text-tint-magenta: var(--magenta-300);
+    --text-git-added: #32d74b;
+    --text-git-removed: #ff2c56;
+    --text-git-modified: #ffd014;
+    --text-git-merged: #b796ff;
+    --text-git-closed: #ff6159;
+    --text-git-conflicting: #fa832e;
+    --text-git-draft: #a6a6a6;
+    --text-primary: var(--gray-50);
+    --text-secondary: var(--gray-200);
+    --text-muted: var(--gray-400);
+    --on-git-added: var(--gray-900);
+    --on-git-removed: var(--gray-900);
+    --on-git-modified: var(--gray-900);
+    --on-git-merged: var(--gray-900);
+    --on-git-closed: var(--gray-900);
+    --on-git-conflicting: var(--gray-900);
+    --on-git-draft: var(--gray-900);
+    --chart-categorical-1: var(--blue-400);
+    --chart-categorical-2: var(--orange-400);
+    --chart-categorical-3: var(--aqua-400);
+    --chart-categorical-4: var(--yellow-350);
+    --chart-categorical-5: var(--magenta-400);
+    --chart-categorical-6: var(--green-500);
+    --chart-categorical-7: var(--violet-350);
+    --chart-categorical-8: var(--red-350);
+    --chart-sequential-1: var(--blue-700);
+    --chart-sequential-2: var(--blue-600);
+    --chart-sequential-3: var(--blue-500);
+    --chart-sequential-4: var(--blue-400);
+    --chart-sequential-5: var(--blue-300);
+    --chart-sequential-6: var(--blue-200);
+    --chart-sequential-7: var(--blue-100);
+    --chart-diverging-1: var(--blue-300);
+    --chart-diverging-2: var(--blue-450);
+    --chart-diverging-3: var(--blue-600);
+    --chart-diverging-4: var(--gray-700);
+    --chart-diverging-5: var(--red-600);
+    --chart-diverging-6: var(--red-450);
+    --chart-diverging-7: var(--red-300);
+    --chart-status-good: var(--green-400);
+    --chart-status-warning: var(--yellow-200);
+    --chart-status-serious: var(--orange-300);
+    --chart-status-critical: var(--red-450);
+    --chart-muted: var(--gray-550);
+    --chart-reference: var(--gray-350);
+    --chart-reference-tint: hsl(from var(--gray-350) h s l / 15%);
+    --chart-axis: var(--gray-700);
+    --chart-baseline: var(--gray-700);
+  }
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Semibold-Static.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+:root,
+[data-platform="web"],
+[data-platform="desktop"] {
+  --cursor-interactive: pointer;
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-SemiboldItalic-Static.otf") format("opentype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
+[data-platform="desktop"] {
+  --cursor-interactive: default;
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Bold-Static.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+[data-mode="light"]:not(:root),
+[data-mode="system"]:not(:root) {
+  color-scheme: light;
 }
-@font-face {
-  font-family: "Anthropic Sans";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-BoldItalic-Static.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
+@media screen {
+  [data-mode="dark"]:not(:root) {
+    color-scheme: dark;
+  }
 }
-</style>
-  <style>@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Regular-Static.otf")
-    format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+@media screen and (prefers-color-scheme: dark) {
+  [data-mode="system"]:not(:root) {
+    color-scheme: dark;
+  }
 }
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-RegularItalic-Static.otf")
-    format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Medium-Static.otf")
-    format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-MediumItalic-Static.otf")
-    format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Semibold-Static.otf")
-    format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-SemiboldItalic-Static.otf")
-    format("opentype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-Bold-Static.otf")
-    format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Anthropic Serif";
-  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Text-BoldItalic-Static.otf")
-    format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}</style>
-  <style>:root {
+:root {
   color-scheme: light dark;
-  --font-serif: "Anthropic Serif", Georgia, "Times New Roman", serif;
+  --font-serif: "anthropic-serif", Georgia, "Times New Roman", serif;
 }
 * {
   box-sizing: border-box;
@@ -141,38 +1075,29 @@ button {
 }
 body {
   font-family:
-    "Anthropic Sans",
+    "anthropic-sans",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
   background: transparent;
 }
-/* Iframe height is externally managed — host sets iframe.style.height to
- * match body.getBoundingClientRect().height via postMessage. During the
- * 1-frame lag (and the 0.25s initial transition), body > viewport triggers
- * a transient scrollbar that steals ~15px width, reflowing flex content.
- * Zero-width scrollbar = zero layout shift. Wheel/keyboard scroll still
- * work if ever needed. */
-html,
-body {
+html:where(:not([data-saved])),
+:where(html:not([data-saved])) body {
   scrollbar-width: none;
 }
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
+html:where(:not([data-saved]))::-webkit-scrollbar,
+:where(html:not([data-saved])) body::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-/* Short var aliases — saves ~5 tokens per reference */
 :root {
-  --p: var(--color-text-primary);
-  --s: var(--color-text-secondary);
-  --t: var(--color-text-tertiary);
-  --bg2: var(--color-background-secondary);
-  --b: var(--color-border-secondary);
+  --p: var(--text-primary);
+  --s: var(--text-secondary);
+  --t: var(--text-muted);
+  --bg2: var(--surface-1);
+  --b: var(--border-strong);
 }
-
-/* SVG utility classes — use class="t" instead of repeating font/fill attrs */
 .t {
   font-size: 14px;
   fill: var(--p);
@@ -205,23 +1130,19 @@ body::-webkit-scrollbar {
 .node:hover text {
   opacity: 0.8;
 }
-
-/* Form element defaults — model writes bare <input>, styling is automatic */
-/* :not(form.elicit *) — elicitation form provides its own
- * input/button styling at (0,1,0). Without this exclusion, these
- * generic rules at (0,3,1) / (1,0,2) clobber every .elicit-* class. */
 input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
     form.elicit *
   ),
 select:not(form.elicit *),
 textarea:not(form.elicit *) {
+  --input-font-size: max(16px, var(--font-text-md-size, 16px));
   width: 100%;
-  height: 36px;
+  height: calc(var(--input-font-size) * 2.25);
   padding: 8px 12px;
-  font-size: 16px;
-  background: var(--color-background-primary);
-  color: var(--color-text-primary);
-  border: 0.5px solid var(--color-border-tertiary);
+  font-size: var(--input-font-size);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  border: 0.5px solid var(--border);
   border-radius: 6px;
   outline: none;
   transition:
@@ -238,21 +1159,19 @@ input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
   ):hover,
 select:not(form.elicit *):hover,
 textarea:not(form.elicit *):hover {
-  border-color: var(--color-border-secondary);
+  border-color: var(--border-strong);
 }
 input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
     form.elicit *
   ):focus,
 select:not(form.elicit *):focus,
 textarea:not(form.elicit *):focus {
-  border-color: var(--color-border-info);
-  box-shadow: 0 0 0 3px var(--color-background-info);
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--bg-accent);
 }
 select {
   cursor: pointer;
 }
-
-/* Range slider — model writes bare <input type="range">, styling automatic */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -267,122 +1186,94 @@ input[type="range"]::-webkit-slider-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-background-primary);
-  border: 1px solid var(--color-border-secondary);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
   cursor: pointer;
   transition:
     border-color 0.15s,
     transform 0.15s;
 }
 input[type="range"]:hover::-webkit-slider-thumb {
-  border-color: var(--color-border-primary);
+  border-color: var(--border-stronger);
   transform: scale(1.1);
 }
 input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-background-primary);
-  border: 1px solid var(--color-border-secondary);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
   cursor: pointer;
 }
-
-/* Button defaults — model writes bare <button>, interaction states automatic */
-button:not(#action-btns button):not(form.elicit button) {
+/* button:not(
+    #action-btns button,
+    :where(#vis-container ~ #larger-btns) button
+  ):not(form.elicit button) {
   padding: 8px 16px;
-  font-size: 14px;
+  font-size: var(--font-text-sm-size, 14px);
   background: transparent;
-  border: 0.5px solid var(--color-border-secondary);
-  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius);
   cursor: pointer;
   transition:
     background 0.15s,
     transform 0.1s;
+} */
+button:not(
+    #action-btns button,
+    :where(#vis-container ~ #larger-btns) button
+  ):not(form.elicit button):hover {
+  background: var(--surface-1);
 }
-button:not(#action-btns button):not(form.elicit button):hover {
-  background: var(--color-background-secondary);
-}
-button:not(#action-btns button):not(form.elicit button):active {
-  background: var(--color-border-tertiary);
+button:not(
+    #action-btns button,
+    :where(#vis-container ~ #larger-btns) button
+  ):not(form.elicit button):active {
+  background: var(--border);
   transform: scale(0.98);
 }
-
-/* ===== Elicitation form — EA-878 =====
- * Inert unless Claude writes <form class="elicit">.
- * Figma: AaGSDTRrOCNVhNa7LZaJVr node 5340:3930
- * Conversational question prompts ("Which side are you on?"),
- * pills for all choices.
- */
-
 form.elicit {
-  background: var(--color-background-primary, #fff);
-  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
   border-radius: 16px;
-  /* Figma 5340:3930 — soft diffuse shadow, lighter than DS --shadow-md.
-   * Margin keeps the shadow from clipping at #vis-container's overflow:hidden
-   * edge: y-offset 4px + blur 20px ≈ 24px below, 20px sides. */
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
   margin: 4px 20px 24px;
   overflow: hidden;
-  /* font-base = 14/1.4 sans — descendants inherit; only .elicit-question
-   * (serif 16/1.7), .name (12), .badge (9) override. */
-  font-family: var(--font-sans, system-ui, sans-serif);
-  font-size: 14px;
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size, 14px);
   line-height: 1.4;
-  /* Match host rendering — without this the iframe uses subpixel AA and
-   * everything (notably weight-500 buttons) reads ~100 heavier on Retina
-   * than the same tokens outside the iframe. */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Chrome props animate on the form→submitted-summary swap. */
   transition:
     background-color 200ms ease-out,
     box-shadow 200ms ease-out,
     border-radius 200ms ease-out,
     padding 200ms ease-out,
     margin 200ms ease-out;
-  /* Shared FileThumbnail tokens (border-border-300/25, shadow-sm/5). */
-  --elicit-border-faint: color-mix(
-    in srgb,
-    var(--color-border-tertiary, rgba(31, 30, 29, 0.15)) 25%,
-    transparent
-  );
+  --elicit-border-faint: color-mix(in srgb, var(--border) 25%, transparent);
   --elicit-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-/* Form controls don't inherit font props from the UA sheet — pull from root.
- * `font: inherit` shorthand so font-weight comes too; the individual-prop
- * version left weight at the UA <button> default (bold-ish on some
- * platforms) for any control that doesn't set its own weight. */
 form.elicit :is(button, input, textarea) {
   font: inherit;
 }
-
-/* Header title and question prompts share Claude's chat-output voice
- * (p.font-claude-response-body = Anthropic Serif 16 / 400 / 1.7) so both
- * read as Claude speaking, not form chrome. */
 form.elicit .elicit-header,
 form.elicit .elicit-question {
-  font-family: var(--font-serif, "Anthropic Serif", Georgia, serif);
-  font-size: 16px;
+  font-family: var(--font-voice);
+  font-size: var(--font-text-md-size, 16px);
   font-weight: 400;
-  line-height: 1.7;
-  color: var(--color-text-primary, #131313);
+  line-height: 1.5;
+  color: var(--text-primary);
 }
-
-/* 44px total to match the suggested-connector widget spec.
- * Fixed height + zero vertical padding lets align-items:center handle the rest;
- * avoids the icon/text line-height arithmetic. */
 form.elicit .elicit-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 44px;
+  height: calc(var(--font-text-md-size, 16px) * 2.75);
   padding: 0 16px;
-  border-bottom: 0.5px solid
-    var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-bottom: 0.5px solid var(--border);
 }
 form.elicit .elicit-header > svg {
-  /* IconBase vectorSizeMap[16] = 20 — anthropicons render in a 20px box. */
   width: 20px;
   height: 20px;
   flex-shrink: 0;
@@ -391,152 +1282,103 @@ form.elicit .elicit-header > svg {
 form.elicit .elicit-header > span {
   flex: 1;
 }
-
 form.elicit .elicit-body {
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-
 form.elicit .elicit-group {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 form.elicit .elicit-question {
   margin: 0;
 }
-
-/* Pills container — no horizontal padding. Previously had 0 8px which pushed
- * pills 8px right of the question/textarea/date in the same .elicit-group. */
 form.elicit .elicit-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 form.elicit .elicit-pill {
-  /* Fully rounded + tighter padding — visually distinct from the rectangular
-   * text inputs (textarea/other/date stay at 8-12px radius). Pills and inputs
-   * don't match in height so the shape difference reads as intentional. */
   padding: 8px 12px;
-  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border: 0.5px solid var(--border);
   border-radius: 9999px;
   background: transparent;
-  color: var(--color-text-secondary, #383835);
+  color: var(--text-secondary);
   cursor: pointer;
   transition:
     border-color 120ms ease,
     background-color 120ms ease;
 }
 form.elicit .elicit-pill:hover {
-  border-color: var(--color-border-secondary, rgba(30, 30, 29, 0.3));
+  border-color: var(--border-strong);
 }
-/* Semantic accents — same light-fill+soft-border recipe as the blue selected
- * state, applied via attribute so inline style doesn't fight aria-pressed.
- * Single-attr specificity; the [aria-pressed="true"] rule below wins on
- * border+bg so selection remains visible on accented pills. */
 form.elicit .elicit-pill[data-accent="warning"] {
-  border-color: var(--color-text-warning, #5a4815);
-  background: color-mix(
-    in srgb,
-    var(--color-text-warning, #5a4815) 15%,
-    transparent
-  );
-  color: var(--color-text-warning, #5a4815);
+  border-color: var(--text-warning);
+  background: color-mix(in srgb, var(--text-warning) 15%, transparent);
+  color: var(--text-warning);
 }
 form.elicit .elicit-pill[data-accent="danger"] {
-  border-color: var(--color-text-danger, #7f2c28);
-  background: color-mix(
-    in srgb,
-    var(--color-text-danger, #7f2c28) 15%,
-    transparent
-  );
-  color: var(--color-text-danger, #7f2c28);
+  border-color: var(--text-danger);
+  background: color-mix(in srgb, var(--text-danger) 15%, transparent);
+  color: var(--text-danger);
 }
 form.elicit .elicit-pill[data-accent="success"] {
-  border-color: var(--color-text-success, #265b19);
-  background: color-mix(
-    in srgb,
-    var(--color-text-success, #265b19) 15%,
-    transparent
-  );
-  color: var(--color-text-success, #265b19);
+  border-color: var(--text-success);
+  background: color-mix(in srgb, var(--text-success) 15%, transparent);
+  color: var(--text-success);
 }
 form.elicit .elicit-pill[aria-pressed="true"] {
-  /* Figma: 0.5px #184f95 border + rgba(205,226,251,0.5) fill (approx via color-mix). */
-  border: 0.5px solid var(--color-text-info, #184f95);
-  background: color-mix(
-    in srgb,
-    var(--color-text-info, #184f95) 15%,
-    transparent
-  );
-  /* accent-000 — host bridge maps DS accent to --color-text-info (no
-   * --accent-* var injected into the iframe). Matches border + fill. */
-  color: var(--color-text-info, #184f95);
+  border: 0.5px solid var(--text-accent);
+  background: color-mix(in srgb, var(--text-accent) 15%, transparent);
+  color: var(--text-accent);
 }
-
-/* "Other" conditional text input.
- * background/color explicit — generic input rule no longer provides
- * these post-specificity-fix, UA Canvas/CanvasText mismatch in dark mode. */
 form.elicit .elicit-other {
   margin-top: 8px;
-  height: 40px;
+  height: calc(var(--font-text-sm-size, 14px) * 40 / 14);
   padding: 0 12px;
-  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border: 0.5px solid var(--border);
   border-radius: 8px;
-  background: var(--color-background-primary, #fff);
-  color: var(--color-text-primary, #131313);
+  background: var(--surface-2);
+  color: var(--text-primary);
   width: 100%;
   box-sizing: border-box;
 }
 form.elicit .elicit-other[hidden] {
   display: none;
 }
-
-/* Textarea.
- * background/color explicit — generic textarea rule no longer provides
- * these post-specificity-fix, UA Canvas/CanvasText mismatch in dark mode. */
 form.elicit .elicit-textarea {
   min-height: 84px;
   padding: 12px;
-  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border: 0.5px solid var(--border);
   border-radius: 8px;
-  background: var(--color-background-primary, #fff);
-  color: var(--color-text-primary, #131313);
+  background: var(--surface-2);
+  color: var(--text-primary);
   resize: vertical;
   box-sizing: border-box;
   width: 100%;
 }
 form.elicit .elicit-textarea::placeholder {
-  color: var(--color-text-tertiary, #7b7974);
+  color: var(--text-muted);
 }
-
-/* Date input — pill-shaped, hugs content */
 form.elicit .elicit-date {
   padding: 12px 16px;
-  border: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border: 0.5px solid var(--border);
   border-radius: 12px;
   background: transparent;
-  color: var(--color-text-primary, #131313);
+  color: var(--text-primary);
   width: fit-content;
   cursor: pointer;
 }
-/* Shared focus ring for all text inputs — info-blue border + soft glow */
 form.elicit .elicit-other:focus,
 form.elicit .elicit-textarea:focus,
 form.elicit .elicit-date:focus {
   outline: none;
-  border-color: var(--color-border-info, #2a78d6);
-  box-shadow: 0 0 0 3px var(--color-background-info, rgba(42, 120, 214, 0.2));
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--bg-accent);
 }
-
-/* File upload — dashed dropzone + filled tiles.
- * Tile styling mirrors packages/chat/components/FileThumbnail.tsx (the
- * thumbnail users already see in the chat input row) so a file picked here
- * reads as the same object it becomes once attached. Dropzone is the first
- * flex child; tiles append after it (flow right). */
 form.elicit .elicit-files {
   display: flex;
   flex-wrap: wrap;
@@ -544,11 +1386,9 @@ form.elicit .elicit-files {
   gap: 12px;
 }
 form.elicit .elicit-dropzone {
-  /* 120×120 = FileThumbnail SIZE_MAP.normal. Dashed stays 1px — 0.5px
-   * dashed rasterizes to invisible gaps on non-retina. */
   width: 120px;
   height: 120px;
-  border: 1px dashed var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border: 1px dashed var(--border);
   border-radius: 10px;
   box-shadow: var(--elicit-shadow-sm);
   display: flex;
@@ -557,24 +1397,15 @@ form.elicit .elicit-dropzone {
   justify-content: center;
   gap: 8px;
   cursor: pointer;
-  /* Figma 5340:4071 — 2% text-000 wash over bg-000 */
-  background: color-mix(
-    in srgb,
-    var(--color-text-primary, #131313) 2%,
-    var(--color-background-primary, #fff)
-  );
-  color: var(--color-text-tertiary, #7b7974);
+  background: color-mix(in srgb, var(--text-primary) 2%, var(--surface-2));
+  color: var(--text-muted);
   transition:
     border-color 120ms ease,
     background-color 120ms ease;
 }
 form.elicit .elicit-dropzone:hover {
-  border-color: var(--color-text-info, #184f95);
-  background: color-mix(
-    in srgb,
-    var(--color-text-info, #184f95) 4%,
-    transparent
-  );
+  border-color: var(--text-accent);
+  background: color-mix(in srgb, var(--text-accent) 4%, transparent);
 }
 form.elicit .elicit-dropzone svg {
   width: 24px;
@@ -584,11 +1415,7 @@ form.elicit .elicit-dropzone svg {
 form.elicit .elicit-dropzone input[type="file"] {
   display: none;
 }
-
 form.elicit .elicit-file-tile {
-  /* FileThumbnail ThumbnailInteractionContainer:
-   * rounded-lg border-0.5 border-border-300/25 shadow-sm shadow-always-black/5
-   * bg-bg-000 px-2.5 py-2 gap-2.5 → 8px radius, 0.5px border, 8/10px pad */
   width: 120px;
   height: 120px;
   border: 0.5px solid var(--elicit-border-faint);
@@ -598,47 +1425,35 @@ form.elicit .elicit-file-tile {
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
-  background: var(--color-background-primary, #fff);
+  background: var(--surface-2);
   box-shadow: var(--elicit-shadow-sm);
   box-sizing: border-box;
   position: relative;
 }
 form.elicit .elicit-file-tile .name {
-  /* FileThumbnail title: text-[12px] text-text-100 break-words line-clamp-3 */
-  font-size: 12px;
-  color: var(--color-text-primary, #131313);
+  font-size: var(--font-text-xs-size, 12px);
+  color: var(--text-primary);
   word-break: break-word;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 form.elicit .elicit-file-tile .badge {
-  /* FileThumbnail ThumbnailTagContainer:
-   * h-[18px] px-1 border-0.5 border-border-300/25 shadow-sm rounded
-   * bg-bg-000/70 font-medium + inner text-[9px] uppercase font-bold */
   align-self: flex-start;
-  height: 18px;
+  height: calc(var(--font-text-xs-size, 12px) * 1.5);
   padding: 0 4px;
   display: inline-flex;
   align-items: center;
   border: 0.5px solid var(--elicit-border-faint);
   border-radius: 4px;
-  background: color-mix(
-    in srgb,
-    var(--color-background-primary, #fff) 70%,
-    transparent
-  );
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
   box-shadow: var(--elicit-shadow-sm);
-  font-size: 9px;
+  font-size: calc(var(--font-text-xs-size, 12px) * 0.75);
   font-weight: 700;
-  color: var(--color-text-tertiary, #7b7974);
+  color: var(--text-muted);
   text-transform: uppercase;
 }
-/* FileThumbnail RemoveButton: w-5 h-5 -top-2 -left-2 rounded-full
- * border-0.5 border-border-300/25 bg-bg-000/90 backdrop-blur-sm.
- * Always visible (no group-hover in iframe — touch + no Tailwind group). */
 form.elicit .elicit-file-tile .remove {
   position: absolute;
   top: -8px;
@@ -648,16 +1463,12 @@ form.elicit .elicit-file-tile .remove {
   padding: 0;
   border: 0.5px solid var(--elicit-border-faint);
   border-radius: 9999px;
-  background: color-mix(
-    in srgb,
-    var(--color-background-primary, #fff) 90%,
-    transparent
-  );
+  background: color-mix(in srgb, var(--surface-2) 90%, transparent);
   backdrop-filter: blur(4px);
   cursor: pointer;
   font-size: 14px;
   line-height: 1;
-  color: var(--color-text-tertiary, #7b7974);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -666,37 +1477,27 @@ form.elicit .elicit-file-tile .remove {
     background-color 120ms ease;
 }
 form.elicit .elicit-file-tile .remove:hover {
-  color: var(--color-text-secondary, #383835);
-  background: color-mix(
-    in srgb,
-    var(--color-background-primary, #fff) 50%,
-    transparent
-  );
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--surface-2) 50%, transparent);
 }
-
-/* Footer — DS Button tokens transcribed (variant=secondary / variant=primary,
- * size=default: h-9 px-4 rounded-lg min-w-[5rem] font-base-bold). */
 form.elicit .elicit-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  /* Explicit height (mirrors .elicit-header) so the submitted-state height:0
-   * transition can interpolate — auto→0 snaps. 36px buttons + 32px breathing room. */
-  height: 68px;
+  height: calc(var(--font-text-sm-size, 14px) * 68 / 14);
   padding: 0 24px;
-  border-top: 0.5px solid var(--color-border-tertiary, rgba(31, 30, 29, 0.15));
+  border-top: 0.5px solid var(--border);
 }
 form.elicit .elicit-skip,
 form.elicit .elicit-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
+  height: calc(var(--font-text-sm-size, 14px) * 36 / 14);
   min-width: 80px;
   padding: 0 16px;
   border-radius: 8px;
-  /* DS Button primary/secondary = font-base-bold (tw-typography.js:26) */
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
@@ -710,42 +1511,26 @@ form.elicit .elicit-skip:active,
 form.elicit .elicit-submit:active {
   transform: scale(0.96);
 }
-/* secondary */
 form.elicit .elicit-skip {
-  border: 0.5px solid
-    color-mix(
-      in srgb,
-      var(--color-border-secondary, rgba(30, 30, 29, 0.3)) 30%,
-      transparent
-    );
+  border: 0.5px solid color-mix(in srgb, var(--border-strong) 30%, transparent);
   background: transparent;
-  color: var(--color-text-primary, #131313);
+  color: var(--text-primary);
 }
 form.elicit .elicit-skip:hover {
-  background: var(--color-background-secondary, #f9f9f7);
+  background: var(--surface-1);
   border-color: transparent;
 }
-/* primary */
 form.elicit .elicit-submit {
   border: none;
-  background: var(--color-text-primary, #131313);
-  color: var(--color-background-primary, #fff);
+  background: var(--text-primary);
+  color: var(--surface-2);
 }
 form.elicit .elicit-submit:hover {
   transform: scaleX(1.005) scaleY(1.015);
 }
-/* :hover and :active are both true during a mouse click; equal specificity →
- * source order wins, so without this the hover-grow above masks the press-down. */
 form.elicit .elicit-submit:hover:active {
   transform: scale(0.96);
 }
-
-/* Post-submit — submitElicitation() adds .elicit-transitioning (body fades
- * out), then after 150ms swaps the body for the Q/A summary and adds
- * .elicit-submitted (chrome transitions to the bare card while body fades
- * back in). Mirrors AskUserQuestion: outer card = AskUserQuestionToolUseCell
- * .tsx:177 (rounded-xl border-0.5 border-border-300 p-4, no bg-bg-000 when
- * submitted), rows = SubmittedResponses.tsx:14-36. */
 form.elicit .elicit-body {
   transition: opacity 150ms ease-out;
 }
@@ -759,8 +1544,6 @@ form.elicit.elicit-submitted {
   padding: 16px;
   margin: 4px;
 }
-/* `display: none` can't transition — collapse to zero so the chrome animates
- * away with the form's 200ms transition instead of snapping. */
 form.elicit .elicit-header,
 form.elicit .elicit-footer {
   transition:
@@ -768,8 +1551,6 @@ form.elicit .elicit-footer {
     height 200ms ease-out,
     padding 200ms ease-out,
     border-width 200ms ease-out,
-    /* step to hidden after the collapse so Skip/Submit leave the tab order +
-     * a11y tree (pointer-events:none alone doesn't). */
     visibility 0s linear 200ms;
 }
 form.elicit.elicit-submitted .elicit-header,
@@ -786,14 +1567,10 @@ form.elicit.elicit-submitted .elicit-footer {
 form.elicit.elicit-submitted .elicit-body {
   padding: 0;
 }
-/* Quota-fallback "1" sentinel restore: shape check skips renderSubmittedSummary
- * so the body still has live inputs — dim them so the locked state reads. */
 form.elicit.elicit-submitted .elicit-body:not(:has(.elicit-summary)) {
   pointer-events: none;
   opacity: 0.5;
 }
-/* sessionStorage restore path adds this alongside .elicit-submitted so
- * scroll-back/reload shows the summary immediately (no replayed crossfade). */
 form.elicit.elicit-restored,
 form.elicit.elicit-restored .elicit-body,
 form.elicit.elicit-restored .elicit-header,
@@ -810,42 +1587,33 @@ form.elicit .elicit-summary-row {
   flex-direction: column;
   gap: 4px;
 }
-/* SubmittedResponses question: text-text-300 font-claude-response-small-bold
- * (serif 14 / 600 / 1.5) */
 form.elicit .elicit-summary-q {
-  font-family: var(--font-serif, "Anthropic Serif", Georgia, serif);
-  font-size: 14px;
+  font-family: var(--font-voice);
+  font-size: var(--font-text-sm-size, 14px);
   font-weight: 600;
   line-height: 1.5;
-  color: var(--color-text-secondary, #383835);
+  color: var(--text-secondary);
 }
-/* SubmittedResponses answer: text-text-500 font-base (sans 14 / 430 / 1.4) */
 form.elicit .elicit-summary-a {
   font-weight: 430;
-  color: var(--color-text-tertiary, #7b7974);
+  color: var(--text-muted);
   white-space: pre-wrap;
   word-break: break-word;
 }
-
-/* Headings — bare tags get correct color in both modes */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: var(--color-text-primary);
+  color: var(--text-primary);
 }
-
 .leader {
   stroke: var(--t);
   stroke-width: 0.5;
   stroke-dasharray: 4 3;
   fill: none;
 }
-
-/* Color ramp classes — apply to <g> or shape element (rect/ellipse/circle/polygon), never <path>.
-   light-dark() responds to ancestor color-scheme, not just OS preference. */
 g.c-purple > rect,
 g.c-purple > ellipse,
 g.c-purple > circle,
@@ -1008,22 +1776,12 @@ polygon.c-red {
 .c-red > .ts {
   fill: light-dark(#a32d2d, #f09595);
 }
-
-/* Mermaid class/ER diagrams — match house aesthetic.
-   Mermaid v11 class/ER renderers use <path> (not <rect>) with inline stroke/fill
-   attrs that IGNORE themeVariables mainBkg/nodeBorder. Labels are
-   <foreignObject><div><span class="nodeLabel"><p>text</p> — NOT <text>. All style
-   fixes require !important to beat inline attrs + mermaid's inline <style>.
-   Selectors target .classDiagram/.erDiagram SVG root classes (always present)
-   rather than a .mermaid wrapper (which the model sometimes omits). */
 svg.classDiagram,
 svg.erDiagram {
   font-size: 13px;
   max-width: 100%;
   height: auto;
 }
-/* Mermaid sizes foreignObject to fit measured text width. If we upsize post-render,
-   text clips. So: overflow visible on FO, and widen inner div past its max-width. */
 svg.classDiagram foreignObject,
 svg.erDiagram foreignObject {
   overflow: visible;
@@ -1032,7 +1790,6 @@ svg.classDiagram foreignObject > div,
 svg.erDiagram foreignObject > div {
   max-width: none !important;
 }
-/* Body text: members, methods, attribute rows */
 svg.classDiagram .nodeLabel,
 svg.erDiagram .nodeLabel,
 svg.classDiagram .label foreignObject div,
@@ -1040,82 +1797,68 @@ svg.erDiagram .label foreignObject div {
   font-family: var(--font-sans) !important;
   font-size: 13px !important;
   font-weight: 400 !important;
-  color: var(--color-text-secondary) !important;
+  color: var(--text-secondary) !important;
 }
-/* Titles: classDiagram wraps in .label-group; erDiagram wraps in .name */
 svg.classDiagram .label-group .nodeLabel,
 svg.erDiagram .name .nodeLabel {
   font-size: 14px !important;
   font-weight: 500 !important;
-  color: var(--color-text-primary) !important;
+  color: var(--text-primary) !important;
 }
-/* Kill mermaid's inline style="font-weight: bolder" on the .label wrapper */
 svg.classDiagram .label-group .label {
   font-weight: 500 !important;
 }
-/* Edge labels (relationship verbs + cardinality) */
 svg.classDiagram .edgeLabel,
 svg.classDiagram .edgeLabel span,
 svg.classDiagram .edgeTerminals foreignObject div,
 svg.erDiagram .edgeLabel,
 svg.erDiagram .edgeLabel span {
   font-size: 11px !important;
-  color: var(--color-text-tertiary) !important;
+  color: var(--text-muted) !important;
 }
-/* Box outlines, row stripes, dividers — all rendered as <path> with inline attrs.
-   Mermaid's '#id .node path { fill:... }' CSS beats fill="none" attr — force fill:none. */
 svg.classDiagram .node path[stroke]:not([stroke="none"]),
 svg.classDiagram .divider path,
 svg.erDiagram .node path[stroke]:not([stroke="none"]),
 svg.erDiagram .divider path {
-  stroke: var(--color-border-tertiary) !important;
+  stroke: var(--border) !important;
   stroke-width: 0.5px !important;
   fill: none !important;
 }
-/* classDiagram: box fill (inside .basic.label-container). Mermaid's inline CSS
-   '#id .node path { stroke:... }' beats the stroke="none" attr (SVG attrs have
-   lowest specificity), and the fill path is open (no Z) so the phantom stroke
-   only paints top/right/bottom — left edge looks darker. Kill the stroke. */
 svg.classDiagram .node .basic path[fill]:not([fill="none"]) {
-  fill: var(--color-background-primary) !important;
+  fill: var(--surface-2) !important;
   stroke: none !important;
   stroke-width: 0 !important;
 }
-/* erDiagram: header row (anonymous first-child <g>) uses secondary bg */
 svg.erDiagram .node > g:first-child > path[fill]:not([fill="none"]) {
-  fill: var(--color-background-secondary) !important;
+  fill: var(--surface-1) !important;
 }
-/* erDiagram: row stripes */
 svg.erDiagram .row-rect-odd path[fill]:not([fill="none"]) {
-  fill: var(--color-background-primary) !important;
+  fill: var(--surface-2) !important;
 }
 svg.erDiagram .row-rect-even path[fill]:not([fill="none"]) {
-  fill: var(--color-background-secondary) !important;
+  fill: var(--surface-1) !important;
 }
-/* Connector lines */
 svg.erDiagram .relationshipLine,
 svg.classDiagram .relation {
-  stroke: var(--color-text-tertiary) !important;
+  stroke: var(--text-muted) !important;
   stroke-width: 1px !important;
 }
 svg.classDiagram .marker,
 svg.classDiagram marker path,
 svg.erDiagram .marker,
 svg.erDiagram marker path {
-  stroke: var(--color-text-tertiary) !important;
+  stroke: var(--text-muted) !important;
   stroke-width: 1px !important;
 }
 svg.classDiagram marker path[fill]:not([fill="none"]):not([fill="transparent"]),
 svg.erDiagram marker path[fill]:not([fill="none"]):not([fill="transparent"]) {
-  fill: var(--color-text-tertiary) !important;
+  fill: var(--text-muted) !important;
 }
-/* Relationship label background — kill default 0.7 opacity */
 svg.classDiagram .labelBkg,
 svg.erDiagram .labelBkg {
-  background-color: var(--color-background-primary) !important;
+  background-color: var(--surface-2) !important;
   opacity: 1 !important;
 }
-
 body {
   position: relative;
 }
@@ -1123,6 +1866,59 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
+  color: var(--text-primary);
+}
+@property --wide-fade-left {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --wide-fade-right {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+:root:not([data-open-larger]) #vis-container.scrolls-wide:not(.whole-width) {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: 32px;
+  scrollbar-width: none;
+}
+#vis-container.scrolls-wide::-webkit-scrollbar {
+  height: 0;
+}
+:root:not([data-open-larger]) #vis-container.scrolls-wide:focus-visible {
+  outline-offset: -2px;
+}
+:root:not([data-open-larger]):not([data-picture])
+  #vis-container.scrolls-wide:not(.whole-width):not(
+    :focus-visible
+  )[data-wide-more] {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--wide-fade-left),
+    #000 calc(100% - var(--wide-fade-right)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--wide-fade-left),
+    #000 calc(100% - var(--wide-fade-right)),
+    transparent
+  );
+}
+#vis-container.whole-width {
+  overflow-x: visible;
+  overflow-y: clip;
+}
+#vis-container.whole-width-block {
+  display: flow-root;
+}
+:where(#vis-container.whole-width) {
+  min-width: 0;
+  min-height: 0;
 }
 #vis-container > svg {
   display: block;
@@ -1131,13 +1927,12 @@ body {
   height: auto;
   overflow: visible;
 }
-
-/* Action buttons group.
-   hidden attr is removed on tool-input (final) so buttons never show during streaming.
-   Popover items: Copy to clipboard, Download file. */
+:where(:root[data-center-content] #vis-container) > div:where(:only-of-type) {
+  margin-inline: auto;
+}
 #action-btns {
   position: absolute;
-  top: 8px;
+  top: min(8px, (100vh - 28px) / 2);
   right: 8px;
   z-index: 2147483647;
   display: flex;
@@ -1145,28 +1940,196 @@ body {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
-/* display:flex above would override UA [hidden] — restore it */
 #action-btns[hidden] {
   display: none;
 }
-body:hover #action-btns {
+body:hover #action-btns,
+#action-btns[data-hold-open] {
   opacity: 1;
 }
-/* Hide on touch-primary (mobile) devices — both the reveal above
-   (body:hover) and the popover open (#more-btn:hover) are hover-driven,
-   so on a device without hover the ⋯ trigger either never appears or
-   sticks visible after a stray tap with no way to open the menu. */
 @media (hover: none) and (pointer: coarse) {
   #action-btns {
     display: none;
   }
 }
-/* 28×28 chip style for the ⋯ trigger.
-   bg-100 at rest (visible over widget content), bg-300 on hover.
-   No border — bg change is enough hover feedback. Transparent border stays
-   for layout stability. Fallback light-dark() values match the design-system
-   --bg-100/--bg-300 tokens (widget iframe doesn't receive them via host
-   context, only --color-background-* semantic vars). */
+:root[data-keep-menu-clear]
+  #action-btns[data-quiet]:not([data-hold-open]):not(:focus-within) {
+  opacity: 0;
+  pointer-events: none;
+}
+:root[data-keep-menu-clear][data-menu-room]:not([data-open-larger]) body {
+  padding-top: var(--menu-room) !important;
+}
+:root[data-keep-menu-clear][data-menu-held]:not([data-open-larger]) body {
+  min-height: var(--menu-held) !important;
+}
+:root[data-frame-held]:not([data-open-larger]) body {
+  min-height: var(--frame-held) !important;
+}
+:root[data-frame-capped]:not([data-open-larger]) body {
+  max-height: var(--frame-cap) !important;
+  overflow: hidden !important;
+}
+:root[data-frame-empty]:not([data-open-larger]) body {
+  height: var(--frame-empty) !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#vis-container ~ #larger-btns {
+  all: revert;
+  display: contents !important;
+}
+#vis-container ~ #larger-btns::before,
+#vis-container ~ #larger-btns::after {
+  content: none !important;
+}
+#vis-container ~ #larger-btns button {
+  position: relative !important;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--surface-1);
+  border: 0.5px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+#vis-container ~ #larger-btns button::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+}
+#vis-container ~ #larger-btns button[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: default;
+}
+#vis-container ~ #larger-btns #larger-open {
+  position: absolute !important;
+  top: 8px;
+  top: min(8px, (100vh - 36px) / 2);
+  right: 8px;
+  z-index: 2147483646;
+}
+@media (hover: none) {
+  #vis-container ~ #larger-btns #larger-open[data-resting]:not(:focus-visible) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  #vis-container ~ #larger-btns #larger-open[data-arming] {
+    pointer-events: none;
+  }
+}
+#vis-container ~ #larger-btns #larger-open {
+  transition: opacity 0.2s ease;
+}
+#vis-container ~ #larger-btns #larger-open[hidden],
+#vis-container ~ #larger-btns #larger-zoom[hidden] {
+  display: none !important;
+}
+@media (hover: hover), (pointer: fine) {
+  #vis-container ~ #larger-btns #larger-open {
+    right: 40px;
+  }
+}
+:root[data-open-larger] {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  inset: auto;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  --larger-button-size: 44px;
+}
+:root[data-open-larger] body {
+  display: grid;
+  position: relative;
+  float: none;
+  margin: 0;
+  border: 0;
+  inset: auto;
+  box-sizing: border-box;
+  min-height: 0;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  grid: none;
+  gap: 0;
+  place-items: start;
+  justify-content: start;
+  align-content: start;
+  height: 100vh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: calc(var(--host-inset-top, 0px) + 12px + var(--larger-lead-y, 0px))
+    calc(
+      var(--host-inset-right, 0px) + 12px + var(--larger-button-size) + 2px +
+        12px
+    )
+    calc(var(--host-inset-bottom, 0px) + 12px)
+    calc(var(--host-inset-left, 0px) + 12px + var(--larger-lead-x, 0px));
+}
+:root[data-open-larger][data-zoomed-in] body {
+  padding-top: calc(
+    var(--host-inset-top, 0px) + 12px + 2 * var(--larger-button-size) + 2px +
+      12px + var(--larger-lead-y, 0px)
+  );
+}
+:root[data-open-larger] body {
+  touch-action: pan-x pan-y;
+}
+:root[data-open-larger] #vis-container {
+  overflow: visible;
+}
+:root[data-open-larger] #action-btns {
+  display: none;
+}
+#vis-container ~ #larger-btns #larger-zoom-status {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+#vis-container ~ #larger-btns #larger-zoom {
+  position: fixed !important;
+  margin: 0;
+  top: calc(var(--host-inset-top, 0px) + 12px);
+  right: calc(var(--host-inset-right, 0px) + 12px);
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--surface-1);
+  border: 1px solid var(--alpha-5);
+  box-shadow: 0 1px 3px var(--alpha-2);
+}
+#vis-container ~ #larger-btns #larger-zoom button {
+  width: var(--larger-button-size);
+  height: var(--larger-button-size);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-primary);
+}
+#vis-container ~ #larger-btns #larger-zoom button::before {
+  content: none;
+}
+#vis-container ~ #larger-btns #larger-zoom button:focus-visible {
+  outline-offset: -2px;
+}
+#vis-container ~ #larger-btns #larger-zoom button + button {
+  border-top: 1px solid var(--alpha-3);
+}
+#vis-container ~ #larger-btns #larger-zoom button[aria-disabled="true"] {
+  opacity: 1;
+}
+#vis-container ~ #larger-btns #larger-zoom button[aria-disabled="true"] svg {
+  opacity: 0.45;
+}
 #action-btns > button {
   width: 28px;
   height: 28px;
@@ -1174,20 +2137,41 @@ body:hover #action-btns {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-sm, 6px);
-  background: var(--bg-100, light-dark(#faf9f5, #262624));
+  border-radius: 6px;
+  background: var(--surface-1);
   border: 1px solid transparent;
-  color: var(--color-text-secondary, #3d3d3a);
+  color: var(--text-secondary);
   cursor: pointer;
   transition: background 0.15s ease;
 }
 #action-btns > button:hover {
-  background: var(--bg-300, light-dark(#f0eee6, #141413));
+  background: var(--surface-0);
 }
-/* Popover — drops down-left from the trigger.
-   Styled to match the native claude.ai Radix dropdown: white bg, backdrop
-   blur, 0.5px border, subtle shadow. Items are single-line icon + label,
-   matching the conversation menu (Star/Rename/Add to project). */
+:root[data-keep-menu-clear] #action-btns {
+  top: min(4px, (100vh - 22px) / 2);
+  right: 4px;
+}
+:root[data-keep-menu-clear] #action-btns > button {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: transparent;
+  opacity: 0.7;
+  transition:
+    background 0.15s ease,
+    opacity 0.15s ease;
+}
+:root[data-keep-menu-clear] #action-btns:hover > #more-btn,
+:root[data-keep-menu-clear] #action-btns[data-hold-open] > #more-btn,
+:root[data-keep-menu-clear] #action-btns > #more-btn:focus-visible {
+  background: var(--surface-0);
+  opacity: 1;
+}
+:root[data-keep-menu-clear] #action-btns > button > svg {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 0 1px var(--surface-0));
+}
 #more-popover {
   position: absolute;
   top: calc(100% + 4px);
@@ -1195,13 +2179,13 @@ body:hover #action-btns {
   min-width: 8rem;
   padding: 6px;
   border-radius: 12px;
-  background: var(--color-background-primary, #fff);
-  border: 0.5px solid var(--color-border-secondary, rgba(0, 0, 0, 0.1));
+  background: var(--surface-2);
+  border: 0.5px solid var(--border-strong);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 2px 8px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.24));
-  font-family: var(--font-sans, system-ui);
-  color: var(--color-text-secondary, #3d3d3a);
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4px);
@@ -1210,11 +2194,9 @@ body:hover #action-btns {
     transform 0.15s ease,
     visibility 0s linear 0.15s;
 }
-/* Reveal only when hovering the ⋯ trigger or the popover itself. A 4px
-   dead-zone between trigger and popover would close it, so
-   #more-popover:hover keeps it open during the crossing. */
 #more-btn:hover ~ #more-popover,
-#more-popover:hover {
+#more-popover:hover,
+#action-btns[data-hold-open] #more-popover {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -1223,7 +2205,6 @@ body:hover #action-btns {
     transform 0.15s ease,
     visibility 0s;
 }
-/* Popover items — single-line icon + label, matching native dropdown menu */
 .more-item {
   display: flex;
   align-items: center;
@@ -1235,14 +2216,17 @@ body:hover #action-btns {
   border-radius: 8px;
   cursor: pointer;
   text-align: left;
-  font-family: var(--font-sans, system-ui) !important;
+  font-family: var(--font-sans) !important;
   color: inherit;
   transition: background 0.1s ease;
   white-space: nowrap;
 }
+.more-item[hidden] {
+  display: none;
+}
 .more-item:hover {
-  background: var(--color-background-secondary, #f5f4ed);
-  color: var(--color-text-primary, #141413);
+  background: var(--surface-1);
+  color: var(--text-primary);
 }
 .more-item-icon {
   flex-shrink: 0;
@@ -1257,37 +2241,152 @@ body:hover #action-btns {
   height: 20px;
 }
 .more-item-label {
-  font-family: var(--font-sans, system-ui) !important;
-  font-size: 14px;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-text-sm-size, 14px);
   line-height: 1.3;
   white-space: nowrap;
+}
+#action-btns[data-beside] #more-popover {
+  top: 50%;
+  right: calc(100% + 4px);
+  translate: 0 -50%;
+  display: flex;
+  min-width: 0;
+  max-width: calc(100vw - 48px);
+  padding: 0;
+  border-radius: 8px;
+}
+:root[data-keep-menu-clear] #action-btns[data-beside] #more-popover {
+  max-width: calc(100vw - 34px);
+}
+#action-btns[data-beside] .more-item {
+  width: auto;
+  min-width: 0;
+  padding: 3px 8px;
+  gap: 6px;
+}
+#action-btns[data-beside] .more-item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#action-btns[data-beside] #copy-btn {
+  flex-shrink: 1000000;
+  min-width: 36px;
+}
+#action-btns[data-beside] #copy-btn[title] .more-item-label {
+  display: none;
+}
+#copy-toast.visible ~ #action-btns[data-beside] #more-popover {
+  opacity: 0;
+  visibility: hidden;
+}
+@media (max-width: 640px) {
+  #copy-toast.visible ~ #action-btns #more-popover {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.more-item[aria-busy="true"] {
+  cursor: progress;
+}
+.more-item[aria-busy="true"] .more-item-icon {
+  position: relative;
+}
+.more-item[aria-busy="true"] .more-item-icon svg {
+  visibility: hidden;
+}
+.more-item[aria-busy="true"] .more-item-icon::before,
+.more-item[aria-busy="true"] .more-item-icon::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+}
+.more-item[aria-busy="true"] .more-item-icon::before {
+  border: 1.75px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+.more-item[aria-busy="true"] .more-item-icon::after {
+  background: conic-gradient(transparent 40%, currentColor);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.75px),
+    #000 calc(100% - 1.25px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.75px),
+    #000 calc(100% - 1.25px)
+  );
+  animation: moreItemSpin 1s linear infinite;
+}
+@keyframes moreItemSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .more-item[aria-busy="true"] .more-item-icon::after {
+    animation: none;
+  }
+}
+#vis-container ~ #not-sent {
+  all: revert;
+  position: absolute;
+}
+body[data-not-sent] {
+  flex-wrap: wrap;
+}
+body[data-not-sent] > #vis-container ~ #not-sent {
+  position: static;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+:root[data-open-larger] body[data-not-sent] > #vis-container ~ #not-sent {
+  max-width: calc(
+    100vw - var(--host-inset-left, 0px) - var(--host-inset-right, 0px) - 24px -
+      var(--larger-button-size) - 14px - var(--larger-lead-x, 0px)
+  );
+}
+#vis-container ~ #not-sent > p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-text-sm-size, 14px) * 13 / 14);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+#vis-container ~ #not-sent > p[hidden] {
+  display: none;
 }
 #copy-toast {
   position: fixed;
   top: 12px;
+  top: min(12px, (100vh - 1lh - 18px) / 2);
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
-  background: var(--color-background-danger, #f7ecec);
-  color: var(--color-text-danger, #7f2c28);
-  border: 1px solid var(--color-border-danger, #a73d39);
-  font-family: var(--font-sans, system-ui);
-  font-size: 13px;
+  background: var(--bg-danger);
+  color: var(--text-danger);
+  border: 1px solid var(--border-danger);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-text-sm-size, 14px) * 13 / 14);
   padding: 8px 14px;
-  border-radius: var(--border-radius-md, 8px);
+  border-radius: var(--radius);
   pointer-events: none;
   opacity: 0;
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
   z-index: 2147483647;
-  white-space: nowrap;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 88px);
+  text-align: center;
+  white-space: pre-line;
 }
 #copy-toast.visible {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
-
-/* HTML scripts-loading shimmer */
 #vis-container.scripts-loading {
   pointer-events: none;
   opacity: 0.7;
@@ -1323,13 +2422,7 @@ body:hover #action-btns {
     transform: translateX(200%) rotate(25deg);
   }
 }
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
-  <style id="entry-animation">/* Entry animation for streaming SVG elements.
-   Scoped to #vis-container.streaming — widget-main.ts adds the class on first
-   tool-input-partial and removes it on tool-input. After streaming, scripts
-   that rebuild SVG via innerHTML (e.g. slider-driven charts) won't trigger this.
-   Uses CSS individual transform property (scale) to avoid conflicts with SVG transform attribute.
-   Excludes elements with transform/opacity attributes to prevent CSS overriding SVG values. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @keyframes svgFadeInScale {
   from {
     opacity: 0;
@@ -1359,8 +2452,8 @@ body:hover #action-btns {
     opacity 0.4s ease-out;
   animation: svgFadeInScale 0.5s ease-out;
   transform-origin: center;
-}</style>
-<style id="mcp-host-variables">:root {
+}
+:root {
   --color-background-primary: light-dark(rgba(255, 255, 255, 1), rgba(48, 48, 46, 1));
   --color-background-secondary: light-dark(rgba(245, 244, 237, 1), rgba(38, 38, 36, 1));
   --color-background-tertiary: light-dark(rgba(250, 249, 245, 1), rgba(20, 20, 19, 1));
@@ -1398,7 +2491,7 @@ body:hover #action-btns {
   --color-ring-danger: light-dark(rgba(167, 61, 57, 0.5), rgba(205, 92, 88, 0.5));
   --color-ring-success: light-dark(rgba(67, 116, 38, 0.5), rgba(89, 145, 48, 0.5));
   --color-ring-warning: light-dark(rgba(128, 92, 31, 0.5), rgba(168, 120, 41, 0.5));
-  --font-sans: Anthropic Sans, sans-serif;
+  --font-sans: "anthropic-sans", sans-serif;
   --font-mono: ui-monospace, monospace;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -1437,24 +2530,49 @@ body:hover #action-btns {
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}</style></head>
-<body>
-  <!-- Pre-defined SVG markers — available to all SVGs via url(#arrow) -->
-  <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+}</style><style>body { padding: 16px; background: var(--surface-1); }
+#vis-container { overflow: visible; }</style></head><body><svg style="position:absolute;width:0;height:0" aria-hidden="true">
     <defs>
       <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
         <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
       </marker>
     </defs>
-  </svg>
-  <div id="vis-container">
-<h2 class="sr-only">SOLVARZ by Sparkz Solution — Investor Pitch Book (Guy Kawasaki 10/20/30 Method)</h2>
-
+  </svg><div id="vis-container">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap');
   .pb-root{transition:background .25s,color .25s}
-  .pb-root.light{--bg0:#ffffff;--bg1:#f5f5f5;--bg2:#ebebeb;--tx0:#111111;--tx1:#444444;--tx2:#888888;--bd:#d8d8d8;--acc:#185FA5;--acc-bg:#E6F1FB;--acc-bd:#B5D4F4;--teal:#0F6E56;--teal-bg:#E1F5EE;--amber:#854F0B;--amber-bg:#FAEEDA;--purple:#534AB7;--purple-bg:#EEEDFE;--coral:#993C1D;--coral-bg:#FAECE7;--bar1:#B5D4F4;--bar2:#185FA5;--bar3:#0C447C;--alloc-a:#185FA5;--alloc-b:#0F6E56;--alloc-c:#854F0B;--solvarz-cell:#E6F1FB;--solvarz-hd:#B5D4F4;--solvarz-tx:#185FA5;--solvarz-hd-tx:#0C447C;--team-bg:#E6F1FB;--team-tx:#185FA5;--plan-a:#185FA5;--plan-a-bg:#E6F1FB;--plan-b:#0F6E56;--plan-b-bg:#E1F5EE}
-  .pb-root.dark{--bg0:#141414;--bg1:#1e1e1e;--bg2:#272727;--tx0:#f0f0f0;--tx1:#b0b0b0;--tx2:#666666;--bd:#333333;--acc:#5BA3E8;--acc-bg:#0e2238;--acc-bd:#1e4470;--teal:#3EC99A;--teal-bg:#0a2a20;--amber:#F0A830;--amber-bg:#2a1f06;--purple:#9B94F0;--purple-bg:#1a1740;--coral:#E07A5A;--coral-bg:#2a1208;--bar1:#1e4470;--bar2:#3a7dc4;--bar3:#5BA3E8;--alloc-a:#3a7dc4;--alloc-b:#2a9e76;--alloc-c:#c47e22;--solvarz-cell:#0e2238;--solvarz-hd:#1e4470;--solvarz-tx:#5BA3E8;--solvarz-hd-tx:#8ec6f5;--team-bg:#0e2238;--team-tx:#5BA3E8;--plan-a:#5BA3E8;--plan-a-bg:#0e2238;--plan-b:#3EC99A;--plan-b-bg:#0a2a20}
+  .pb-root.light{
+    --bg0:#ffffff;--bg1:#f5f5f5;--bg2:#ebebeb;
+    --tx0:#111111;--tx1:#444444;--tx2:#888888;--bd:#d8d8d8;
+    --acc:#185FA5;--acc-bg:#E6F1FB;--acc-bd:#B5D4F4;
+    --teal:#0F6E56;--teal-bg:#E1F5EE;--teal-bd:#9FE1CB;
+    --amber:#854F0B;--amber-bg:#FAEEDA;--amber-bd:#F2CC8F;
+    --purple:#534AB7;--purple-bg:#EEEDFE;
+    --coral:#993C1D;--coral-bg:#FAECE7;
+    --bar1:#B5D4F4;--bar2:#185FA5;--bar3:#0C447C;
+    --alloc-a-c:#185FA5;--alloc-b-c:#0F6E56;--alloc-c-c:#854F0B;
+    --sv-cell:#E6F1FB;--sv-hd:#B5D4F4;--sv-tx:#185FA5;--sv-hd-tx:#0C447C;
+    --team-bg:#E6F1FB;--team-tx:#185FA5;
+    --pc:#854F0B;--pc-bg:#FAEEDA;--pc-bd:#F2CC8F;
+    --pb:#0F6E56;--pb-bg:#E1F5EE;--pb-bd:#9FE1CB;
+    --pa:#185FA5;--pa-bg:#E6F1FB;--pa-bd:#B5D4F4;
+  }
+  .pb-root.dark{
+    --bg0:#141414;--bg1:#1e1e1e;--bg2:#272727;
+    --tx0:#f0f0f0;--tx1:#b0b0b0;--tx2:#666666;--bd:#333333;
+    --acc:#5BA3E8;--acc-bg:#0e2238;--acc-bd:#1e4470;
+    --teal:#3EC99A;--teal-bg:#0a2a20;--teal-bd:#1a4a36;
+    --amber:#F0A830;--amber-bg:#2a1f06;--amber-bd:#4a3510;
+    --purple:#9B94F0;--purple-bg:#1a1740;
+    --coral:#E07A5A;--coral-bg:#2a1208;
+    --bar1:#1e4470;--bar2:#3a7dc4;--bar3:#5BA3E8;
+    --alloc-a-c:#3a7dc4;--alloc-b-c:#2a9e76;--alloc-c-c:#c47e22;
+    --sv-cell:#0e2238;--sv-hd:#1e4470;--sv-tx:#5BA3E8;--sv-hd-tx:#8ec6f5;
+    --team-bg:#0e2238;--team-tx:#5BA3E8;
+    --pc:#F0A830;--pc-bg:#2a1f06;--pc-bd:#4a3510;
+    --pb:#3EC99A;--pb-bg:#0a2a20;--pb-bd:#1a4a36;
+    --pa:#5BA3E8;--pa-bg:#0e2238;--pa-bd:#1e4470;
+  }
   .pb-root{padding:.5rem}
   .pb-toggle-bar{display:flex;justify-content:flex-end;padding:.25rem 0 1rem;position:sticky;top:0;z-index:100}
   .pb-toggle-btn{display:flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;border:1px solid var(--bd);background:var(--bg1);color:var(--tx1);font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;transition:all .2s;user-select:none}
@@ -1488,12 +2606,15 @@ body:hover #action-btns {
   .pb-stat-row:last-child{border-bottom:none}
   .pb-stat-key{font-size:13px;color:var(--tx1)}
   .pb-stat-val{font-size:13px;font-weight:500;color:var(--tx0);font-family:'DM Mono',monospace;text-align:right;max-width:58%}
+  .pb-stat-val.highlight-c{color:var(--pc)}
+  .pb-stat-val.highlight-b{color:var(--pb)}
+  .pb-stat-val.highlight-a{color:var(--pa)}
   .pb-section-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--tx2);margin:1rem 0 .5rem;font-family:'DM Mono',monospace}
   .pb-comp-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:0}
   .pb-comp-cell{padding:10px 12px;font-size:12px;border-bottom:0.5px solid var(--bd);color:var(--tx1);line-height:1.4}
   .pb-comp-cell.header{font-weight:500;color:var(--tx0);font-size:11px;background:var(--bg1)}
-  .pb-comp-cell.solvarz{background:var(--solvarz-cell);color:var(--solvarz-tx);font-weight:500}
-  .pb-comp-cell.solvarz.header{background:var(--solvarz-hd);color:var(--solvarz-hd-tx)}
+  .pb-comp-cell.solvarz{background:var(--sv-cell);color:var(--sv-tx);font-weight:500}
+  .pb-comp-cell.solvarz.header{background:var(--sv-hd);color:var(--sv-hd-tx)}
   .pb-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:.75rem}
   .pb-flow-node{background:var(--bg1);border:0.5px solid var(--bd);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:500;color:var(--tx0)}
   .pb-flow-arrow{font-size:14px;color:var(--tx2)}
@@ -1509,70 +2630,90 @@ body:hover #action-btns {
   .pb-market-label span:last-child{font-weight:500;color:var(--tx0);font-family:'DM Mono',monospace}
   .pb-bar-track{background:var(--bg2);border-radius:999px;height:8px;overflow:hidden}
   .pb-bar-fill{height:100%;border-radius:999px}
+
+  /* ALLOC BAR — per plan */
   .pb-ask-alloc{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:.75rem 0 .4rem}
-  .pb-alloc-a{flex:4;background:var(--alloc-a)}
-  .pb-alloc-b{flex:4;background:var(--alloc-b)}
-  .pb-alloc-c{flex:2;background:var(--alloc-c)}
+  .alloc-plan-c .seg-a{flex:6;background:var(--alloc-a-c)}
+  .alloc-plan-c .seg-b{flex:2;background:var(--alloc-b-c)}
+  .alloc-plan-c .seg-c{flex:2;background:var(--alloc-c-c)}
+  .alloc-plan-b .seg-a{flex:4;background:var(--alloc-a-c)}
+  .alloc-plan-b .seg-b{flex:4;background:var(--alloc-b-c)}
+  .alloc-plan-b .seg-c{flex:2;background:var(--alloc-c-c)}
+  .alloc-plan-a .seg-a{flex:4;background:var(--alloc-a-c)}
+  .alloc-plan-a .seg-b{flex:4;background:var(--alloc-b-c)}
+  .alloc-plan-a .seg-c{flex:2;background:var(--alloc-c-c)}
+
   .pb-alloc-legend{display:flex;gap:12px;flex-wrap:wrap}
   .pb-alloc-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx1)}
   .pb-alloc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-  /* PLAN TABS */
+  /* PLAN TABS — 3 tabs */
   .pb-plan-tabs{display:flex;gap:0;margin-bottom:1.25rem;border:0.5px solid var(--bd);border-radius:10px;overflow:hidden}
-  .pb-plan-tab{flex:1;padding:10px 16px;font-size:13px;font-weight:500;cursor:pointer;text-align:center;border:none;background:var(--bg1);color:var(--tx1);transition:all .18s;font-family:'Outfit',sans-serif}
-  .pb-plan-tab:first-child{border-right:0.5px solid var(--bd)}
-  .pb-plan-tab.active-a{background:var(--plan-a-bg);color:var(--plan-a);font-weight:600}
-  .pb-plan-tab.active-b{background:var(--plan-b-bg);color:var(--plan-b);font-weight:600}
+  .pb-plan-tab{flex:1;padding:10px 8px;font-size:12px;font-weight:500;cursor:pointer;text-align:center;border:none;background:var(--bg1);color:var(--tx1);transition:all .18s;font-family:'Outfit',sans-serif;border-right:0.5px solid var(--bd)}
+  .pb-plan-tab:last-child{border-right:none}
+  .pb-plan-tab.active-c{background:var(--pc-bg);color:var(--pc);font-weight:700}
+  .pb-plan-tab.active-b{background:var(--pb-bg);color:var(--pb);font-weight:700}
+  .pb-plan-tab.active-a{background:var(--pa-bg);color:var(--pa);font-weight:700}
   .pb-plan-content{display:none}
   .pb-plan-content.active{display:block}
 
+  /* PLAN HEADERS */
   .pb-plan-header{border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem}
-  .pb-plan-header-a{background:var(--plan-a-bg);border:0.5px solid var(--acc-bd)}
-  .pb-plan-header-b{background:var(--plan-b-bg);border:0.5px solid var(--teal-bg)}
-  .pb-plan-title{font-size:17px;font-weight:600;margin-bottom:3px}
-  .pb-plan-title-a{color:var(--plan-a)}
-  .pb-plan-title-b{color:var(--plan-b)}
-  .pb-plan-subtitle{font-size:12px;font-family:'DM Mono',monospace;color:var(--tx2)}
+  .ph-c{background:var(--pc-bg);border:0.5px solid var(--pc-bd)}
+  .ph-b{background:var(--pb-bg);border:0.5px solid var(--pb-bd)}
+  .ph-a{background:var(--pa-bg);border:0.5px solid var(--pa-bd)}
+  .ph-title{font-size:17px;font-weight:700;margin-bottom:3px}
+  .ph-title-c{color:var(--pc)}
+  .ph-title-b{color:var(--pb)}
+  .ph-title-a{color:var(--pa)}
+  .ph-sub{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx2)}
+
+  /* return time badge */
+  .return-time-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:.75rem}
+  .rtb-c{background:var(--pc-bg);color:var(--pc);border:0.5px solid var(--pc-bd)}
+  .rtb-b{background:var(--pb-bg);color:var(--pb);border:0.5px solid var(--pb-bd)}
+  .rtb-a{background:var(--pa-bg);color:var(--pa);border:0.5px solid var(--pa-bd)}
 
   .pb-give-card{border:0.5px solid var(--bd);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem}
   .pb-give-option{font-size:13px;font-weight:500;color:var(--tx0);margin-bottom:.35rem}
   .pb-give-detail{font-size:12px;color:var(--tx1);line-height:1.65}
-  .pb-give-tag{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:999px;font-weight:500;margin-bottom:.4rem}
-  .pb-give-tag-a{background:var(--acc-bg);color:var(--acc)}
-  .pb-give-tag-b{background:var(--teal-bg);color:var(--teal)}
+  .pb-give-tag{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;padding:2pt 8pt;border-radius:999px;font-weight:500;margin-bottom:.4rem}
+  .gt-c{background:var(--pc-bg);color:var(--pc)}
+  .gt-b{background:var(--pb-bg);color:var(--pb)}
+  .gt-a{background:var(--pa-bg);color:var(--pa)}
 
   .pb-calc-table{width:100%;border-collapse:collapse;margin-top:.75rem;font-size:12px}
   .pb-calc-table th{background:var(--bg1);padding:8px 12px;text-align:left;font-weight:500;font-size:11px;color:var(--tx1);text-transform:uppercase;letter-spacing:.05em;font-family:'DM Mono',monospace}
   .pb-calc-table td{padding:8px 12px;border-bottom:0.5px solid var(--bd);color:var(--tx1);line-height:1.5}
   .pb-calc-table tr:last-child td{border-bottom:none}
   .pb-calc-table .val{font-weight:500;color:var(--tx0);font-family:'DM Mono',monospace;text-align:right}
-  .pb-calc-table .total-row td{background:var(--bg1);font-weight:500;color:var(--tx0)}
-  .pb-calc-table .total-row-a .val{color:var(--plan-a)}
-  .pb-calc-table .total-row-b .val{color:var(--plan-b)}
+  .pb-calc-table .tr-total td{background:var(--bg1);font-weight:600;color:var(--tx0)}
+  .pb-calc-table .tr-total-c .val{color:var(--pc)}
+  .pb-calc-table .tr-total-b .val{color:var(--pb)}
+  .pb-calc-table .tr-total-a .val{color:var(--pa)}
   .pb-footer{text-align:center;padding:1rem 0;font-size:12px;color:var(--tx2);font-family:'DM Mono',monospace}
-  .pb-kurs-note{font-size:11px;font-family:'DM Mono',monospace;color:var(--tx2);padding:4px 10px;border-radius:999px;border:0.5px solid var(--bd);display:inline-block;margin-bottom:1rem}
-  @media(max-width:480px){.pb-grid-2{grid-template-columns:1fr}.pb-grid-3{grid-template-columns:1fr 1fr}.pb-comp-row{grid-template-columns:1fr 1fr}.pb-agents{grid-template-columns:1fr 1fr}}
+  .pb-kurs{font-family:'DM Mono',monospace;font-size:7.5pt;color:var(--tx2);padding:2px 8px;border:0.5px solid var(--bd);border-radius:999px;display:inline-block;margin-bottom:.75rem;font-size:11px}
+  @media(max-width:480px){.pb-grid-2{grid-template-columns:1fr}.pb-grid-3{grid-template-columns:1fr 1fr}.pb-comp-row{grid-template-columns:1fr 1fr}.pb-agents{grid-template-columns:1fr 1fr}.pb-plan-tab{font-size:10px;padding:8px 4px}}
 </style>
 
 <div class="pb-root light" id="pbRoot">
   <div class="pb-toggle-bar">
-    <button class="pb-toggle-btn" id="toggleBtn" onclick="toggleTheme()">
+    <button class="pb-toggle-btn" onclick="toggleTheme()">
       <span id="toggleIcon">🌙</span>
       <span id="toggleLabel">Dark Mode</span>
     </button>
   </div>
-
   <div class="pb-wrap">
 
     <!-- SLIDE 1 -->
     <div class="pb-slide">
       <div class="pb-slide-num">SLIDE 01 / 10</div>
       <div class="pb-slide-label">Title</div>
-      <div class="pb-kurs-note">Kurs Acuan: $1 = Rp 18.500</div>
+      <div class="pb-kurs">Kurs Acuan: $1 = Rp 18.500</div>
       <h1 class="pb-title">Sparkz Solution</h1>
       <div style="font-size:14px;color:var(--tx1);letter-spacing:.05em;margin-bottom:1.5rem;font-family:'DM Mono',monospace">Introducing SOLVARZ — The Agentic Digital Agency</div>
       <div class="pb-highlight-box"><p style="font-family:'DM Serif Display',serif;font-size:17px;color:var(--tx0);font-style:italic;">"Scalable. Precise. Hyper-Efficient."</p></div>
-      <p class="pb-body">SOLVARZ adalah produk unggulan Sparkz Solution — sebuah AI-native Digital Agency yang membangun website enterprise, aplikasi web & mobile, serta identitas brand berkelas dunia. Dioperasikan 90% oleh Agentic AI dan 10% human experts.</p>
+      <p class="pb-body">SOLVARZ adalah produk unggulan Sparkz Solution — sebuah AI-native Digital Agency yang membangun website enterprise, aplikasi web &amp; mobile, serta identitas brand berkelas dunia. Dioperasikan 90% oleh Agentic AI dan 10% human experts.</p>
       <hr class="pb-divider">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem">
         <span class="pb-badge pb-badge-blue">AI-Native Agency</span>
@@ -1594,9 +2735,9 @@ body:hover #action-btns {
       <h2 class="pb-h2">Industri Digital Agency Rusak dari Dalam</h2>
       <p class="pb-body">Bisnis enterprise di Asia Tenggara membutuhkan solusi digital berkelas tinggi — namun model agensi tradisional membuat mereka terjebak dalam inefisiensi yang mahal.</p>
       <div class="pb-grid-2">
-        <div class="pb-card"><div class="pb-card-label">Masalah 01</div><div class="pb-card-val" style="font-size:16px">Siklus Lambat</div><div class="pb-card-sub">Proyek enterprise memakan waktu berbulan-bulan akibat overhead sumber daya manusia yang besar dan proses revisi tidak efisien.</div></div>
-        <div class="pb-card"><div class="pb-card-label">Masalah 02</div><div class="pb-card-val" style="font-size:16px">Biaya Tinggi</div><div class="pb-card-sub">Proyek enterprise rata-rata membengkak <strong style="color:var(--tx0)">$20K–$100K / Rp 370 Jt–1,85 M</strong> di agensi tradisional akibat overhead manusia.</div></div>
-        <div class="pb-card"><div class="pb-card-label">Masalah 03</div><div class="pb-card-val" style="font-size:16px">Human Error</div><div class="pb-card-sub">Biaya rework akibat bug dan inkonsistensi desain rata-rata <strong style="color:var(--tx0)">$5K–$15K / Rp 92,5–277,5 Juta</strong> per insiden.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 01</div><div class="pb-card-val" style="font-size:16px">Siklus Lambat</div><div class="pb-card-sub">Proyek enterprise memakan waktu berbulan-bulan akibat overhead SDM yang besar dan proses revisi yang tidak efisien.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 02</div><div class="pb-card-val" style="font-size:16px">Biaya Tinggi</div><div class="pb-card-sub">Proyek enterprise rata-rata membengkak <strong style="color:var(--tx0)">$20K–$100K / Rp 370 Jt–1,85 M</strong> di agensi tradisional.</div></div>
+        <div class="pb-card"><div class="pb-card-label">Masalah 03</div><div class="pb-card-val" style="font-size:16px">Human Error</div><div class="pb-card-sub">Biaya rework rata-rata <strong style="color:var(--tx0)">$5K–$15K / Rp 92,5–277,5 Juta</strong> per insiden akibat bug dan inkonsistensi desain.</div></div>
         <div class="pb-card"><div class="pb-card-label">Masalah 04</div><div class="pb-card-val" style="font-size:16px">Sulit Adaptasi</div><div class="pb-card-sub">Biaya retensi tenaga ahli spesifik <strong style="color:var(--tx0)">$2K–$8K / Rp 37–148 Juta</strong> per bulan menghambat adaptasi teknologi baru.</div></div>
       </div>
       <div class="pb-highlight-box" style="margin-top:1.25rem"><p>Akibatnya: klien membayar terlalu mahal, menunggu terlalu lama, dan masih mendapat produk yang tidak konsisten. <strong style="color:var(--tx0)">Pasar membutuhkan model baru.</strong></p></div>
@@ -1609,9 +2750,9 @@ body:hover #action-btns {
       <h2 class="pb-h2">SOLVARZ: Enterprise-Grade Agentic AI Agency</h2>
       <p class="pb-body">SOLVARZ mendisrupsi model agensi konvensional dengan menempatkan AI sebagai tenaga kerja utama dan human experts sebagai lapisan kontrol kualitas dan keamanan.</p>
       <div class="pb-section-title">Keunggulan Kunci</div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">70% lebih cepat</strong> — Siklus pengembangan dipangkas drastis berkat orkestrasi AI agent yang bekerja paralel 24/7.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">70% lebih cepat</strong> — Siklus pengembangan dipangkas drastis berkat orkestrasi AI agent yang bekerja paralel 24/7 tanpa batas kapasitas manusia.</div></div>
       <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agent as a Service (AaaS)</strong> — Klien mendapatkan produk jadi sekaligus infrastruktur AI yang mengelola operasional digital mereka secara mandiri.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Scalable Quality</strong> — Standar kualitas enterprise yang konsisten, mengeliminasi human error dari proses produksi.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Scalable Quality</strong> — Standar kualitas enterprise konsisten, mengeliminasi human error dari proses produksi.</div></div>
       <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Model 90/10</strong> — 90% Agentic AI Operations + 10% Human Experts. Efisiensi maksimal, risiko minimal.</div></div>
       <div class="pb-grid-3" style="margin-top:1.25rem">
         <div class="pb-card" style="text-align:center"><div class="pb-card-val">70%</div><div class="pb-card-sub">Lebih cepat dari agensi konvensional</div></div>
@@ -1656,9 +2797,9 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 05 / 10</div>
       <div class="pb-slide-label">Business Model</div>
       <h2 class="pb-h2">Empat Aliran Pendapatan yang Saling Menguatkan</h2>
-      <p class="pb-body">Model bisnis SOLVARZ dirancang untuk menghasilkan pendapatan beragam — dari proyek bernilai tinggi hingga recurring revenue yang terukur.</p>
+      <p class="pb-body">Model bisnis SOLVARZ dirancang untuk menghasilkan pendapatan beragam — dari proyek bernilai tinggi satu kali hingga recurring revenue yang terukur.</p>
       <div class="pb-grid-2">
-        <div class="pb-card"><div class="pb-card-label" style="color:var(--acc)">Stream 01 — Core Revenue</div><div class="pb-card-val" style="font-size:15px">High-Value Projects</div><div class="pb-card-sub">Website & aplikasi enterprise. Nilai proyek <strong style="color:var(--tx0)">$5K–$50K / Rp 92,5–925 Juta</strong> per engagement.</div></div>
+        <div class="pb-card"><div class="pb-card-label" style="color:var(--acc)">Stream 01 — Core Revenue</div><div class="pb-card-val" style="font-size:15px">High-Value Projects</div><div class="pb-card-sub">Website &amp; aplikasi enterprise. Nilai proyek <strong style="color:var(--tx0)">$5K–$50K / Rp 92,5–925 Juta</strong> per engagement.</div></div>
         <div class="pb-card"><div class="pb-card-label" style="color:var(--teal)">Stream 02 — Growth Play</div><div class="pb-card-val" style="font-size:15px">Micro SaaS Ecosystem</div><div class="pb-card-sub">Produk SaaS vertikal berbasis AI. Subscription <strong style="color:var(--tx0)">$29–$299/bln / Rp 537 Rb–5,53 Jt/bln</strong>.</div></div>
         <div class="pb-card"><div class="pb-card-label" style="color:var(--purple)">Stream 03 — B2B Expansion</div><div class="pb-card-val" style="font-size:15px">Agent as a Service</div><div class="pb-card-sub">Infrastruktur AI agent untuk perusahaan lain. Mulai <strong style="color:var(--tx0)">$500–$5K/bln / Rp 9,25–92,5 Jt/bln</strong>.</div></div>
         <div class="pb-card"><div class="pb-card-label" style="color:var(--amber)">Stream 04 — Recurring</div><div class="pb-card-val" style="font-size:15px">Tiered Subscription</div><div class="pb-card-sub">Kelola sosmed, SEO, content marketing berbasis AI. Mulai <strong style="color:var(--tx0)">$199–$999/bln / Rp 3,68–18,5 Jt/bln</strong>.</div></div>
@@ -1675,13 +2816,13 @@ body:hover #action-btns {
       <div class="pb-slide-label">Market Size</div>
       <h2 class="pb-h2">Pasar yang Besar, Momentum yang Tepat</h2>
       <p class="pb-body">Pasar Agentic AI diproyeksikan tumbuh dengan CAGR 40%+ hingga 2030, menempatkan SOLVARZ di garis depan revolusi efisiensi industri digital global.</p>
-      <div class="pb-market-bar"><div class="pb-market-label"><span>TAM — Global B2B Tech & Digital Services</span><span>$1,8 T / Rp 33.300 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:100%;background:var(--bar1)"></div></div></div>
+      <div class="pb-market-bar"><div class="pb-market-label"><span>TAM — Global B2B Tech &amp; Digital Services</span><span>$1,8 T / Rp 33.300 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:100%;background:var(--bar1)"></div></div></div>
       <div class="pb-market-bar"><div class="pb-market-label"><span>SAM — Southeast Asia Digital Service Economy</span><span>$55 B / Rp 1.017,5 Triliun</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:50%;background:var(--bar2)"></div></div></div>
       <div class="pb-market-bar"><div class="pb-market-label"><span>SOM — Target SOLVARZ (Tahun 3–5)</span><span>$150 Juta / Rp 2.775 Miliar</span></div><div class="pb-bar-track"><div class="pb-bar-fill" style="width:12%;background:var(--bar3)"></div></div></div>
       <div class="pb-grid-3" style="margin-top:1.25rem">
         <div class="pb-card" style="border:0.5px solid var(--acc-bd)"><div class="pb-card-label">TAM Global</div><div class="pb-card-val" style="font-size:17px">$1,8 T</div><div class="pb-card-sub">Rp 33.300 Triliun — Digital Marketing, Custom Software, Cybersecurity terakselerasi AI</div></div>
-        <div class="pb-card" style="border:0.5px solid var(--teal-bg)"><div class="pb-card-label">SAM — ASEAN</div><div class="pb-card-val" style="font-size:17px">$55 B</div><div class="pb-card-sub">Rp 1.017,5 Triliun — Ekonomi digital ASEAN menuju $300B GMV di 2026</div></div>
-        <div class="pb-card" style="border:0.5px solid var(--purple-bg)"><div class="pb-card-label">SOM Target</div><div class="pb-card-val" style="font-size:17px">$150 Jt</div><div class="pb-card-sub">Rp 2.775 Miliar — 2–3% pasar IT premium Indonesia + Singapura. Tahun ke-3 hingga 5</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--teal-bd)"><div class="pb-card-label">SAM — ASEAN</div><div class="pb-card-val" style="font-size:17px">$55 B</div><div class="pb-card-sub">Rp 1.017,5 Triliun — Ekonomi digital ASEAN menuju $300B GMV di 2026</div></div>
+        <div class="pb-card" style="border:0.5px solid var(--purple-bg)"><div class="pb-card-label">SOM Target</div><div class="pb-card-val" style="font-size:17px">$150 Jt</div><div class="pb-card-sub">Rp 2.775 Miliar — 2–3% pasar IT premium Indonesia + Singapura, Tahun ke-3 hingga 5</div></div>
       </div>
       <div class="pb-highlight-box" style="margin-top:1rem"><p>Target SOM $150 Juta / Rp 2.775 Miliar tercapai melalui model operasional rendah biaya namun margin tinggi — keunggulan struktural eksklusif AI-native company.</p></div>
     </div>
@@ -1689,18 +2830,18 @@ body:hover #action-btns {
     <!-- SLIDE 7 -->
     <div class="pb-slide">
       <div class="pb-slide-num">SLIDE 07 / 10</div>
-      <div class="pb-slide-label">Marketing & Sales</div>
+      <div class="pb-slide-label">Marketing &amp; Sales</div>
       <h2 class="pb-h2">Inbound via Our Own Efficiency</h2>
       <p class="pb-body">Kami <strong style="color:var(--tx0)">menggunakan produk kami sendiri</strong> sebagai mesin akuisisi klien yang paling meyakinkan.</p>
       <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Agentic Custom Enterprise Development:</strong> Layanan pengembangan end-to-end untuk enterprise berskala besar — sistem manajemen internal, platform B2B, hingga aplikasi layanan publik — seluruhnya dikerjakan SOLVARZ Swarm. Pintu masuk utama ke akun enterprise bernilai tinggi sekaligus proof-of-concept nyata kapabilitas SOLVARZ.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Content Hyper-Generation:</strong> AI Agents kami mendominasi SEO dan media sosial dengan konten berkualitas tinggi secara massal — menjadikan SOLVARZ thought leader di industri AI agency.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Content Hyper-Generation:</strong> AI Agents kami mendominasi SEO dan media sosial dengan konten berkualitas tinggi secara massal — menjadikan SOLVARZ thought leader sebelum kompetitor sempat bereaksi.</div></div>
       <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">The "Speed Test" Lead Magnet:</strong> Calon klien mendapatkan draf strategi digital atau wireframe website yang dibuat AI dalam 1 jam — gratis.</div></div>
-      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Targeting Tech Startups & SMEs:</strong> Segmen yang tumbuh cepat, butuh skalabilitas tinggi, namun terkendala budget agensi besar.</div></div>
+      <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text"><strong style="color:var(--tx0)">Targeting Tech Startups &amp; SMEs:</strong> Segmen yang tumbuh cepat, butuh skalabilitas tinggi, namun terkendala budget agensi besar.</div></div>
       <hr class="pb-divider">
       <div class="pb-section-title">Kanal Utama</div>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
         <span class="pb-badge pb-badge-coral">Enterprise Direct</span>
-        <span class="pb-badge pb-badge-blue">SEO & Content AI</span>
+        <span class="pb-badge pb-badge-blue">SEO &amp; Content AI</span>
         <span class="pb-badge pb-badge-teal">Social Media Domination</span>
         <span class="pb-badge pb-badge-purple">Speed Test Funnel</span>
         <span class="pb-badge pb-badge-amber">Strategic Partnership</span>
@@ -1735,7 +2876,7 @@ body:hover #action-btns {
           <div style="width:48px;height:48px;border-radius:50%;background:var(--team-bg);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:16px;color:var(--team-tx);flex-shrink:0">HS</div>
           <div>
             <div style="font-size:15px;font-weight:500;color:var(--tx0)">Hanindiyo Saputro</div>
-            <div style="font-size:12px;color:var(--tx1);font-family:'DM Mono',monospace">Founder & IT Consultant — Sparkz Solution / SOLVARZ</div>
+            <div style="font-size:12px;color:var(--tx1);font-family:'DM Mono',monospace">Founder &amp; IT Consultant — Sparkz Solution / SOLVARZ</div>
           </div>
         </div>
         <div class="pb-bullet"><div class="pb-bullet-dot"></div><div class="pb-bullet-text">IT Consultant dengan pengalaman langsung menangani kebutuhan teknologi korporat dan enterprise.</div></div>
@@ -1757,109 +2898,95 @@ body:hover #action-btns {
       <div class="pb-slide-num">SLIDE 10 / 10</div>
       <div class="pb-slide-label">Status · Timeline · The Ask · The Give</div>
       <h2 class="pb-h2">Pre-Seed Round — Pilih Paket Investasi</h2>
-      <p class="pb-body">SOLVARZ membuka dua jalur investasi Pre-Seed yang fleksibel — disesuaikan dengan kapasitas dan ekspektasi return investor.</p>
+      <p class="pb-body" style="margin-bottom:.75rem">SOLVARZ membuka tiga jalur investasi Pre-Seed yang fleksibel. Semua plan menggunakan skema <strong style="color:var(--tx0)">Revenue Share 10% per proyek</strong> dengan <strong style="color:var(--tx0)">target pengembalian maksimal dalam 2 tahun.</strong></p>
 
-      <!-- PLAN TABS -->
+      <!-- TABS: C · B · A -->
       <div class="pb-plan-tabs">
-        <button class="pb-plan-tab active-a" id="tabA" onclick="switchPlan('A')" >
-          🅐 &nbsp; Plan A — $36,000 &nbsp;·&nbsp; 2,5x Return
-        </button>
-        <button class="pb-plan-tab" id="tabB" onclick="switchPlan('B')">
-          🅑 &nbsp; Plan B — $12,000 &nbsp;·&nbsp; 2x Return
-        </button>
+        <button class="pb-plan-tab active-c" id="tabC" onclick="switchPlan('C')">Plan C &nbsp;·&nbsp; $7,000</button>
+        <button class="pb-plan-tab" id="tabB" onclick="switchPlan('B')">Plan B &nbsp;·&nbsp; $12,000</button>
+        <button class="pb-plan-tab" id="tabA" onclick="switchPlan('A')">Plan A &nbsp;·&nbsp; $36,000</button>
       </div>
 
-      <!-- PLAN A -->
-      <div class="pb-plan-content active" id="planA">
-        <div class="pb-plan-header pb-plan-header-a">
-          <div class="pb-plan-title pb-plan-title-a">Plan A — Full Pre-Seed Round</div>
-          <div class="pb-plan-subtitle">$36,000 / Rp 666.000.000 &nbsp;·&nbsp; Revenue Share 2,5x &nbsp;·&nbsp; Cap $90,000</div>
+      <!-- ══ PLAN C ══ -->
+      <div class="pb-plan-content active" id="planC">
+        <div class="pb-plan-header ph-c">
+          <div class="ph-title ph-title-c">Plan C — Entry Investment</div>
+          <div class="ph-sub">$7,000 / Rp 129.500.000 &nbsp;·&nbsp; Revenue Share 2x &nbsp;·&nbsp; Cap $14,000 / Rp 259.000.000</div>
         </div>
-        <div class="pb-section-title" style="margin-top:.25rem">Status & Milestone</div>
-        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val">Jasa Raharja · SGS</span></div>
-        <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">3 Pilot Clients · MVP Launch</span></div>
-        <div class="pb-stat-row"><span class="pb-stat-key">Tahap Berikutnya</span><span class="pb-stat-val">Seed Round (Q4)</span></div>
-        <div class="pb-section-title" style="margin-top:1rem">Alokasi Dana</div>
-        <div class="pb-ask-alloc"><div class="pb-alloc-a"></div><div class="pb-alloc-b"></div><div class="pb-alloc-c"></div></div>
+        <div class="return-time-badge rtb-c">⏱ Target Pengembalian: Maksimal 2 Tahun</div>
+        <div class="pb-section-title" style="margin-top:.25rem">Status &amp; Milestone</div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val highlight-c">Jasa Raharja · SGS</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">1 Pilot Client · MVP Awal</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Tahap Berikutnya</span><span class="pb-stat-val">Kombinasi ke Full Round</span></div>
+        <div class="pb-section-title">Alokasi Dana</div>
+        <div class="pb-ask-alloc alloc-plan-c"><div class="seg-a"></div><div class="seg-b"></div><div class="seg-c"></div></div>
         <div class="pb-alloc-legend">
-          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a)"></div>40% Infrastruktur & API AI — $14,400 / Rp 266,4 Juta</div>
-          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b)"></div>40% Core Team — $14,400 / Rp 266,4 Juta</div>
-          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c)"></div>20% Marketing & Akuisisi — $7,200 / Rp 133,2 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a-c)"></div>60% Infrastruktur &amp; API AI — $4,200 / Rp 77,7 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b-c)"></div>20% Core Team — $1,400 / Rp 25,9 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c-c)"></div>20% Marketing &amp; Akuisisi — $1,400 / Rp 25,9 Juta</div>
         </div>
-        <div class="pb-section-title" style="margin-top:1rem">Roadmap 12 Bulan</div>
-        <div class="pb-flow">
-          <div class="pb-flow-node" style="font-size:11px">Q1: Infra Setup & MVP</div><div class="pb-flow-arrow">→</div>
-          <div class="pb-flow-node" style="font-size:11px">Q2: 3 Pilot Clients</div><div class="pb-flow-arrow">→</div>
-          <div class="pb-flow-node" style="font-size:11px">Q3: Revenue & Iterasi</div><div class="pb-flow-arrow">→</div>
-          <div class="pb-flow-node" style="font-size:11px">Q4: Seed Round</div>
-        </div>
-        <div class="pb-give-card" style="margin-top:1.25rem;border-color:var(--acc-bd)">
+        <div class="pb-give-card" style="margin-top:1rem;border-color:var(--pc-bd)">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
-            <div class="pb-give-option">The Give — Revenue Share 2,5x Return</div>
-            <span class="pb-give-tag pb-give-tag-a">10% per proyek · Cap $90,000</span>
+            <div class="pb-give-option">The Give — Revenue Share 2x Return</div>
+            <span class="pb-give-tag gt-c">10% per proyek · Cap $14,000</span>
           </div>
-          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2,5x</strong> nilai investasi. Revenue share berakhir otomatis saat cap tercapai.</div>
+          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2x nilai investasi</strong>. Target terpenuhi dalam <strong style="color:var(--pc)">maksimal 2 tahun</strong>. Revenue share berakhir otomatis saat cap tercapai.</div>
           <div class="pb-section-title" style="margin-top:.25rem">Rincian Return Investor</div>
           <table class="pb-calc-table">
             <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
             <tbody>
-              <tr><td>Modal investasi awal</td><td class="val">$36,000</td><td class="val">666.000.000</td></tr>
-              <tr><td>Multiplier return</td><td class="val">2,5x</td><td class="val">2,5x</td></tr>
-              <tr class="total-row total-row-a"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$90,000</strong></td><td class="val"><strong>1.665.000.000</strong></td></tr>
-              <tr><td>Pokok investasi (kembali)</td><td class="val">$36,000</td><td class="val">666.000.000</td></tr>
-              <tr><td>Keuntungan bersih investor</td><td class="val">$54,000</td><td class="val">999.000.000</td></tr>
+              <tr><td>Modal investasi awal</td><td class="val">$7,000</td><td class="val">129.500.000</td></tr>
+              <tr><td>Multiplier return</td><td class="val">2x</td><td class="val">2x</td></tr>
+              <tr class="tr-total tr-total-c"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$14,000</strong></td><td class="val"><strong>259.000.000</strong></td></tr>
+              <tr><td>Pokok investasi (kembali)</td><td class="val">$7,000</td><td class="val">129.500.000</td></tr>
+              <tr><td>Keuntungan bersih investor</td><td class="val">$7,000</td><td class="val">129.500.000</td></tr>
             </tbody>
           </table>
           <div class="pb-section-title" style="margin-top:1rem">Estimasi Kecepatan Cap Tercapai</div>
           <table class="pb-calc-table">
             <thead><tr><th>Rata-rata Nilai Proyek</th><th style="text-align:right">Share / Proyek</th><th style="text-align:right">Proyek hingga Cap</th></tr></thead>
             <tbody>
-              <tr><td>$5,000 / Rp 92,5 Juta</td><td class="val">$500</td><td class="val">180 proyek</td></tr>
-              <tr><td>$15,000 / Rp 277,5 Juta</td><td class="val">$1,500</td><td class="val">60 proyek</td></tr>
-              <tr><td>$30,000 / Rp 555 Juta</td><td class="val">$3,000</td><td class="val">30 proyek</td></tr>
-              <tr class="total-row total-row-a"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>18 proyek</strong></td></tr>
+              <tr><td>$5,000 / Rp 92,5 Juta</td><td class="val">$500</td><td class="val">28 proyek</td></tr>
+              <tr><td>$15,000 / Rp 277,5 Juta</td><td class="val">$1,500</td><td class="val">10 proyek</td></tr>
+              <tr><td>$30,000 / Rp 555 Juta</td><td class="val">$3,000</td><td class="val">5 proyek</td></tr>
+              <tr class="tr-total tr-total-c"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>3 proyek</strong></td></tr>
             </tbody>
           </table>
         </div>
+        <div class="pb-highlight-box" style="border-left-color:var(--pc)"><p>Plan C dapat dikombinasikan dengan Plan B dan/atau Plan A untuk memenuhi total Pre-Seed. Komposisi alokasi 60% ke infrastruktur AI memastikan pondasi teknologi langsung terbangun sejak dana masuk.</p></div>
       </div>
 
-      <!-- PLAN B -->
+      <!-- ══ PLAN B ══ -->
       <div class="pb-plan-content" id="planB">
-        <div class="pb-plan-header pb-plan-header-b">
-          <div class="pb-plan-title pb-plan-title-b">Plan B — Partial Pre-Seed Round</div>
-          <div class="pb-plan-subtitle">$12,000 / Rp 222.000.000 &nbsp;·&nbsp; Revenue Share 2x &nbsp;·&nbsp; Cap $24,000</div>
+        <div class="pb-plan-header ph-b">
+          <div class="ph-title ph-title-b">Plan B — Partial Pre-Seed Round</div>
+          <div class="ph-sub">$12,000 / Rp 222.000.000 &nbsp;·&nbsp; Revenue Share 2x &nbsp;·&nbsp; Cap $24,000 / Rp 444.000.000</div>
         </div>
-        <div class="pb-section-title" style="margin-top:.25rem">Status & Milestone</div>
-        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val">Jasa Raharja · SGS</span></div>
+        <div class="return-time-badge rtb-b">⏱ Target Pengembalian: Maksimal 2 Tahun</div>
+        <div class="pb-section-title" style="margin-top:.25rem">Status &amp; Milestone</div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val highlight-b">Jasa Raharja · SGS</span></div>
         <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">1–2 Pilot Clients · MVP Awal</span></div>
-        <div class="pb-stat-row"><span class="pb-stat-key">Catatan</span><span class="pb-stat-val">Dapat dikombinasikan dengan Plan A</span></div>
-        <div class="pb-section-title" style="margin-top:1rem">Alokasi Dana</div>
-        <div class="pb-ask-alloc"><div class="pb-alloc-a"></div><div class="pb-alloc-b"></div><div class="pb-alloc-c"></div></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Tahap Berikutnya</span><span class="pb-stat-val">Dapat dikombinasikan dengan Plan A</span></div>
+        <div class="pb-section-title">Alokasi Dana</div>
+        <div class="pb-ask-alloc alloc-plan-b"><div class="seg-a"></div><div class="seg-b"></div><div class="seg-c"></div></div>
         <div class="pb-alloc-legend">
-          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a)"></div>40% Infrastruktur & API AI — $4,800 / Rp 88,8 Juta</div>
-          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b)"></div>40% Core Team — $4,800 / Rp 88,8 Juta</div>
-          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c)"></div>20% Marketing & Akuisisi — $2,400 / Rp 44,4 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a-c)"></div>40% Infrastruktur &amp; API AI — $4,800 / Rp 88,8 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b-c)"></div>40% Core Team — $4,800 / Rp 88,8 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c-c)"></div>20% Marketing &amp; Akuisisi — $2,400 / Rp 44,4 Juta</div>
         </div>
-        <div class="pb-section-title" style="margin-top:1rem">Roadmap 12 Bulan</div>
-        <div class="pb-flow">
-          <div class="pb-flow-node" style="font-size:11px">Q1: Setup & MVP Awal</div><div class="pb-flow-arrow">→</div>
-          <div class="pb-flow-node" style="font-size:11px">Q2: 1–2 Pilot Clients</div><div class="pb-flow-arrow">→</div>
-          <div class="pb-flow-node" style="font-size:11px">Q3: Validasi & Revenue</div><div class="pb-flow-arrow">→</div>
-          <div class="pb-flow-node" style="font-size:11px">Q4: Full Round Ready</div>
-        </div>
-        <div class="pb-give-card" style="margin-top:1.25rem;border-color:var(--teal-bg)">
+        <div class="pb-give-card" style="margin-top:1rem;border-color:var(--pb-bd)">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
             <div class="pb-give-option">The Give — Revenue Share 2x Return</div>
-            <span class="pb-give-tag pb-give-tag-b">10% per proyek · Cap $24,000</span>
+            <span class="pb-give-tag gt-b">10% per proyek · Cap $24,000</span>
           </div>
-          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2x</strong> nilai investasi. Revenue share berakhir otomatis saat cap tercapai.</div>
+          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2x nilai investasi</strong>. Target terpenuhi dalam <strong style="color:var(--pb)">maksimal 2 tahun</strong>. Revenue share berakhir otomatis saat cap tercapai.</div>
           <div class="pb-section-title" style="margin-top:.25rem">Rincian Return Investor</div>
           <table class="pb-calc-table">
             <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
             <tbody>
               <tr><td>Modal investasi awal</td><td class="val">$12,000</td><td class="val">222.000.000</td></tr>
               <tr><td>Multiplier return</td><td class="val">2x</td><td class="val">2x</td></tr>
-              <tr class="total-row total-row-b"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$24,000</strong></td><td class="val"><strong>444.000.000</strong></td></tr>
+              <tr class="tr-total tr-total-b"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$24,000</strong></td><td class="val"><strong>444.000.000</strong></td></tr>
               <tr><td>Pokok investasi (kembali)</td><td class="val">$12,000</td><td class="val">222.000.000</td></tr>
               <tr><td>Keuntungan bersih investor</td><td class="val">$12,000</td><td class="val">222.000.000</td></tr>
             </tbody>
@@ -1871,12 +2998,56 @@ body:hover #action-btns {
               <tr><td>$5,000 / Rp 92,5 Juta</td><td class="val">$500</td><td class="val">48 proyek</td></tr>
               <tr><td>$15,000 / Rp 277,5 Juta</td><td class="val">$1,500</td><td class="val">16 proyek</td></tr>
               <tr><td>$30,000 / Rp 555 Juta</td><td class="val">$3,000</td><td class="val">8 proyek</td></tr>
-              <tr class="total-row total-row-b"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>5 proyek</strong></td></tr>
+              <tr class="tr-total tr-total-b"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>5 proyek</strong></td></tr>
             </tbody>
           </table>
         </div>
-        <div class="pb-highlight-box" style="border-left-color:var(--teal)">
-          <p>Plan B dapat dikombinasikan dengan investor lain untuk memenuhi total Pre-Seed $36,000. Misalnya: 1 investor Plan B ($12,000) + 1 investor Plan A sebesar $24,000 = full round tercapai dengan pembagian return yang proporsional.</p>
+      </div>
+
+      <!-- ══ PLAN A ══ -->
+      <div class="pb-plan-content" id="planA">
+        <div class="pb-plan-header ph-a">
+          <div class="ph-title ph-title-a">Plan A — Full Pre-Seed Round</div>
+          <div class="ph-sub">$36,000 / Rp 666.000.000 &nbsp;·&nbsp; Revenue Share 2,5x &nbsp;·&nbsp; Cap $90,000 / Rp 1.665.000.000</div>
+        </div>
+        <div class="return-time-badge rtb-a">⏱ Target Pengembalian: Maksimal 2 Tahun</div>
+        <div class="pb-section-title" style="margin-top:.25rem">Status &amp; Milestone</div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Pipeline Klien Enterprise</span><span class="pb-stat-val highlight-a">Jasa Raharja · SGS</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Target Milestone</span><span class="pb-stat-val">3 Pilot Clients · MVP Launch</span></div>
+        <div class="pb-stat-row"><span class="pb-stat-key">Tahap Berikutnya</span><span class="pb-stat-val">Seed Round (Q4)</span></div>
+        <div class="pb-section-title">Alokasi Dana</div>
+        <div class="pb-ask-alloc alloc-plan-a"><div class="seg-a"></div><div class="seg-b"></div><div class="seg-c"></div></div>
+        <div class="pb-alloc-legend">
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-a-c)"></div>40% Infrastruktur &amp; API AI — $14,400 / Rp 266,4 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-b-c)"></div>40% Core Team — $14,400 / Rp 266,4 Juta</div>
+          <div class="pb-alloc-item"><div class="pb-alloc-dot" style="background:var(--alloc-c-c)"></div>20% Marketing &amp; Akuisisi — $7,200 / Rp 133,2 Juta</div>
+        </div>
+        <div class="pb-give-card" style="margin-top:1rem;border-color:var(--pa-bd)">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:.6rem;flex-wrap:wrap">
+            <div class="pb-give-option">The Give — Revenue Share 2,5x Return</div>
+            <span class="pb-give-tag gt-a">10% per proyek · Cap $90,000</span>
+          </div>
+          <div class="pb-give-detail" style="margin-bottom:1rem">Investor mendapatkan <strong style="color:var(--tx0)">10% dari net revenue setiap proyek</strong> hingga total pengembalian mencapai <strong style="color:var(--tx0)">2,5x nilai investasi</strong>. Target terpenuhi dalam <strong style="color:var(--pa)">maksimal 2 tahun</strong>. Revenue share berakhir otomatis saat cap tercapai.</div>
+          <div class="pb-section-title" style="margin-top:.25rem">Rincian Return Investor</div>
+          <table class="pb-calc-table">
+            <thead><tr><th>Komponen</th><th style="text-align:right">USD</th><th style="text-align:right">IDR (Rp)</th></tr></thead>
+            <tbody>
+              <tr><td>Modal investasi awal</td><td class="val">$36,000</td><td class="val">666.000.000</td></tr>
+              <tr><td>Multiplier return</td><td class="val">2,5x</td><td class="val">2,5x</td></tr>
+              <tr class="tr-total tr-total-a"><td><strong>Total diterima investor (cap)</strong></td><td class="val"><strong>$90,000</strong></td><td class="val"><strong>1.665.000.000</strong></td></tr>
+              <tr><td>Pokok investasi (kembali)</td><td class="val">$36,000</td><td class="val">666.000.000</td></tr>
+              <tr><td>Keuntungan bersih investor</td><td class="val">$54,000</td><td class="val">999.000.000</td></tr>
+            </tbody>
+          </table>
+          <div class="pb-section-title" style="margin-top:1rem">Estimasi Kecepatan Cap Tercapai</div>
+          <table class="pb-calc-table">
+            <thead><tr><th>Rata-rata Nilai Proyek</th><th style="text-align:right">Share / Proyek</th><th style="text-align:right">Proyek hingga Cap</th></tr></thead>
+            <tbody>
+              <tr><td>$15,000 / Rp 277,5 Juta</td><td class="val">$1,500</td><td class="val">60 proyek</td></tr>
+              <tr><td>$30,000 / Rp 555 Juta</td><td class="val">$3,000</td><td class="val">30 proyek</td></tr>
+              <tr class="tr-total tr-total-a"><td><strong>$50,000 / Rp 925 Juta</strong></td><td class="val"><strong>$5,000</strong></td><td class="val"><strong>18 proyek</strong></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -1885,38 +3056,24 @@ body:hover #action-btns {
       </div>
     </div>
 
-    <div class="pb-footer">SOLVARZ by Sparkz Solution · Pitch Book v6 · Confidential · $1 = Rp 18.500</div>
+    <div class="pb-footer">SOLVARZ by Sparkz Solution · Pitch Book v7 · Confidential · $1 = Rp 18.500 · Guy Kawasaki 10/20/30</div>
   </div>
 </div>
 
 <script>
-  function toggleTheme() {
-    const root = document.getElementById('pbRoot');
-    const icon = document.getElementById('toggleIcon');
-    const label = document.getElementById('toggleLabel');
-    const isDark = root.classList.contains('dark');
-    root.classList.replace(isDark ? 'dark' : 'light', isDark ? 'light' : 'dark');
-    icon.textContent = isDark ? '🌙' : '☀️';
-    label.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  function toggleTheme(){
+    const r=document.getElementById('pbRoot');
+    const d=r.classList.contains('dark');
+    r.classList.replace(d?'dark':'light',d?'light':'dark');
+    document.getElementById('toggleIcon').textContent=d?'🌙':'☀️';
+    document.getElementById('toggleLabel').textContent=d?'Dark Mode':'Light Mode';
   }
-
-  function switchPlan(plan) {
-    const tabA = document.getElementById('tabA');
-    const tabB = document.getElementById('tabB');
-    const planA = document.getElementById('planA');
-    const planB = document.getElementById('planB');
-    if (plan === 'A') {
-      tabA.className = 'pb-plan-tab active-a';
-      tabB.className = 'pb-plan-tab';
-      planA.className = 'pb-plan-content active';
-      planB.className = 'pb-plan-content';
-    } else {
-      tabA.className = 'pb-plan-tab';
-      tabB.className = 'pb-plan-tab active-b';
-      planA.className = 'pb-plan-content';
-      planB.className = 'pb-plan-content active';
-    }
+  function switchPlan(p){
+    ['A','B','C'].forEach(x=>{
+      document.getElementById('tab'+x).className='pb-plan-tab'+(p===x?' active-'+x.toLowerCase():'');
+      document.getElementById('plan'+x).className='pb-plan-content'+(p===x?' active':'');
+    });
   }
 </script>
+</div></body></html>
 
-</body></html>
